@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Autigames — Site Institucional
 
-## Getting Started
+Site institucional da Autigames, plataforma brasileira de jogos digitais terapêuticos para crianças com TEA.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + TypeScript
+- **Tailwind CSS** para estilização
+- **shadcn/ui** (componentes base via `@base-ui/react`)
+- **react-hook-form + zod v4** para formulários
+- **Lucide React** para ícones
+
+## Rodando localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build de produção
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Deploy (Vercel)
 
-To learn more about Next.js, take a look at the following resources:
+1. Conecte o repositório no [Vercel](https://vercel.com)
+2. Configure as variáveis de ambiente (veja `.env.example`)
+3. Deploy automático a cada push na branch principal
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Variáveis de ambiente
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Copie `.env.example` para `.env.local` e preencha:
 
-## Deploy on Vercel
+| Variável | Descrição |
+|----------|-----------|
+| `NEXT_PUBLIC_SITE_URL` | URL pública do site (ex: `https://autigames.com.br`) |
+| `NEXT_PUBLIC_GTM_ID` | ID do Google Tag Manager (ex: `GTM-XXXXXXX`) |
+| `RESEND_API_KEY` | Chave de API do [Resend](https://resend.com) para e-mails |
+| `LEAD_EMAIL` | E-mail que recebe os leads dos formulários |
+| `LEADS_WEBHOOK_URL` | (opcional) Webhook para CRM (Zapier, n8n, HubSpot) |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Editando conteúdo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Jogos
+Edite `content/games.json` — cada jogo tem `slug`, `name`, `status`, `skills` e `howItWorks`.
+
+### Equipe
+Edite `content/team.json` com nome, cargo e bio dos membros.
+
+### Blog
+Adicione arquivos `.md` em `content/posts/` e registre no array `posts` em `app/blog/[slug]/page.tsx`.
+
+> Para escala, migre para um CMS headless (Contentful, Sanity, ou similar).
+
+## Páginas
+
+| Rota | Página |
+|------|--------|
+| `/` | Home |
+| `/para-pais` | Para Pais e Famílias (B2C) |
+| `/para-profissionais` | Para Profissionais (B2B + formulário de lead) |
+| `/para-empresas` | Para Empresas/ESG (B2B + formulário de lead) |
+| `/sobre` | Sobre / Equipe Científica |
+| `/jogos` | Catálogo de Jogos |
+| `/jogos/[slug]` | Página individual de jogo |
+| `/blog` | Blog |
+| `/blog/[slug]` | Post individual |
+| `/contato` | Fale Conosco |
+| `/politica-de-privacidade` | Política de Privacidade ⚠️ |
+| `/termos-de-uso` | Termos de Uso ⚠️ |
+
+## API de Leads
+
+`POST /api/leads` — recebe dados dos formulários:
+1. Envia e-mail via Resend (se `RESEND_API_KEY` configurada)
+2. Dispara webhook para CRM (se `LEADS_WEBHOOK_URL` configurada)
+
+## Pendências antes do lançamento
+
+- [ ] Substituir textos de Política de Privacidade e Termos de Uso por versão jurídica (LGPD)
+- [ ] Substituir `GTM-XXXXXXX` pelo ID real do GTM
+- [ ] Configurar Resend com domínio verificado (`noreply@autigames.com.br`)
+- [ ] Adicionar fotos reais da equipe em `public/images/equipe/`
+- [ ] Adicionar imagens/screenshots dos jogos em `public/images/jogos/`
+- [ ] Criar `public/og-default.jpg` (1200×630px) para compartilhamento social
+- [ ] Adicionar links reais do App Store e Google Play
+- [ ] Configurar domínio no Vercel
+# autigames
