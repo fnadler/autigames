@@ -140,6 +140,18 @@
     "cta": {
       "title": "Já transformamos mais de 2.000 vidas.",
       "subtitle": "Faça parte dessa história."
+    },
+    "donation": {
+      "eyebrow": "Faça a diferença",
+      "title": "A sua doação pode mudar a forma como uma criança vê o mundo — e como o mundo a vê.",
+      "description": "A Autigames é uma startup social que desenvolve jogos terapêuticos para crianças com autismo. Cada doação nos permite ampliar o acesso à plataforma para famílias em situação de vulnerabilidade.",
+      "impact0": "Distribuição de acessos gratuitos para famílias de baixa renda",
+      "impact1": "Apoio social a crianças em tratamento clínico",
+      "impact2": "Manutenção e evolução contínua da plataforma",
+      "instructions": "Doe pelo QR Code ou copie a chave PIX:",
+      "copyButton": "Copiar Chave PIX",
+      "copied": "Chave copiada!",
+      "qrHint": "Aponte a câmera do seu banco para o QR Code"
     }
   },
   "games": {

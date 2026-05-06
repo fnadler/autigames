@@ -23,6 +23,7 @@ import { SectionReveal } from "@/components/sections/SectionReveal";
 import gamesData from "@/content/games.json";
 import teamData from "@/content/team.json";
 import { HeroMockup } from "@/components/sections/HeroMockup";
+import { DoacaoSection } from "@/components/sections/DoacaoSection";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 
@@ -371,6 +372,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
         </section>
 
+        <DoacaoSection />
         <CTASection title={t("cta.title")} subtitle={t("cta.subtitle")} />
       </main>
       <Footer />
