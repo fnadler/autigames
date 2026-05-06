@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BrightMinds — Design System</title>
+<script src="assets/resource_3fa48481346f"></script>
+<script src="assets/iconify-icon_e19829e7f0e8.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="assets/css2_355500b44eee.css" rel="stylesheet"/>
+<style>
+/* ── Original design tokens ── */
+:root {
+  --font-heading: 'Fredoka', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  --color-blue: #5BC0EB;
+  --color-yellow: #FFD93D;
+  --color-pink: #FF8FAB;
+  --color-green: #6EE7B7;
+  --color-dark: #2B2B2B;
+}
+body {
+  font-family: var(--font-body);
+  color: var(--color-dark);
+  background-color: #FAFAFA;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+/* ── Original animations ── */
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50%       { transform: rotate(3deg); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 3s;
+}
+.hover-wiggle:hover iconify-icon {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+/* ── Scrollbar hide for testimonials row ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Design-system shell (not part of original) ── */
+#ds-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #2B2B2B;
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  scrollbar-width: none;
+  height: 52px;
+}
+#ds-nav::-webkit-scrollbar { display: none; }
+#ds-nav a {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #fff;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-right: 1px solid rgba(255,255,255,.12);
+  transition: background .2s;
+}
+#ds-nav a:first-child {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  color: var(--color-yellow);
+  border-right: 1px solid rgba(255,255,255,.2);
+  letter-spacing: .5px;
+}
+#ds-nav a:first-child:hover { background: none; color: var(--color-yellow); }
+#ds-nav a:hover { background: rgba(91,192,235,.25); }
+
+/* DS section meta labels */
+.ds-section-eyebrow {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+.ds-section-title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  color: #2B2B2B;
+  margin: 0 0 6px;
+}
+.ds-section-sub {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 48px;
+}
+/* Row dividers in typography table */
+.ds-typo-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.ds-typo-row:last-child { border-bottom: none; }
+.ds-typo-label {
+  font-family: monospace;
+  font-size: 11px;
+  color: #aaa;
+  min-width: 130px;
+  flex-shrink: 0;
+}
+.ds-typo-preview { flex: 1; }
+.ds-typo-spec {
+  font-family: monospace;
+  font-size: 11px;
+  color: #bbb;
+  white-space: nowrap;
+  min-width: 100px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Color swatch layout */
+.ds-swatch-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.ds-swatch {
+  flex: 0 0 auto;
+  width: 140px;
+}
+.ds-swatch-box {
+  border-radius: 14px;
+  height: 72px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0,0,0,.05);
+}
+.ds-swatch-name {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  color: #2B2B2B;
+  margin-bottom: 2px;
+}
+.ds-swatch-detail {
+  font-family: monospace;
+  font-size: 10px;
+  color: #aaa;
+}
+.ds-divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 48px 0;
+}
+.ds-component-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  margin-bottom: 20px;
+}
+</style>
+</head>
+
+<body class="antialiased overflow-x-hidden">
+
+<!-- ══════════════════════════════════════════
+     DESIGN SYSTEM NAV
+══════════════════════════════════════════ -->
+<nav id="ds-nav">
+  <a href="#ds-hero">BrightMinds DS</a>
+  <a href="#ds-hero">Hero</a>
+  <a href="#ds-typography">Typography</a>
+  <a href="#ds-colors">Colors</a>
+  <a href="#ds-components">Components</a>
+  <a href="#ds-layout">Layout</a>
+  <a href="#ds-motion">Motion</a>
+  <a href="#ds-icons">Icons</a>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+     0 — HERO  (Exact clone · text adapted)
+══════════════════════════════════════════ -->
+<div id="ds-hero">
+<section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-blue-50/50 to-white">
+  <!-- Decorational Blobs -->
+  <div class="absolute top-20 left-10 w-64 h-64 bg-[#5BC0EB]/10 rounded-full blur-3xl -z-10 animate-float"></div>
+  <div class="absolute bottom-20 right-10 w-80 h-80 bg-[#FFD93D]/10 rounded-full blur-3xl -z-10 animate-float-delayed"></div>
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <!-- Left: Content -->
+    <div class="space-y-6 text-center md:text-left z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-[#2B2B2B] text-xs font-semibold border border-green-200">
+        <span class="w-2 h-2 rounded-full bg-[#6EE7B7]"></span>
+        Design Reference — Active 2024
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] tracking-tight text-[#2B2B2B]">
+        Design System built with <span class="text-[#5BC0EB] inline-block hover:scale-105 transition-transform duration-300 cursor-default">Fun</span> &amp; <span class="text-[#FF8FAB] inline-block hover:scale-105 transition-transform duration-300 cursor-default">Care</span> 🎈
+      </h1>
+      <p class="text-base md:text-lg text-slate-500 max-w-lg mx-auto md:mx-0 leading-relaxed font-medium">
+        A complete reference of every token, component, layout pattern, and animation used in this design.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start pt-4">
+        <button class="px-8 py-4 bg-[#5BC0EB] text-white text-base font-semibold rounded-full shadow-lg shadow-blue-200 hover:shadow-xl hover:shadow-blue-300 hover:scale-105 transition-all duration-300 w-full sm:w-auto flex justify-center items-center gap-2">
+          <iconify-icon icon="solar:hat-graduation-linear" width="20"></iconify-icon>
+          Explore System
+        </button>
+        <button class="px-8 py-4 bg-white text-slate-600 border border-slate-200 text-base font-semibold rounded-full hover:bg-slate-50 hover:border-[#FFD93D] hover:text-[#FFD93D] transition-all duration-300 w-full sm:w-auto flex justify-center items-center gap-2">
+          <iconify-icon icon="solar:book-bookmark-linear" width="20"></iconify-icon>
+          View Components
+        </button>
+      </div>
+    </div>
+    <!-- Right: Illustration -->
+    <div class="relative z-10 flex justify-center">
+      <div class="relative w-full max-w-lg aspect-square">
+        <div class="absolute inset-0 bg-[#FFD93D] rounded-[3rem] rotate-3 opacity-20 transform scale-95"></div>
+        <div class="absolute inset-0 bg-[#6EE7B7] rounded-[3rem] -rotate-2 opacity-20 transform scale-95"></div>
+        <img alt="Happy Kids Learning" class="relative w-full h-full object-cover rounded-[3rem] shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-500 animate-float" src="assets/photo-1587654780291-39c9404d74_1fde1e8da3f9.avif"/>
+        <!-- Floating Badge -->
+        <div class="absolute -bottom-6 -left-4 md:left-4 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+          <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-[#FF8FAB]">
+            <iconify-icon icon="solar:heart-linear" width="24"></iconify-icon>
+          </div>
+          <div>
+            <p class="text-xs text-slate-400 font-semibold">Component Count</p>
+            <p class="text-sm font-bold text-slate-800">50+ Patterns ⭐</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     1 — TYPOGRAPHY
+══════════════════════════════════════════ -->
+<div id="ds-typography">
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="ds-section-eyebrow">01</div>
+    <h2 class="ds-section-title">Typography</h2>
+    <p class="ds-section-sub">Fredoka for headings · Nunito for body · all sizes and colors from the original classes</p>
+
+    <div>
+
+      <!-- Heading 1 -->
+      <div class="ds-typo-row">
+        <div class="ds-typo-label">Heading 1<br/>h1 · Fredoka</div>
+        <div class="ds-typo-preview">
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] tracking-tight text-[#2B2B2B]">Kids Learn Here</h1>
+        </div>
+        <div class="ds-typo-spec">36–72px<br/>leading 1.1<br/>semibold</div>
+      </div>
+
+      <!-- H1 with brand color spans -->
+      <div class="ds-typo-row">
+        <div class="ds-typo-label">H1 Color Spans<br/>inline brand colors</div>
+        <div class="ds-typo-preview">
+          <h1 class="text-4xl font-semibold leading-[1.1] tracking-tight text-[#2B2B2B]">Learning with <span class="text-[#5BC0EB]">Fun</span> &amp; <span class="text-[#FF8FAB]">Love</span></h1>
+        </div>
+        <div class="ds-typo-spec">#5BC0EB<br/>#FF8FAB</div>
+      </div>
+
+      <!-- Heading 2 -->
+      <div class="ds-typo-row">
+        <div class="ds-typo-label">Heading 2<br/>h2 · Fredoka</div>
+        <div class="ds-typo-preview">
+          <h2 class="text-3xl md:text-5xl font-semibold text-[#2B2B2B] tracking-tight">Nurturing Young Minds 🧠</h2>
+        </div>
+        <div class="ds-typo-spec">30–48px<br/>semibold</div>
+      </div>
+
+      <!-- Heading 3 large (class card) -->
+      <div class="ds-typo-row">
+        <div class="ds-typo-label">Heading 3 — Large<br/>h3 · Fredoka</div>
+        <div class="ds-typo-preview">
+          <h3 class="text-2xl font-semibold text-slate-800">Play Group</h3>
+        </div>
+        <div class="ds-typo-spec">24px / 1.3<br/>semibold</div>
+      </div>
+
+      <!-- Heading 3 standard (feature card) -->
+      <div class="ds-typo-row">
+        <div class="ds-typo-label">Heading 3 — Base<br/>h3 · Fredoka</div>
+        <div class="ds-typo-preview">
+          <h3 class="text-xl font-semibold text-slate-800">Smart Learning</h3>
+        </div>
+        <div class="ds-typo-spec">20px / 1.3<br/>semibold</div>
+      </div>
+
+      <!-- Heading 4 (teacher name) -->
+      <div class="ds-typo-row">
+        <div class="ds-typo-label">Heading 4<br/>h4 · Fredoka</div>
+        <div class="ds-typo-preview">
+          <h4 class="text-lg font-bold text-slate-800">Sarah Johnson</h4>
+        </div>
+        <div class="ds-typo-spec">18px / 1.4<br/>bold</div>
+      </div>
+
+      <!-- H5 footer title -->
+      <div class="ds-typo-row">
+        <div class="ds-typo-label">Heading 5<br/>h5 · Fredoka</div>
+        <div class="ds-typo-preview">
+          <h5 class="font-bold text-slate-800">Quick Links</h5>
+        </div>
+        <div class="ds-typo-spec">16px default<br/>bold</div>
+      </div>
+
+      <!-- Section eyebrow label -->
+      <div class="ds-typo-row">
+        <div class="ds-typo-label">Section Label<br/>uppercase tag</div>
+        <div class="ds-typo-preview">
+          <span class="text-[#FFD93D] font-bold tracking-widest text-xs uppercase mb-2 block">Why Choose Us</span>
+          <span class="text-[#5BC0EB] font-bold tracking-widest text-xs uppercase block">Our Programs</span>
+        </div>
+        <div class="ds-typo-spec">12px<br/>800 · tracked</div>
+      </div>
+
+      <!-- Body large -->
+      <div class="ds-typo-row">
+        <div class="ds-typo-label">Body Large<br/>p · Nunito</div>
+        <div class="ds-typo-preview">
+          <p class="text-base md:text-lg text-slate-500 leading-relaxed font-medium">We nurture creativity, confidence, and curiosity in every child through playful learning and expert guidance.</p>
+        </div>
+        <div class="ds-typo-spec">16–18px<br/>1.625 relaxed<br/>medium</div>
+      </div>
+
+      <!-- Body small (card description) -->
+      <div class="ds-typo-row">
+        <div class="ds-typo-label">Body Small<br/>p · Nunito</div>
+        <div class="ds-typo-preview">
+          <p class="text-sm text-slate-500 leading-relaxed">Interactive digital classrooms and modern learning aids for faster growth.</p>
+        </div>
+        <div class="ds-typo-spec">14px / 1.625<br/>regular</div>
+      </div>
+
+      <!-- Testimonial italic -->
+      <div class="ds-typo-row">
+        <div class="ds-typo-label">Testimonial<br/>italic · Nunito</div>
+        <div class="ds-typo-preview">
+          <p class="text-slate-500 italic">"My daughter loves going to school now! The teachers are so supportive and the activities are fantastic."</p>
+        </div>
+        <div class="ds-typo-spec">16px<br/>italic</div>
+      </div>
+
+      <!-- Extra small -->
+      <div class="ds-typo-row">
+        <div class="ds-typo-label">Caption / XS<br/>Nunito</div>
+        <div class="ds-typo-preview">
+          <p class="text-xs text-slate-400 font-semibold">Parents Love Us</p>
+          <p class="text-xs font-bold text-[#5BC0EB] uppercase tracking-wide">Art Teacher</p>
+        </div>
+        <div class="ds-typo-spec">12px<br/>semibold/bold</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     2 — COLORS & SURFACES
+══════════════════════════════════════════ -->
+<div id="ds-colors">
+<section class="py-20 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="ds-section-eyebrow">02</div>
+    <h2 class="ds-section-title">Colors &amp; Surfaces</h2>
+    <p class="ds-section-sub">CSS custom properties + Tailwind utility colors — never use raw hex in new components</p>
+
+    <!-- Brand palette -->
+    <div class="ds-component-label">Brand Palette</div>
+    <div class="ds-swatch-grid">
+      <div class="ds-swatch">
+        <div class="ds-swatch-box" style="background-color:#5BC0EB"></div>
+        <div class="ds-swatch-name">Blue</div>
+        <div class="ds-swatch-detail">#5BC0EB<br/>--color-blue</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-box" style="background-color:#FFD93D"></div>
+        <div class="ds-swatch-name">Yellow</div>
+        <div class="ds-swatch-detail">#FFD93D<br/>--color-yellow</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-box" style="background-color:#FF8FAB"></div>
+        <div class="ds-swatch-name">Pink</div>
+        <div class="ds-swatch-detail">#FF8FAB<br/>--color-pink</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-box" style="background-color:#6EE7B7"></div>
+        <div class="ds-swatch-name">Green</div>
+        <div class="ds-swatch-detail">#6EE7B7<br/>--color-green</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-box" style="background-color:#2B2B2B"></div>
+        <div class="ds-swatch-name">Dark</div>
+        <div class="ds-swatch-detail">#2B2B2B<br/>--color-dark</div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Semantic tints (bg-[color]-100) -->
+    <div class="ds-component-label">Icon Background Tints</div>
+    <div class="ds-swatch-grid">
+      <div class="ds-swatch">
+        <div class="ds-swatch-box bg-blue-100"></div>
+        <div class="ds-swatch-name">bg-blue-100</div>
+        <div class="ds-swatch-detail">Blue icon bg</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-box bg-pink-100"></div>
+        <div class="ds-swatch-name">bg-pink-100</div>
+        <div class="ds-swatch-detail">Pink icon bg</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-box bg-yellow-100"></div>
+        <div class="ds-swatch-name">bg-yellow-100</div>
+        <div class="ds-swatch-detail">Yellow icon bg</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-box bg-green-100"></div>
+        <div class="ds-swatch-name">bg-green-100</div>
+        <div class="ds-swatch-detail">Green icon bg</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-box bg-purple-50"></div>
+        <div class="ds-swatch-name">bg-purple-50</div>
+        <div class="ds-swatch-detail">Drama icon bg</div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Surface backgrounds -->
+    <div class="ds-component-label">Section Backgrounds</div>
+    <div style="display:flex;flex-wrap:wrap;gap:20px">
+      <div style="flex:1 1 200px">
+        <div class="rounded-2xl h-20 mb-3 bg-white border border-slate-100"></div>
+        <div class="ds-swatch-name">bg-white</div>
+        <div class="ds-swatch-detail">Why Choose / Teachers / Footer</div>
+      </div>
+      <div style="flex:1 1 200px">
+        <div class="rounded-2xl h-20 mb-3 bg-slate-50"></div>
+        <div class="ds-swatch-name">bg-slate-50</div>
+        <div class="ds-swatch-detail">Feature card default</div>
+      </div>
+      <div style="flex:1 1 200px">
+        <div class="rounded-2xl h-20 mb-3 bg-[#F0F9FF]"></div>
+        <div class="ds-swatch-name">bg-[#F0F9FF]</div>
+        <div class="ds-swatch-detail">Classes section</div>
+      </div>
+      <div style="flex:1 1 200px">
+        <div class="rounded-2xl h-20 mb-3 bg-[#FAFAFA]"></div>
+        <div class="ds-swatch-name">bg-[#FAFAFA]</div>
+        <div class="ds-swatch-detail">Body background</div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Gradients -->
+    <div class="ds-component-label">Gradients</div>
+    <div style="display:flex;flex-wrap:wrap;gap:20px">
+      <div style="flex:1 1 200px">
+        <div class="rounded-2xl h-20 mb-3 bg-gradient-to-b from-blue-50/50 to-white border border-slate-100"></div>
+        <div class="ds-swatch-name">Hero gradient</div>
+        <div class="ds-swatch-detail">bg-gradient-to-b from-blue-50/50 to-white</div>
+      </div>
+      <div style="flex:1 1 200px">
+        <div class="rounded-2xl h-20 mb-3 bg-gradient-to-r from-blue-50 to-pink-50"></div>
+        <div class="ds-swatch-name">Testimonials gradient</div>
+        <div class="ds-swatch-detail">bg-gradient-to-r from-blue-50 to-pink-50</div>
+      </div>
+      <div style="flex:1 1 200px">
+        <div class="rounded-2xl h-20 mb-3 bg-[#5BC0EB] relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-16 h-16 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/4"></div>
+          <div class="absolute bottom-0 left-0 w-16 h-16 bg-[#FFD93D]/20 rounded-full blur-2xl translate-y-1/3 -translate-x-1/4"></div>
+        </div>
+        <div class="ds-swatch-name">CTA bg + blobs</div>
+        <div class="ds-swatch-detail">bg-[#5BC0EB] + bg-white/10 blurs</div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Blur / Glass -->
+    <div class="ds-component-label">Blur &amp; Glass Effects</div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <div style="flex:1 1 200px">
+        <div class="rounded-2xl h-20 mb-3 bg-white/90 backdrop-blur-md border border-slate-100 flex items-center justify-center">
+          <span style="font-family:monospace;font-size:11px;color:#aaa">bg-white/90 backdrop-blur-md</span>
+        </div>
+        <div class="ds-swatch-name">Header glass</div>
+        <div class="ds-swatch-detail">Fixed nav background</div>
+      </div>
+      <div style="flex:1 1 200px">
+        <div class="rounded-2xl h-20 mb-3 bg-white/90 backdrop-blur px-4 py-2 flex items-center justify-center">
+          <span class="px-3 py-1 rounded-full text-xs font-bold text-[#5BC0EB] bg-white/90">1.5–2.5 Years</span>
+        </div>
+        <div class="ds-swatch-name">Card age badge</div>
+        <div class="ds-swatch-detail">bg-white/90 backdrop-blur</div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Blob decorations -->
+    <div class="ds-component-label">Decorative Blobs</div>
+    <div class="relative h-40 rounded-2xl overflow-hidden bg-gradient-to-b from-blue-50/50 to-white">
+      <div class="absolute top-4 left-8 w-32 h-32 bg-[#5BC0EB]/10 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute top-4 right-8 w-40 h-40 bg-[#FFD93D]/10 rounded-full blur-3xl animate-float-delayed"></div>
+      <div class="absolute inset-0 flex items-center justify-center" style="font-family:monospace;font-size:12px;color:#aaa">
+        w-64 h-64 bg-[#5BC0EB]/10 rounded-full blur-3xl animate-float
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     3 — UI COMPONENTS
+══════════════════════════════════════════ -->
+<div id="ds-components">
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="ds-section-eyebrow">03</div>
+    <h2 class="ds-section-title">UI Components</h2>
+    <p class="ds-section-sub">Exact classes from the reference — hover each to see transitions</p>
+
+    <!-- ── Buttons ── -->
+    <div class="ds-component-label">Buttons</div>
+    <div class="flex flex-wrap gap-6 items-start mb-6">
+      <!-- Primary Blue -->
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+        <span style="font-family:monospace;font-size:11px;color:#aaa">Primary CTA · blue</span>
+        <button class="px-8 py-4 bg-[#5BC0EB] text-white text-base font-semibold rounded-full shadow-lg shadow-blue-200 hover:shadow-xl hover:shadow-blue-300 hover:scale-105 transition-all duration-300 flex items-center gap-2">
+          <iconify-icon icon="solar:hat-graduation-linear" width="20"></iconify-icon>
+          Enroll Now
+        </button>
+        <span style="font-family:monospace;font-size:10px;color:#ccc">hover:scale-105 · shadow-blue-300</span>
+      </div>
+      <!-- Secondary white -->
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+        <span style="font-family:monospace;font-size:11px;color:#aaa">Secondary · white</span>
+        <button class="px-8 py-4 bg-white text-slate-600 border border-slate-200 text-base font-semibold rounded-full hover:bg-slate-50 hover:border-[#FFD93D] hover:text-[#FFD93D] transition-all duration-300 flex items-center gap-2">
+          <iconify-icon icon="solar:book-bookmark-linear" width="20"></iconify-icon>
+          View Programs
+        </button>
+        <span style="font-family:monospace;font-size:10px;color:#ccc">hover:border-yellow hover:text-yellow</span>
+      </div>
+      <!-- Small pink (header) -->
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+        <span style="font-family:monospace;font-size:11px;color:#aaa">Small CTA · pink (header)</span>
+        <a class="px-6 py-2.5 bg-[#FF8FAB] hover:bg-[#ff7aa0] text-white text-sm font-semibold rounded-full shadow-md shadow-pink-200 hover:shadow-lg hover:shadow-pink-300 hover:scale-105 transition-all duration-300 flex items-center gap-2" href="#">
+          <span>Enroll Now</span>
+          <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+        </a>
+        <span style="font-family:monospace;font-size:10px;color:#ccc">hover:bg-[#ff7aa0] · scale-105</span>
+      </div>
+    </div>
+
+    <!-- CTA section buttons -->
+    <div class="flex flex-wrap gap-4 items-start mb-2">
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+        <span style="font-family:monospace;font-size:11px;color:#aaa">CTA white</span>
+        <button class="px-8 py-4 bg-white text-[#5BC0EB] text-base font-bold rounded-full hover:bg-slate-50 hover:scale-105 transition-all duration-300 shadow-lg">
+          Apply for Admission
+        </button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+        <span style="font-family:monospace;font-size:11px;color:#aaa">CTA pink</span>
+        <button class="px-8 py-4 bg-[#FF8FAB] text-white text-base font-bold rounded-full hover:bg-[#ff7aa0] hover:scale-105 transition-all duration-300 shadow-lg">
+          Contact Us
+        </button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+        <span style="font-family:monospace;font-size:11px;color:#aaa">Text link + arrow</span>
+        <button class="text-[#5BC0EB] font-semibold hover:text-blue-600 flex items-center gap-1 transition-colors">
+          View All Classes <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Feature Cards ── -->
+    <div class="ds-component-label">Feature Cards (Why Choose Us)</div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-2">
+      <div class="group bg-slate-50 p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-blue-100/50 hover:-translate-y-2 transition-all duration-300">
+        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-[#5BC0EB] mb-6 group-hover:scale-110 transition-transform duration-300">
+          <iconify-icon icon="solar:smart-home-angle-linear" stroke-width="1.5" width="32"></iconify-icon>
+        </div>
+        <h3 class="text-xl font-semibold mb-3 text-slate-800">Smart Learning</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Interactive digital classrooms and modern learning aids for faster growth.</p>
+      </div>
+      <div class="group bg-slate-50 p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-pink-100/50 hover:-translate-y-2 transition-all duration-300">
+        <div class="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center text-[#FF8FAB] mb-6 group-hover:scale-110 transition-transform duration-300">
+          <iconify-icon icon="solar:palette-linear" stroke-width="1.5" width="32"></iconify-icon>
+        </div>
+        <h3 class="text-xl font-semibold mb-3 text-slate-800">Creative Arts</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Music, dance, and art sessions to unleash your child's inner creativity.</p>
+      </div>
+      <div class="group bg-slate-50 p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-yellow-100/50 hover:-translate-y-2 transition-all duration-300">
+        <div class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center text-[#FFD93D] mb-6 group-hover:scale-110 transition-transform duration-300">
+          <iconify-icon icon="solar:user-hand-up-linear" stroke-width="1.5" width="32"></iconify-icon>
+        </div>
+        <h3 class="text-xl font-semibold mb-3 text-slate-800">Expert Teachers</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Highly qualified and caring mentors dedicated to every child's success.</p>
+      </div>
+      <div class="group bg-slate-50 p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-green-100/50 hover:-translate-y-2 transition-all duration-300">
+        <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-[#6EE7B7] mb-6 group-hover:scale-110 transition-transform duration-300">
+          <iconify-icon icon="solar:shield-check-linear" stroke-width="1.5" width="32"></iconify-icon>
+        </div>
+        <h3 class="text-xl font-semibold mb-3 text-slate-800">Safe Environment</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">24/7 CCTV surveillance and child-friendly infrastructure for safety.</p>
+      </div>
+    </div>
+    <span style="font-family:monospace;font-size:11px;color:#aaa">group · hover:-translate-y-2 · hover:shadow-xl · group-hover:scale-110</span>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Class Cards ── -->
+    <div class="ds-component-label">Class Cards (image + badge + action button)</div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-2">
+      <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+        <div class="h-48 bg-blue-100 relative overflow-hidden">
+          <img alt="Play Group" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="assets/photo-1503454537195-1dcabb73ff_a528b83fab9d.avif"/>
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-[#5BC0EB]">
+            1.5 - 2.5 Years
+          </div>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-semibold text-slate-800 mb-2">Play Group</h3>
+          <p class="text-sm text-slate-500 mb-6 line-clamp-2">A fun-filled introduction to social interaction through games and songs.</p>
+          <button class="w-full py-3 rounded-xl border-2 border-slate-100 text-slate-600 font-semibold text-sm group-hover:bg-[#5BC0EB] group-hover:border-[#5BC0EB] group-hover:text-white transition-all duration-300">
+            View Details
+          </button>
+        </div>
+      </div>
+      <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+        <div class="h-48 bg-yellow-100 relative overflow-hidden">
+          <img alt="Nursery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="assets/photo-1502086223501-7ea6ecd793_b4cae8ec3504.avif"/>
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-[#FFD93D]">
+            2.5 - 3.5 Years
+          </div>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-semibold text-slate-800 mb-2">Nursery</h3>
+          <p class="text-sm text-slate-500 mb-6 line-clamp-2">Developing foundational skills in reading, writing, and logical thinking.</p>
+          <button class="w-full py-3 rounded-xl border-2 border-slate-100 text-slate-600 font-semibold text-sm group-hover:bg-[#FFD93D] group-hover:border-[#FFD93D] group-hover:text-white transition-all duration-300">
+            View Details
+          </button>
+        </div>
+      </div>
+      <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+        <div class="h-48 bg-pink-100 relative overflow-hidden">
+          <img alt="Junior KG" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="assets/photo-1588072432836-e100327743_f01684ac448c.avif"/>
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-[#FF8FAB]">
+            3.5 - 5 Years
+          </div>
+        </div>
+        <div class="p-8">
+          <h3 class="text-2xl font-semibold text-slate-800 mb-2">Junior KG</h3>
+          <p class="text-sm text-slate-500 mb-6 line-clamp-2">Advanced learning with a focus on communication and creative expression.</p>
+          <button class="w-full py-3 rounded-xl border-2 border-slate-100 text-slate-600 font-semibold text-sm group-hover:bg-[#FF8FAB] group-hover:border-[#FF8FAB] group-hover:text-white transition-all duration-300">
+            View Details
+          </button>
+        </div>
+      </div>
+    </div>
+    <span style="font-family:monospace;font-size:11px;color:#aaa">rounded-[2rem] · group-hover:scale-110 duration-500 · group-hover:bg-[color] → button fill</span>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Teacher Cards ── -->
+    <div class="ds-component-label">Teacher Cards</div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-2">
+      <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-lg text-center hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-4 border-blue-50">
+          <img alt="Teacher" class="w-full h-full object-cover" src="assets/photo-1494790108377-be9c29b293_dbdaa1dd5a54.avif"/>
+        </div>
+        <h4 class="text-lg font-bold text-slate-800">Sarah Johnson</h4>
+        <p class="text-xs font-semibold text-[#5BC0EB] uppercase tracking-wide">Art Teacher</p>
+      </div>
+      <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-lg text-center hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-4 border-pink-50">
+          <img alt="Teacher" class="w-full h-full object-cover" src="assets/photo-1573496359142-b8d87734a5_6e7541c1f36a.avif"/>
+        </div>
+        <h4 class="text-lg font-bold text-slate-800">Emily Davis</h4>
+        <p class="text-xs font-semibold text-[#FF8FAB] uppercase tracking-wide">Nursery Head</p>
+      </div>
+      <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-lg text-center hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-4 border-yellow-50">
+          <img alt="Teacher" class="w-full h-full object-cover" src="assets/photo-1544005313-94ddf0286df2_f4ba39cd6bdd.avif"/>
+        </div>
+        <h4 class="text-lg font-bold text-slate-800">Jessica Brown</h4>
+        <p class="text-xs font-semibold text-[#FFD93D] uppercase tracking-wide">Music Teacher</p>
+      </div>
+      <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-lg text-center hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-4 border-green-50">
+          <img alt="Teacher" class="w-full h-full object-cover" src="assets/photo-1580894732444-8ecded7900_38d53d85095f.avif"/>
+        </div>
+        <h4 class="text-lg font-bold text-slate-800">Linda White</h4>
+        <p class="text-xs font-semibold text-[#6EE7B7] uppercase tracking-wide">English Teacher</p>
+      </div>
+    </div>
+    <span style="font-family:monospace;font-size:11px;color:#aaa">rounded-full avatar · border-4 border-[color]-50 · hover:-translate-y-2 duration-300</span>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Testimonial Cards ── -->
+    <div class="ds-component-label">Testimonial Cards (horizontal scroll snap)</div>
+    <div class="flex overflow-x-auto snap-x gap-6 pb-8 no-scrollbar mb-2">
+      <div class="snap-center shrink-0 w-full md:w-[400px] bg-white p-8 rounded-[2rem] shadow-sm">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
+            <img class="w-full h-full object-cover" src="assets/44_11c698978e3f.jpg"/>
+          </div>
+          <div>
+            <h5 class="font-bold text-slate-800">Maria Garcia</h5>
+            <div class="flex text-[#FFD93D] text-sm">
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+            </div>
+          </div>
+        </div>
+        <p class="text-slate-500 italic">"My daughter loves going to school now! The teachers are so supportive and the activities are fantastic."</p>
+      </div>
+      <div class="snap-center shrink-0 w-full md:w-[400px] bg-white p-8 rounded-[2rem] shadow-sm">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
+            <img class="w-full h-full object-cover" src="assets/32_d2dfa61430a0.jpg"/>
+          </div>
+          <div>
+            <h5 class="font-bold text-slate-800">David Smith</h5>
+            <div class="flex text-[#FFD93D] text-sm">
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+            </div>
+          </div>
+        </div>
+        <p class="text-slate-500 italic">"The best decision we made for our son. The campus is safe, clean, and very colorful. Highly recommended!"</p>
+      </div>
+      <div class="snap-center shrink-0 w-full md:w-[400px] bg-white p-8 rounded-[2rem] shadow-sm">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
+            <img class="w-full h-full object-cover" src="assets/68_39023b90e053.jpg"/>
+          </div>
+          <div>
+            <h5 class="font-bold text-slate-800">Anna Lee</h5>
+            <div class="flex text-[#FFD93D] text-sm">
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+            </div>
+          </div>
+        </div>
+        <p class="text-slate-500 italic">"Bright Minds Academy truly focuses on the holistic development of the child. We are very happy."</p>
+      </div>
+    </div>
+    <span style="font-family:monospace;font-size:11px;color:#aaa">flex overflow-x-auto snap-x no-scrollbar · snap-center shrink-0 w-[400px]</span>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Input ── -->
+    <div class="ds-component-label">Input — Newsletter</div>
+    <div class="max-w-sm">
+      <div class="flex items-center bg-slate-50 rounded-xl p-1 border border-slate-200">
+        <input class="bg-transparent px-4 py-2 w-full text-sm outline-none text-slate-700 placeholder:text-slate-400" placeholder="Email address" type="email"/>
+        <button class="bg-[#5BC0EB] text-white p-2 rounded-lg hover:bg-blue-400 transition-colors">
+          <iconify-icon icon="solar:plain-2-linear" width="20"></iconify-icon>
+        </button>
+      </div>
+    </div>
+    <span style="font-family:monospace;font-size:11px;color:#aaa;margin-top:8px;display:block">bg-slate-50 rounded-xl border-slate-200 · button: bg-[#5BC0EB] rounded-lg hover:bg-blue-400</span>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Activity Circles ── -->
+    <div class="ds-component-label">Activity Circles (hover fill)</div>
+    <div class="flex flex-wrap gap-8 md:gap-12 mb-2">
+      <div class="flex flex-col items-center gap-3 group cursor-pointer hover-wiggle">
+        <div class="w-24 h-24 rounded-full bg-blue-50 border-4 border-white shadow-lg flex items-center justify-center text-[#5BC0EB] group-hover:bg-[#5BC0EB] group-hover:text-white transition-all duration-300">
+          <iconify-icon icon="solar:music-note-slider-linear" stroke-width="1.5" width="40"></iconify-icon>
+        </div>
+        <span class="font-semibold text-slate-700">Music</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 group cursor-pointer hover-wiggle">
+        <div class="w-24 h-24 rounded-full bg-pink-50 border-4 border-white shadow-lg flex items-center justify-center text-[#FF8FAB] group-hover:bg-[#FF8FAB] group-hover:text-white transition-all duration-300">
+          <iconify-icon icon="solar:palette-linear" stroke-width="1.5" width="40"></iconify-icon>
+        </div>
+        <span class="font-semibold text-slate-700">Drawing</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 group cursor-pointer hover-wiggle">
+        <div class="w-24 h-24 rounded-full bg-yellow-50 border-4 border-white shadow-lg flex items-center justify-center text-[#FFD93D] group-hover:bg-[#FFD93D] group-hover:text-white transition-all duration-300">
+          <iconify-icon icon="solar:running-linear" stroke-width="1.5" width="40"></iconify-icon>
+        </div>
+        <span class="font-semibold text-slate-700">Sports</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 group cursor-pointer hover-wiggle">
+        <div class="w-24 h-24 rounded-full bg-green-50 border-4 border-white shadow-lg flex items-center justify-center text-[#6EE7B7] group-hover:bg-[#6EE7B7] group-hover:text-white transition-all duration-300">
+          <iconify-icon icon="solar:book-linear" stroke-width="1.5" width="40"></iconify-icon>
+        </div>
+        <span class="font-semibold text-slate-700">Reading</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 group cursor-pointer hover-wiggle">
+        <div class="w-24 h-24 rounded-full bg-purple-50 border-4 border-white shadow-lg flex items-center justify-center text-purple-400 group-hover:bg-purple-400 group-hover:text-white transition-all duration-300">
+          <iconify-icon icon="solar:masks-linear" stroke-width="1.5" width="40"></iconify-icon>
+        </div>
+        <span class="font-semibold text-slate-700">Drama</span>
+      </div>
+    </div>
+    <span style="font-family:monospace;font-size:11px;color:#aaa">w-24 h-24 rounded-full border-4 border-white · group-hover:bg-[color] group-hover:text-white · .hover-wiggle</span>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Admission Badge ── -->
+    <div class="ds-component-label">Status Badge (inline pill)</div>
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-[#2B2B2B] text-xs font-semibold border border-green-200">
+      <span class="w-2 h-2 rounded-full bg-[#6EE7B7]"></span>
+      Admissions Open for 2024
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Floating badge ── -->
+    <div class="ds-component-label">Floating Info Badge (animate-bounce)</div>
+    <div class="inline-flex">
+      <div class="bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+        <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-[#FF8FAB]">
+          <iconify-icon icon="solar:heart-linear" width="24"></iconify-icon>
+        </div>
+        <div>
+          <p class="text-xs text-slate-400 font-semibold">Parents Love Us</p>
+          <p class="text-sm font-bold text-slate-800">4.9/5 Rating ⭐</p>
+        </div>
+      </div>
+    </div>
+    <span style="font-family:monospace;font-size:11px;color:#aaa;display:block;margin-top:8px">bg-white rounded-2xl shadow-xl · animate-bounce duration:3s</span>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Social icon buttons ── -->
+    <div class="ds-component-label">Social Icon Buttons</div>
+    <div class="flex gap-4">
+      <a class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#5BC0EB] hover:bg-[#5BC0EB] hover:text-white transition-all" href="#">
+        <iconify-icon icon="brandico:facebook" width="14"></iconify-icon>
+      </a>
+      <a class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center text-[#FF8FAB] hover:bg-[#FF8FAB] hover:text-white transition-all" href="#">
+        <iconify-icon icon="brandico:instagram" width="14"></iconify-icon>
+      </a>
+      <a class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#5BC0EB] hover:bg-[#5BC0EB] hover:text-white transition-all" href="#">
+        <iconify-icon icon="brandico:twitter-bird" width="14"></iconify-icon>
+      </a>
+    </div>
+    <span style="font-family:monospace;font-size:11px;color:#aaa;margin-top:8px;display:block">w-8 h-8 rounded-full bg-[color]-100 · hover:bg-[color] hover:text-white</span>
+
+  </div>
+</section>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     4 — LAYOUT & SPACING
+══════════════════════════════════════════ -->
+<div id="ds-layout">
+<section class="py-20 bg-[#F0F9FF]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="ds-section-eyebrow">04</div>
+    <h2 class="ds-section-title">Layout &amp; Spacing</h2>
+    <p class="ds-section-sub">Container, grid patterns, and section padding — all from the reference</p>
+
+    <!-- Container -->
+    <div class="ds-component-label">Page Container — max-w-7xl mx-auto px-6</div>
+    <div class="border-2 border-dashed border-[#5BC0EB]/40 rounded-2xl p-6 mb-10">
+      <div class="bg-[#5BC0EB]/10 rounded-xl p-4 text-center" style="font-family:monospace;font-size:13px;color:#5BC0EB">
+        max-w-7xl · mx-auto · px-6 (24px sides)
+      </div>
+    </div>
+
+    <!-- Section padding -->
+    <div class="ds-component-label">Section Vertical Padding</div>
+    <div class="flex flex-wrap gap-4 mb-10">
+      <div class="flex-1 min-w-[160px] bg-white rounded-2xl p-6 border border-slate-100 text-center">
+        <div style="height:80px;background:linear-gradient(#5BC0EB22,#5BC0EB22);border-radius:8px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:11px;color:#5BC0EB">py-20</div>
+        <span style="font-family:monospace;font-size:12px;color:#888">py-20 (80px)<br/>Standard section</span>
+      </div>
+      <div class="flex-1 min-w-[160px] bg-white rounded-2xl p-6 border border-slate-100 text-center">
+        <div style="height:80px;background:linear-gradient(#5BC0EB22,#5BC0EB22);border-radius:8px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:11px;color:#5BC0EB">pt-32 pb-20</div>
+        <span style="font-family:monospace;font-size:12px;color:#888">pt-32 / pb-20<br/>Hero (accounts for nav)</span>
+      </div>
+      <div class="flex-1 min-w-[160px] bg-white rounded-2xl p-6 border border-slate-100 text-center">
+        <div style="height:80px;background:linear-gradient(#5BC0EB22,#5BC0EB22);border-radius:8px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:11px;color:#5BC0EB">p-8 md:p-16</div>
+        <span style="font-family:monospace;font-size:12px;color:#888">p-8/p-16<br/>CTA inner card</span>
+      </div>
+    </div>
+
+    <!-- 2-column hero grid -->
+    <div class="ds-component-label">Hero Grid — grid-cols-1 md:grid-cols-2 gap-12 items-center</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-10">
+      <div class="bg-white rounded-2xl p-8 border border-slate-100 h-32 flex items-center justify-center" style="font-family:monospace;font-size:13px;color:#888">Left: content + CTA</div>
+      <div class="bg-white rounded-2xl p-8 border border-slate-100 h-32 flex items-center justify-center" style="font-family:monospace;font-size:13px;color:#888">Right: illustration</div>
+    </div>
+
+    <!-- 4-column features grid -->
+    <div class="ds-component-label">Features Grid — grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 h-20 flex items-center justify-center" style="font-family:monospace;font-size:12px;color:#888">Col 1</div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 h-20 flex items-center justify-center" style="font-family:monospace;font-size:12px;color:#888">Col 2</div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 h-20 flex items-center justify-center" style="font-family:monospace;font-size:12px;color:#888">Col 3</div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 h-20 flex items-center justify-center" style="font-family:monospace;font-size:12px;color:#888">Col 4</div>
+    </div>
+
+    <!-- 3-column classes grid -->
+    <div class="ds-component-label">Classes Grid — grid-cols-1 md:grid-cols-3 gap-8</div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 h-20 flex items-center justify-center" style="font-family:monospace;font-size:12px;color:#888">Class A</div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 h-20 flex items-center justify-center" style="font-family:monospace;font-size:12px;color:#888">Class B</div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 h-20 flex items-center justify-center" style="font-family:monospace;font-size:12px;color:#888">Class C</div>
+    </div>
+
+    <!-- Gallery masonry grid -->
+    <div class="ds-component-label">Gallery Grid — grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] (masonry spans)</div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] mb-10">
+      <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-[2rem]">
+        <img alt="Kids playing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="assets/photo-1503919545889-aef636e10a_14198bdf228e.avif"/>
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+      </div>
+      <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-[2rem]">
+        <img alt="Drawing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="assets/photo-1544717302-de2939b7ef71_c2b981aaaf65.avif"/>
+      </div>
+      <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-[2rem]">
+        <img alt="Classroom" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="assets/photo-1587691592099-24045742c1_c423dbb179da.avif"/>
+      </div>
+      <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-[2rem]">
+        <img alt="Playground" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="assets/photo-1516627145497-ae6968895b_d39227f56240.avif"/>
+      </div>
+      <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-[2rem]">
+        <img alt="Activities" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="assets/photo-1566004100631-35d015d6a4_5ee68295e4ab.avif"/>
+      </div>
+    </div>
+
+    <!-- Footer 4-col grid -->
+    <div class="ds-component-label">Footer Grid — grid-cols-1 md:grid-cols-4 gap-12</div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="col-span-1 bg-white rounded-2xl p-6 border border-slate-100 h-20 flex items-center justify-center" style="font-family:monospace;font-size:12px;color:#888">Brand (col-span-1)</div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 h-20 flex items-center justify-center" style="font-family:monospace;font-size:12px;color:#888">Quick Links</div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 h-20 flex items-center justify-center" style="font-family:monospace;font-size:12px;color:#888">Contact</div>
+      <div class="bg-white rounded-2xl p-6 border border-slate-100 h-20 flex items-center justify-center" style="font-family:monospace;font-size:12px;color:#888">Newsletter</div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     5 — MOTION & INTERACTION
+══════════════════════════════════════════ -->
+<div id="ds-motion">
+<section class="py-20 bg-gradient-to-r from-blue-50 to-pink-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="ds-section-eyebrow">05</div>
+    <h2 class="ds-section-title">Motion &amp; Interaction</h2>
+    <p class="ds-section-sub">Hover each element to trigger its CSS transition — animations run continuously on floating elements</p>
+
+    <!-- Float animation -->
+    <div class="ds-component-label">Keyframe: float (6s ease-in-out infinite)</div>
+    <div class="flex flex-wrap gap-12 items-end mb-12">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+        <div class="w-24 h-24 bg-[#5BC0EB]/20 rounded-[1.5rem] flex items-center justify-center animate-float">
+          <iconify-icon icon="solar:book-2-linear" width="40" style="color:#5BC0EB"></iconify-icon>
+        </div>
+        <span style="font-family:monospace;font-size:11px;color:#888">.animate-float</span>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">delay: 0s</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+        <div class="w-24 h-24 bg-[#FFD93D]/20 rounded-[1.5rem] flex items-center justify-center animate-float-delayed">
+          <iconify-icon icon="solar:palette-linear" width="40" style="color:#FFD93D"></iconify-icon>
+        </div>
+        <span style="font-family:monospace;font-size:11px;color:#888">.animate-float-delayed</span>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">delay: 3s</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+        <img alt="Hero image" class="w-24 h-24 object-cover rounded-[1.5rem] shadow-xl border-2 border-white animate-float" src="assets/photo-1587654780291-39c9404d74_1fde1e8da3f9.avif"/>
+        <span style="font-family:monospace;font-size:11px;color:#888">hero image float</span>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">same class</span>
+      </div>
+    </div>
+
+    <!-- Bounce animation -->
+    <div class="ds-component-label">animate-bounce (3s duration — floating badge)</div>
+    <div class="mb-12">
+      <div class="inline-flex bg-white p-4 rounded-2xl shadow-xl items-center gap-3 animate-bounce" style="animation-duration:3s">
+        <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-[#FF8FAB]">
+          <iconify-icon icon="solar:heart-linear" width="24"></iconify-icon>
+        </div>
+        <div>
+          <p class="text-xs text-slate-400 font-semibold">Parents Love Us</p>
+          <p class="text-sm font-bold text-slate-800">4.9/5 Rating ⭐</p>
+        </div>
+      </div>
+      <div style="margin-top:8px;font-family:monospace;font-size:11px;color:#888">animate-bounce · style="animation-duration:3s"</div>
+    </div>
+
+    <!-- Wiggle on hover -->
+    <div class="ds-component-label">hover-wiggle keyframe (activity circles)</div>
+    <div class="flex gap-6 mb-12">
+      <div class="flex flex-col items-center gap-3 group cursor-pointer hover-wiggle">
+        <div class="w-20 h-20 rounded-full bg-blue-50 border-4 border-white shadow-lg flex items-center justify-center text-[#5BC0EB] group-hover:bg-[#5BC0EB] group-hover:text-white transition-all duration-300">
+          <iconify-icon icon="solar:music-note-slider-linear" stroke-width="1.5" width="32"></iconify-icon>
+        </div>
+        <span class="text-sm font-semibold text-slate-700">Hover me</span>
+      </div>
+      <div class="flex flex-col items-center gap-3 group cursor-pointer hover-wiggle">
+        <div class="w-20 h-20 rounded-full bg-pink-50 border-4 border-white shadow-lg flex items-center justify-center text-[#FF8FAB] group-hover:bg-[#FF8FAB] group-hover:text-white transition-all duration-300">
+          <iconify-icon icon="solar:palette-linear" stroke-width="1.5" width="32"></iconify-icon>
+        </div>
+        <span class="text-sm font-semibold text-slate-700">Hover me</span>
+      </div>
+    </div>
+
+    <!-- Card hover lift -->
+    <div class="ds-component-label">Card Hover Lift — hover:-translate-y-2 transition-all duration-300</div>
+    <div class="flex gap-8 flex-wrap mb-12">
+      <div class="group bg-slate-50 p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-blue-100/50 hover:-translate-y-2 transition-all duration-300 w-56">
+        <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-[#5BC0EB] mb-4 group-hover:scale-110 transition-transform duration-300">
+          <iconify-icon icon="solar:smart-home-angle-linear" width="28"></iconify-icon>
+        </div>
+        <h3 class="text-lg font-semibold text-slate-800">Hover me</h3>
+        <p class="text-xs text-slate-500 mt-1">Lifts up with shadow</p>
+      </div>
+      <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-lg text-center hover:-translate-y-2 transition-transform duration-300 w-40">
+        <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 border-4 border-blue-50">
+          <img alt="Teacher" class="w-full h-full object-cover" src="assets/photo-1494790108377-be9c29b293_dbdaa1dd5a54.avif"/>
+        </div>
+        <h4 class="text-sm font-bold text-slate-800">Hover me</h4>
+        <p class="text-xs text-[#5BC0EB]">Teacher card</p>
+      </div>
+    </div>
+
+    <!-- Button hover scale -->
+    <div class="ds-component-label">Button Hover Scale — hover:scale-105 transition-all duration-300</div>
+    <div class="flex flex-wrap gap-6 mb-12">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button class="px-8 py-4 bg-[#5BC0EB] text-white font-semibold rounded-full shadow-lg shadow-blue-200 hover:shadow-xl hover:shadow-blue-300 hover:scale-105 transition-all duration-300 flex items-center gap-2">
+          <iconify-icon icon="solar:hat-graduation-linear" width="20"></iconify-icon>
+          Enroll Now
+        </button>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">hover:scale-105 + shadow-blue-300</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button class="px-8 py-4 bg-white text-[#5BC0EB] font-bold rounded-full hover:bg-slate-50 hover:scale-105 transition-all duration-300 shadow-lg">
+          Apply Now
+        </button>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">hover:scale-105</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a class="px-6 py-2.5 bg-[#FF8FAB] hover:bg-[#ff7aa0] text-white text-sm font-semibold rounded-full shadow-md shadow-pink-200 hover:shadow-lg hover:shadow-pink-300 hover:scale-105 transition-all duration-300 flex items-center gap-2" href="#">
+          <span>Small CTA</span>
+          <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+        </a>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">hover:bg-[#ff7aa0] scale-105</span>
+      </div>
+    </div>
+
+    <!-- Image zoom on hover -->
+    <div class="ds-component-label">Image Zoom on Group Hover — group-hover:scale-110 transition-transform duration-500</div>
+    <div class="flex gap-6 flex-wrap mb-12">
+      <div class="group w-48 h-36 overflow-hidden rounded-2xl">
+        <img alt="Kids" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="assets/photo-1503919545889-aef636e10a_14198bdf228e.avif"/>
+      </div>
+      <div class="group w-48 h-36 overflow-hidden rounded-2xl relative">
+        <img alt="Drawing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="assets/photo-1544717302-de2939b7ef71_c2b981aaaf65.avif"/>
+      </div>
+    </div>
+
+    <!-- Hero image hover scale -->
+    <div class="ds-component-label">Hero Image Hover — hover:scale-[1.02] transition-transform duration-500</div>
+    <div class="max-w-xs">
+      <img alt="Happy Kids Learning" class="w-full h-48 object-cover rounded-[2rem] shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-500" src="assets/photo-1587654780291-39c9404d74_1fde1e8da3f9.avif"/>
+    </div>
+
+  </div>
+</section>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     6 — ICONS
+══════════════════════════════════════════ -->
+<div id="ds-icons">
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="ds-section-eyebrow">06</div>
+    <h2 class="ds-section-title">Icons</h2>
+    <p class="ds-section-sub">Iconify · Solar collection (linear stroke-width="1.5") · brandico collection · all via &lt;iconify-icon&gt; web component</p>
+
+    <!-- Navigation & UI icons -->
+    <div class="ds-component-label">Navigation &amp; UI — solar: linear</div>
+    <div class="flex flex-wrap gap-4 mb-10">
+      <!-- Each icon in a small card showing 3 sizes -->
+      <div class="bg-slate-50 rounded-2xl p-5 flex flex-col items-center gap-3 min-w-[120px]">
+        <div class="flex items-end gap-3">
+          <iconify-icon icon="solar:book-2-linear" width="16" style="color:#5BC0EB"></iconify-icon>
+          <iconify-icon icon="solar:book-2-linear" width="24" style="color:#5BC0EB"></iconify-icon>
+          <iconify-icon icon="solar:book-2-linear" width="32" style="color:#5BC0EB"></iconify-icon>
+        </div>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">book-2-linear<br/>logo</span>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-5 flex flex-col items-center gap-3 min-w-[120px]">
+        <div class="flex items-end gap-3">
+          <iconify-icon icon="solar:arrow-right-linear" width="16" style="color:#5BC0EB"></iconify-icon>
+          <iconify-icon icon="solar:arrow-right-linear" width="24" style="color:#5BC0EB"></iconify-icon>
+          <iconify-icon icon="solar:arrow-right-linear" width="32" style="color:#5BC0EB"></iconify-icon>
+        </div>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">arrow-right-linear<br/>CTA / nav</span>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-5 flex flex-col items-center gap-3 min-w-[120px]">
+        <div class="flex items-end gap-3">
+          <iconify-icon icon="solar:hamburger-menu-linear" width="16" style="color:#2B2B2B"></iconify-icon>
+          <iconify-icon icon="solar:hamburger-menu-linear" width="24" style="color:#2B2B2B"></iconify-icon>
+          <iconify-icon icon="solar:hamburger-menu-linear" width="32" style="color:#2B2B2B"></iconify-icon>
+        </div>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">hamburger-menu-linear<br/>mobile nav</span>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-5 flex flex-col items-center gap-3 min-w-[120px]">
+        <div class="flex items-end gap-3">
+          <iconify-icon icon="solar:hat-graduation-linear" width="16" style="color:#5BC0EB"></iconify-icon>
+          <iconify-icon icon="solar:hat-graduation-linear" width="24" style="color:#5BC0EB"></iconify-icon>
+          <iconify-icon icon="solar:hat-graduation-linear" width="32" style="color:#5BC0EB"></iconify-icon>
+        </div>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">hat-graduation-linear<br/>Enroll CTA</span>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-5 flex flex-col items-center gap-3 min-w-[120px]">
+        <div class="flex items-end gap-3">
+          <iconify-icon icon="solar:book-bookmark-linear" width="16" style="color:#2B2B2B"></iconify-icon>
+          <iconify-icon icon="solar:book-bookmark-linear" width="24" style="color:#2B2B2B"></iconify-icon>
+          <iconify-icon icon="solar:book-bookmark-linear" width="32" style="color:#2B2B2B"></iconify-icon>
+        </div>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">book-bookmark-linear<br/>View Programs</span>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-5 flex flex-col items-center gap-3 min-w-[120px]">
+        <div class="flex items-end gap-3">
+          <iconify-icon icon="solar:heart-linear" width="16" style="color:#FF8FAB"></iconify-icon>
+          <iconify-icon icon="solar:heart-linear" width="24" style="color:#FF8FAB"></iconify-icon>
+          <iconify-icon icon="solar:heart-linear" width="32" style="color:#FF8FAB"></iconify-icon>
+        </div>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">heart-linear<br/>floating badge</span>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-5 flex flex-col items-center gap-3 min-w-[120px]">
+        <div class="flex items-end gap-3">
+          <iconify-icon icon="solar:plain-2-linear" width="16" style="color:#5BC0EB"></iconify-icon>
+          <iconify-icon icon="solar:plain-2-linear" width="24" style="color:#5BC0EB"></iconify-icon>
+          <iconify-icon icon="solar:plain-2-linear" width="32" style="color:#5BC0EB"></iconify-icon>
+        </div>
+        <span style="font-family:monospace;font-size:10px;color:#aaa">plain-2-linear<br/>newsletter send</span>
+      </div>
+    </div>
+
+    <!-- Feature icons (32px standard) -->
+    <div class="ds-component-label">Feature Section Icons — solar: 32px · stroke-width="1.5" · per-brand-color</div>
+    <div class="flex flex-wrap gap-4 mb-10">
+      <div class="bg-blue-100 rounded-2xl w-14 h-14 flex items-center justify-center text-[#5BC0EB]">
+        <iconify-icon icon="solar:smart-home-angle-linear" stroke-width="1.5" width="32"></iconify-icon>
+      </div>
+      <div class="bg-pink-100 rounded-2xl w-14 h-14 flex items-center justify-center text-[#FF8FAB]">
+        <iconify-icon icon="solar:palette-linear" stroke-width="1.5" width="32"></iconify-icon>
+      </div>
+      <div class="bg-yellow-100 rounded-2xl w-14 h-14 flex items-center justify-center text-[#FFD93D]">
+        <iconify-icon icon="solar:user-hand-up-linear" stroke-width="1.5" width="32"></iconify-icon>
+      </div>
+      <div class="bg-green-100 rounded-2xl w-14 h-14 flex items-center justify-center text-[#6EE7B7]">
+        <iconify-icon icon="solar:shield-check-linear" stroke-width="1.5" width="32"></iconify-icon>
+      </div>
+    </div>
+
+    <!-- Activity icons (40px in circles) -->
+    <div class="ds-component-label">Activity Icons — solar: 40px · in rounded-full circles · hover fill</div>
+    <div class="flex flex-wrap gap-4 mb-10">
+      <div class="w-20 h-20 rounded-full bg-blue-50 border-4 border-white shadow-md flex items-center justify-center text-[#5BC0EB]">
+        <iconify-icon icon="solar:music-note-slider-linear" stroke-width="1.5" width="40"></iconify-icon>
+      </div>
+      <div class="w-20 h-20 rounded-full bg-pink-50 border-4 border-white shadow-md flex items-center justify-center text-[#FF8FAB]">
+        <iconify-icon icon="solar:palette-linear" stroke-width="1.5" width="40"></iconify-icon>
+      </div>
+      <div class="w-20 h-20 rounded-full bg-yellow-50 border-4 border-white shadow-md flex items-center justify-center text-[#FFD93D]">
+        <iconify-icon icon="solar:running-linear" stroke-width="1.5" width="40"></iconify-icon>
+      </div>
+      <div class="w-20 h-20 rounded-full bg-green-50 border-4 border-white shadow-md flex items-center justify-center text-[#6EE7B7]">
+        <iconify-icon icon="solar:book-linear" stroke-width="1.5" width="40"></iconify-icon>
+      </div>
+      <div class="w-20 h-20 rounded-full bg-purple-50 border-4 border-white shadow-md flex items-center justify-center text-purple-400">
+        <iconify-icon icon="solar:masks-linear" stroke-width="1.5" width="40"></iconify-icon>
+      </div>
+    </div>
+
+    <!-- Contact icons -->
+    <div class="ds-component-label">Contact Icons — solar: text-lg · colored per brand</div>
+    <div class="flex flex-col gap-4 max-w-sm mb-10">
+      <div class="flex items-center gap-3">
+        <iconify-icon class="text-[#5BC0EB] text-lg" icon="solar:map-point-linear"></iconify-icon>
+        <span class="text-sm text-slate-500">123 Sunshine Street, Happy Valley, NY</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <iconify-icon class="text-[#FFD93D] text-lg" icon="solar:phone-calling-linear"></iconify-icon>
+        <span class="text-sm text-slate-500">+1 (555) 123-4567</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <iconify-icon class="text-[#FF8FAB] text-lg" icon="solar:letter-linear"></iconify-icon>
+        <span class="text-sm text-slate-500">hello@brightminds.edu</span>
+      </div>
+    </div>
+
+    <!-- Star icon -->
+    <div class="ds-component-label">Star Rating — solar:star-bold · text-[#FFD93D]</div>
+    <div class="flex gap-1 text-[#FFD93D] mb-10">
+      <iconify-icon icon="solar:star-bold" width="24"></iconify-icon>
+      <iconify-icon icon="solar:star-bold" width="24"></iconify-icon>
+      <iconify-icon icon="solar:star-bold" width="24"></iconify-icon>
+      <iconify-icon icon="solar:star-bold" width="24"></iconify-icon>
+      <iconify-icon icon="solar:star-bold" width="24"></iconify-icon>
+    </div>
+
+    <!-- Social brandico icons -->
+    <div class="ds-component-label">Social Icons — brandico: · 14px · in w-8 h-8 rounded-full</div>
+    <div class="flex gap-3">
+      <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#5BC0EB]">
+        <iconify-icon icon="brandico:facebook" width="18"></iconify-icon>
+      </div>
+      <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-[#FF8FAB]">
+        <iconify-icon icon="brandico:instagram" width="18"></iconify-icon>
+      </div>
+      <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#5BC0EB]">
+        <iconify-icon icon="brandico:twitter-bird" width="18"></iconify-icon>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER (exact clone)
+══════════════════════════════════════════ -->
+<footer class="bg-white pt-20 pb-10 border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+    <div class="col-span-1 md:col-span-1">
+      <a class="flex items-center gap-2 mb-6" href="#">
+        <div class="relative w-8 h-8 bg-[#FFD93D] rounded-lg flex items-center justify-center text-white">
+          <iconify-icon icon="solar:book-2-linear" width="18"></iconify-icon>
+        </div>
+        <span class="text-lg font-semibold tracking-tight text-slate-800">
+          <span class="text-[#5BC0EB]">Bright</span><span class="text-[#FF8FAB]">Minds</span>
+        </span>
+      </a>
+      <p class="text-slate-500 text-sm leading-relaxed mb-6">
+        A safe and joyful place where kids explore, learn, and grow together.
+      </p>
+      <div class="flex gap-4">
+        <a class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#5BC0EB] hover:bg-[#5BC0EB] hover:text-white transition-all" href="#">
+          <iconify-icon icon="brandico:facebook" width="14"></iconify-icon>
+        </a>
+        <a class="w-8 h-8 rounded-full bg-pink-100 flex items-center justify-center text-[#FF8FAB] hover:bg-[#FF8FAB] hover:text-white transition-all" href="#">
+          <iconify-icon icon="brandico:instagram" width="14"></iconify-icon>
+        </a>
+        <a class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#5BC0EB] hover:bg-[#5BC0EB] hover:text-white transition-all" href="#">
+          <iconify-icon icon="brandico:twitter-bird" width="14"></iconify-icon>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h5 class="font-bold text-slate-800 mb-6">Quick Links</h5>
+      <ul class="space-y-3 text-sm text-slate-500">
+        <li><a class="hover:text-[#5BC0EB] transition-colors" href="#">About Us</a></li>
+        <li><a class="hover:text-[#5BC0EB] transition-colors" href="#">Admissions</a></li>
+        <li><a class="hover:text-[#5BC0EB] transition-colors" href="#">Classes</a></li>
+        <li><a class="hover:text-[#5BC0EB] transition-colors" href="#">Teachers</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-bold text-slate-800 mb-6">Contact Us</h5>
+      <ul class="space-y-4 text-sm text-slate-500">
+        <li class="flex items-start gap-3">
+          <iconify-icon class="text-[#5BC0EB] text-lg mt-0.5" icon="solar:map-point-linear"></iconify-icon>
+          <span>123 Sunshine Street, Happy Valley, NY 10001</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <iconify-icon class="text-[#FFD93D] text-lg" icon="solar:phone-calling-linear"></iconify-icon>
+          <span>+1 (555) 123-4567</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <iconify-icon class="text-[#FF8FAB] text-lg" icon="solar:letter-linear"></iconify-icon>
+          <span>hello@brightminds.edu</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-bold text-slate-800 mb-6">Newsletter</h5>
+      <p class="text-slate-500 text-sm mb-4">Subscribe for updates and school news.</p>
+      <div class="flex items-center bg-slate-50 rounded-xl p-1 border border-slate-200">
+        <input class="bg-transparent px-4 py-2 w-full text-sm outline-none text-slate-700 placeholder:text-slate-400" placeholder="Email address" type="email"/>
+        <button class="bg-[#5BC0EB] text-white p-2 rounded-lg hover:bg-blue-400 transition-colors">
+          <iconify-icon icon="solar:plain-2-linear" width="20"></iconify-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-slate-100 pt-8 text-center text-xs text-slate-400 font-medium px-6">
+    © 2024 BrightMinds Design System. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>

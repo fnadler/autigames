@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Dr. Daniel T. Spritzer",
+    "role": "Médico Psiquiatra e Sócio",
+    "bio": "Psiquiatra infantil com especialização em Transtorno do Espectro Autista e neuropsiquiatria do desenvolvimento. Lidera a validação clínica dos jogos Autigames.",
+    "image": "/images/equipe/daniel-spritzer.jpeg"
+  },
+  {
+    "name": "Dra. Laura M. Moreira",
+    "role": "Médica Psiquiatra e Sócia",
+    "bio": "Especialista em psiquiatria da infância e adolescência, com foco em abordagens baseadas em evidências para o tratamento do autismo.",
+    "image": "/images/equipe/laura-moreira.jpg"
+  },
+  {
+    "name": "Dra. Mariana V. Teles",
+    "role": "Biomédica e Sócia",
+    "bio": "Biomédica com atuação em neurociência aplicada. Responsável pela ponte entre a pesquisa científica e o design das mecânicas terapêuticas dos jogos.",
+    "image": "/images/equipe/mariana-teles.jpeg"
+  },
+  {
+    "name": "Dra. Paola Rocco",
+    "role": "Psicóloga e Sócia",
+    "bio": "Psicóloga clínica especializada em crianças com TEA, com experiência em psicologia do desenvolvimento e intervenções comportamentais baseadas em evidências.",
+    "image": "/images/equipe/paola-rocco.jpg"
+  }
+]

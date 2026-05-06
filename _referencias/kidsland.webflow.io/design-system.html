@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="w-mod-js w-mod-ix wf-poppins-n4-active wf-poppins-n3-active wf-poppins-n5-active wf-poppins-n6-active wf-poppins-n7-active wf-nunito-n4-active wf-nunito-n5-active wf-nunito-n3-active wf-nunito-n6-active wf-nunito-n7-active wf-active" data-wf-domain="kidsland.webflow.io" data-wf-page="65d19ab1f6c81fb0a3567296" data-wf-site="65d1995bebc2cbfa914e45d5" data-wf-status="1" lang="en" style="scroll-behavior: auto;">
+<head>
+    <meta charset="utf-8"/>
+    <title>Kidsland - Design System</title>
+    <meta content="Kidsland - Design System Showcase" property="og:title"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="assets/kidsland_55f943ab310b.css" rel="stylesheet" type="text/css"/>
+    <script src="assets/webfont_3a3adf980c7d.js" type="text/javascript"></script>
+    <link href="assets/css_25beca87bdf0.css" media="all" rel="stylesheet"/>
+    <script type="text/javascript">
+    /* WebFont.load disabled for offline mode */
+    window.WebFont = {
+      load: function(options) {
+        if (options.active) options.active();
+      }
+    };
+    </script>
+    <style>
+        /* Design System Nav */
+        .ds-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .ds-nav a {
+            text-decoration: none;
+            color: #223668;
+            font-weight: bold;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .ds-nav a:hover {
+            color: #fe5c45;
+        }
+        .ds-section {
+            padding: 100px 5% 60px;
+            border-bottom: 1px solid #eee;
+        }
+        .ds-section-title {
+            margin-bottom: 40px;
+            color: #223668;
+            border-left: 5px solid #fe5c45;
+            padding-left: 15px;
+        }
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .spec-table tr {
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .spec-table td {
+            padding: 20px 0;
+            vertical-align: middle;
+        }
+        .spec-label {
+            font-family: monospace;
+            color: #888;
+            font-size: 12px;
+            text-align: right;
+        }
+        .swatch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .swatch-card {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .swatch-color {
+            height: 120px;
+        }
+        .swatch-info {
+            padding: 15px;
+            background: #fff;
+        }
+        .swatch-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .swatch-hex {
+            font-family: monospace;
+            font-size: 12px;
+            color: #666;
+        }
+        .component-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 15px;
+        }
+        .component-label {
+            width: 100%;
+            font-size: 12px;
+            font-weight: bold;
+            color: #999;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        /* Scroll fixes */
+        html, body {
+            overflow: auto !important;
+            height: auto !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        [data-w-id] {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="ds-nav">
+        <a href="#hero">Hero</a>
+        <a href="#typography">Typography</a>
+        <a href="#colors">Colors</a>
+        <a href="#components">Components</a>
+        <a href="#layout">Layout</a>
+        <a href="#motion">Motion</a>
+    </nav>
+
+    <div id="hero">
+        <!-- EXACT CLONE OF HERO -->
+        <div class="home-header">
+            <div class="padding-bottom padding-small"></div>
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="header-component">
+                        <div class="header-content-wrapper">
+                            <div class="header-left-content-wrapper">
+                                <h5 class="heading-style-h5 in-home-1">Kidsland Design System</h5>
+                                <div class="padding-bottom padding-xxsmall"></div>
+                                <h1 class="heading-style-h1">Living Pattern Library</h1>
+                                <div class="padding-bottom padding-xxsmall"></div>
+                                <p class="text-size-medium">This document showcases the exact visual language, typography, and components of the Kidsland project. It is built using the original CSS and assets to ensure perfect parity.</p>
+                                <div class="padding-bottom padding-small"></div>
+                                <a class="button w-button" href="#typography">Explore Styles</a>
+                            </div>
+                            <div class="header-right-content">
+                                <div class="header-image-wrapper">
+                                    <img alt="" class="hero-main-image" loading="lazy" src="assets/65d43265c66159bcd2aaddc7_01_7b4780f8b3e0.svg" width="494"/>
+                                    <img alt="" class="header-image _01" loading="lazy" src="assets/65d42f06829d749752415ffd_Hero__a0af74789790.svg"/>
+                                    <img alt="" class="header-image _02" loading="lazy" src="assets/65d42f06829d749752416002_Hero__392a16e3c7b3.svg"/>
+                                    <img alt="" class="header-image _03" loading="lazy" src="assets/65d42f061abca6bbbd7cd77b_Hero__fd1f21fb1860.svg"/>
+                                    <img alt="" class="header-image _04" loading="lazy" src="assets/65d42f063e182d08ae6566e4_Hero__f321a9fcc6fe.svg"/>
+                                    <img alt="" class="header-image _05" loading="lazy" src="assets/65d430a9a78b395bbf75d047_Hero__44d3a1c7aaa6.svg"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-tricker-content-wrapper">
+                <img alt="" class="tricker-image _01" loading="lazy" src="assets/65d2c66401dd4f836aea8f5b_Home__f148a91a2aba.png"/>
+                <img alt="" class="tricker-image _02" loading="lazy" src="assets/65d2c66409a73841873e85a6_Home__acd4bf26fc79.png"/>
+                <div class="header-inner-image-wrapper"><img alt="" class="tricker-bg" loading="lazy" src="assets/65d2c67086ea9062ba447aa4_Vecto_6cbd23057917.png"/></div>
+                <div class="header-inner-image-wrapper"><img alt="" class="tricker-bg" loading="lazy" src="assets/660a3a3375d51e3272d11313_illus_ecc35ffd50e7.svg"/></div>
+                <div class="header-inner-image-wrapper"><img alt="" class="tricker-bg" loading="lazy" src="assets/65d2c67086ea9062ba447aa4_Vecto_6cbd23057917.png"/></div>
+            </div>
+        </div>
+    </div>
+
+    <section id="typography" class="ds-section">
+        <h2 class="ds-section-title">01 Typography</h2>
+        <table class="spec-table">
+            <tr>
+                <td><h1 class="heading-style-h1">Heading 1</h1></td>
+                <td class="spec-label">Heading 1 / 38px / 44px</td>
+            </tr>
+            <tr>
+                <td><h2 class="heading-style-h2">Heading 2</h2></td>
+                <td class="spec-label">Heading 2 / 32px / 36px</td>
+            </tr>
+            <tr>
+                <td><h3 class="heading-style-h3">Heading 3</h3></td>
+                <td class="spec-label">Heading 3 / 24px / 30px</td>
+            </tr>
+            <tr>
+                <td><h4 class="heading-style-h4">Heading 4</h4></td>
+                <td class="spec-label">Heading 4 / 18px / 24px</td>
+            </tr>
+            <tr>
+                <td><h5 class="heading-style-h5">Heading 5</h5></td>
+                <td class="spec-label">Heading 5 / 14px / 20px</td>
+            </tr>
+            <tr>
+                <td><div class="text-saize-bold">Bold Text</div></td>
+                <td class="spec-label">Bold / 1.125rem</td>
+            </tr>
+            <tr>
+                <td><p class="text-size-medium">Paragraph Medium - Consectetur adipiscing elit. Risus quam tellus in tempus sit eu. Auctor eu in maecenas blandit hac diam amet.</p></td>
+                <td class="spec-label">Text Medium / 1.25rem</td>
+            </tr>
+            <tr>
+                <td><p class="text-size-regular">Paragraph Regular - Dolor sit amet, consectetur adipiscing elit. Nibh ullamcorper felis arcu elementum.</p></td>
+                <td class="spec-label">Text Regular / 1.125rem</td>
+            </tr>
+            <tr>
+                <td><p class="text-size-small">Paragraph Small - Ultrices mauris vitae cum bibendum. Dolor sit amet, consectetur adipiscing elit.</p></td>
+                <td class="spec-label">Text Small / 1rem</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="colors" class="ds-section">
+        <h2 class="ds-section-title">02 Colors & Surfaces</h2>
+        <div class="swatch-grid">
+            <div class="swatch-card">
+                <div class="swatch-color" style="background: #223668;"></div>
+                <div class="swatch-info">
+                    <div class="swatch-name">Primary Navy</div>
+                    <div class="swatch-hex">#223668</div>
+                </div>
+            </div>
+            <div class="swatch-card">
+                <div class="swatch-color" style="background: #fe5c45;"></div>
+                <div class="swatch-info">
+                    <div class="swatch-name">Accent Pink</div>
+                    <div class="swatch-hex">#fe5c45</div>
+                </div>
+            </div>
+            <div class="swatch-card">
+                <div class="swatch-color" style="background: #ffcc4d;"></div>
+                <div class="swatch-info">
+                    <div class="swatch-name">Accent Yellow</div>
+                    <div class="swatch-hex">#FFCC4D</div>
+                </div>
+            </div>
+            <div class="swatch-card">
+                <div class="swatch-color" style="background: #a4d23d;"></div>
+                <div class="swatch-info">
+                    <div class="swatch-name">Accent Green</div>
+                    <div class="swatch-hex">#A4D23D</div>
+                </div>
+            </div>
+            <div class="swatch-card">
+                <div class="swatch-color" style="background: #f4f7fa;"></div>
+                <div class="swatch-info">
+                    <div class="swatch-name">Background Light</div>
+                    <div class="swatch-hex">#F4F7FA</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="components" class="ds-section">
+        <h2 class="ds-section-title">03 UI Components</h2>
+        
+        <div class="component-label">Buttons</div>
+        <div class="component-preview">
+            <a href="#" class="button w-button">Primary Button</a>
+            <a href="#" class="button _01 w-button">Yellow Button</a>
+            <a href="#" class="button _03 w-button">Green Button</a>
+        </div>
+
+        <div class="padding-bottom padding-large"></div>
+
+        <div class="component-label">Service Card</div>
+        <div class="component-preview" style="background: white;">
+            <div class="services-item" style="background-image:url('assets/65fa6368751459f6af88161c_bg1_1e565e382d54.png'); width: 300px;">
+                <div class="services-content-wrapper">
+                    <img alt="" class="services-image" loading="lazy" src="assets/65fbb80c52fd7a3bbd3b7be4_Thumb_b4d9854ae9b0.svg"/>
+                    <div class="padding-bottom padding-xxsmall"></div>
+                    <div class="services-details">
+                        <h5 class="heading-style-h5">Card Title</h5>
+                        <p class="text-size-regular">Card description goes here. It uses the standard typography and spacing of the system.</p>
+                    </div>
+                </div>
+                <div class="padding-bottom padding-small"></div>
+                <a class="services-bottom-content w-inline-block" href="#">
+                    <div>Read More</div>
+                    <img alt="" class="services-icon" loading="lazy" src="assets/66151cf3eb827d1e7e372164_arrow_268d85808e7b.svg"/>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="layout" class="ds-section">
+        <h2 class="ds-section-title">04 Layout & Spacing</h2>
+        <div class="component-label">3-Column Grid (Services)</div>
+        <div class="services-area-collection-list" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px;">
+            <div style="height: 100px; background: #eee; border-radius: 10px; display: flex; align-items: center; justify-content: center;">Col 1</div>
+            <div style="height: 100px; background: #eee; border-radius: 10px; display: flex; align-items: center; justify-content: center;">Col 2</div>
+            <div style="height: 100px; background: #eee; border-radius: 10px; display: flex; align-items: center; justify-content: center;">Col 3</div>
+        </div>
+
+        <div class="padding-bottom padding-large"></div>
+
+        <div class="component-label">Split Layout (About)</div>
+        <div class="w-layout-grid about-grid" style="background: #f9f9f9; padding: 20px;">
+            <div style="background: #ddd; height: 200px; border-radius: 10px;"></div>
+            <div style="padding: 20px;">
+                <h2 class="heading-style-h2">Left/Right Content</h2>
+                <p class="text-size-regular">Standard 50/50 split used for information sections throughout the site.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="motion" class="ds-section">
+        <h2 class="ds-section-title">05 Motion & Interaction</h2>
+        <div class="component-label">Hover Transitions</div>
+        <div class="component-preview">
+            <div class="button w-button" style="transition: all 0.3s ease;">Smooth Scale (Hover me)</div>
+            <div class="services-item" style="width: 200px; cursor: pointer; transition: transform 0.3s ease;">
+                <div style="padding: 20px; text-align: center;">Lift Effect</div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/jquery-3_83f81df37f98.js" type="text/javascript"></script>
+    <script src="assets/webflow_b2652c1e6c27.js" type="text/javascript"></script>
+</body>
+</html>

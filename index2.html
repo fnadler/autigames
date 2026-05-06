@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Autigames — Jogos que não viciam. Jogos que ajudam.</title>
+<meta name="description" content="Plataforma brasileira de jogos digitais terapêuticos para crianças com Transtorno do Espectro Autista. Base científica, coração humano."/>
+
+<!-- Iconify -->
+<script src="referencias/kids-school-landing-43.aura.build/assets/iconify-icon_e19829e7f0e8.js"></script>
+<!-- Google Fonts: Quicksand + Open Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   AUTIGAMES — CONCEPT PAGE v2
+   Design System: referencias/design-system.html
+   Conteúdo: site/app/page.tsx
+═══════════════════════════════════════════════════════ */
+
+:root {
+  --font-heading: 'Quicksand', sans-serif;
+  --font-body:    'Open Sans', sans-serif;
+  --font-mono:    'Courier New', monospace;
+
+  /* Paleta do Espectro Autista */
+  --autism-blue:   #0099CC;
+  --autism-yellow: #FFD700;
+  --autism-red:    #E53935;
+  --autism-green:  #3DAA6B;
+  --autism-lilac:  #8B5CF6;
+  --autism-gold:   #C9950C;
+
+  /* Variantes */
+  --autism-blue-10:   rgba(0,153,204,.10);
+  --autism-blue-20:   rgba(0,153,204,.20);
+  --autism-blue-40:   rgba(0,153,204,.40);
+  --autism-lilac-10:  rgba(139,92,246,.10);
+  --autism-lilac-20:  rgba(139,92,246,.20);
+  --autism-yellow-10: rgba(255,215,0,.10);
+  --autism-yellow-20: rgba(255,215,0,.20);
+  --autism-green-10:  rgba(61,170,107,.10);
+  --autism-green-20:  rgba(61,170,107,.20);
+  --autism-red-10:    rgba(229,57,53,.10);
+  --autism-red-20:    rgba(229,57,53,.20);
+
+  /* Neutros */
+  --color-dark:     #1A2233;
+  --color-darker:   #0D1422;
+  --color-gray-700: #334155;
+  --color-gray-500: #64748b;
+  --color-gray-300: #cbd5e1;
+  --color-gray-100: #f1f5f9;
+  --color-white:    #ffffff;
+  --color-body:     #F8FAFC;
+
+  /* Gradientes */
+  --gradient-hero:       linear-gradient(135deg, #0D1B2A 0%, #1B0A3A 50%, #0A2240 100%);
+  --gradient-rainbow:    linear-gradient(90deg,#0099CC,#8B5CF6,#E53935,#3DAA6B,#FFD700,#C9950C);
+  --gradient-blue-lilac: linear-gradient(135deg,#0099CC,#8B5CF6);
+  --gradient-warm:       linear-gradient(135deg,#E53935,#C9950C);
+  --gradient-nature:     linear-gradient(135deg,#3DAA6B,#0099CC);
+  --gradient-section:    linear-gradient(180deg,#EEF5FF 0%,#F3EDFF 100%);
+
+  /* Sombras */
+  --shadow-sm:  0 2px 8px rgba(0,0,0,.08);
+  --shadow-md:  0 8px 24px rgba(0,0,0,.12);
+  --shadow-lg:  0 20px 60px rgba(0,0,0,.16);
+  --shadow-glow-blue:  0 0 40px rgba(0,153,204,.45);
+  --shadow-glow-gold:  0 0 40px rgba(201,149,12,.45);
+
+  /* Raios */
+  --r-sm:   8px;
+  --r-md:   16px;
+  --r-lg:   24px;
+  --r-xl:   32px;
+  --r-full: 9999px;
+}
+
+/* ── Reset ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--color-dark);background:var(--color-white);overflow-x:hidden;line-height:1.6}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);line-height:1.15}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{cursor:pointer;border:none;font-family:var(--font-heading)}
+
+/* ── Keyframes ── */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes float-slow{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-24px) rotate(6deg)}}
+@keyframes float-d{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes orb-drift{0%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.15)}66%{transform:translate(-25px,40px) scale(.9)}100%{transform:translate(0,0) scale(1)}}
+@keyframes orb-drift-2{0%{transform:translate(0,0) scale(1)}33%{transform:translate(-50px,20px) scale(1.2)}66%{transform:translate(30px,-40px) scale(.85)}100%{transform:translate(0,0) scale(1)}}
+@keyframes rainbow-shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(0,153,204,.3)}50%{box-shadow:0 0 60px rgba(0,153,204,.8),0 0 100px rgba(139,92,246,.3)}}
+@keyframes pulse-gold{0%,100%{box-shadow:0 0 15px rgba(201,149,12,.3)}50%{box-shadow:0 0 50px rgba(201,149,12,.8)}}
+@keyframes slide-up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes bounce-in{0%{opacity:0;transform:scale(.4) rotate(-10deg)}60%{transform:scale(1.1) rotate(3deg)}80%{transform:scale(.96) rotate(-1deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes counter-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .6s ease,transform .6s ease}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.reveal.delay-1{transition-delay:.1s}
+.reveal.delay-2{transition-delay:.2s}
+.reveal.delay-3{transition-delay:.3s}
+.reveal.delay-4{transition-delay:.4s}
+
+/* ════════════════════════════════════════
+   HEADER
+════════════════════════════════════════ */
+#site-header{
+  position:sticky;top:0;z-index:9000;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--color-gray-100);
+  transition:box-shadow .3s;
+}
+#site-header.scrolled{box-shadow:var(--shadow-sm)}
+.header-inner{
+  max-width:1280px;margin:0 auto;padding:0 28px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:70px;
+}
+.header-logo img{height:44px;width:auto}
+.header-nav{display:flex;align-items:center;gap:4px}
+.header-nav a{
+  font-family:var(--font-body);font-size:13px;font-weight:600;
+  color:var(--color-gray-500);padding:7px 14px;border-radius:var(--r-full);
+  transition:color .2s,background .2s;white-space:nowrap;
+}
+.header-nav a:hover{color:var(--color-dark);background:var(--color-gray-100)}
+.header-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gradient-blue-lilac);color:#fff;
+  font-family:var(--font-heading);font-size:13px;font-weight:700;
+  padding:10px 22px;border-radius:var(--r-full);
+  transition:transform .25s,box-shadow .3s;
+  box-shadow:0 4px 16px rgba(0,153,204,.35);
+}
+.header-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,153,204,.5)}
+
+/* ════════════════════════════════════════
+   HERO
+════════════════════════════════════════ */
+#hero{
+  min-height:100vh;background:var(--gradient-hero);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  padding:100px 28px 80px;
+}
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:64px 64px;
+}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+.hero-orb._1{width:600px;height:600px;background:radial-gradient(circle,rgba(0,153,204,.38) 0%,transparent 70%);top:-200px;left:-100px;animation:orb-drift 14s ease-in-out infinite}
+.hero-orb._2{width:520px;height:520px;background:radial-gradient(circle,rgba(139,92,246,.42) 0%,transparent 70%);bottom:-80px;right:-80px;animation:orb-drift-2 17s ease-in-out infinite}
+.hero-orb._3{width:320px;height:320px;background:radial-gradient(circle,rgba(201,149,12,.28) 0%,transparent 70%);top:40%;left:50%;animation:orb-drift 11s ease-in-out infinite;animation-delay:2s}
+.hero-orb._4{width:240px;height:240px;background:radial-gradient(circle,rgba(61,170,107,.2) 0%,transparent 70%);top:18%;right:18%;animation:orb-drift-2 19s ease-in-out infinite;animation-delay:5s}
+
+.hero-puzzle{position:absolute;pointer-events:none;opacity:.6}
+.hero-puzzle._a{width:100px;top:12%;left:4%;animation:float-slow 10s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(0,153,204,.55))}
+.hero-puzzle._b{width:70px;bottom:22%;left:6%;animation:float-slow 8s ease-in-out infinite;animation-delay:2s;filter:drop-shadow(0 0 14px rgba(139,92,246,.55));opacity:.4}
+.hero-puzzle._c{width:85px;top:10%;right:5%;animation:float-slow 12s ease-in-out infinite;animation-delay:4s;filter:drop-shadow(0 0 16px rgba(61,170,107,.55))}
+.hero-puzzle._d{width:60px;bottom:18%;right:8%;animation:float-slow 9s ease-in-out infinite;animation-delay:1s;filter:drop-shadow(0 0 12px rgba(201,149,12,.55));opacity:.45}
+
+.hero-inner{
+  max-width:1280px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  position:relative;z-index:2;
+}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);
+  backdrop-filter:blur(10px);border-radius:var(--r-full);
+  padding:7px 18px;font-family:var(--font-body);font-size:12px;font-weight:700;
+  color:rgba(255,255,255,.75);letter-spacing:.5px;margin-bottom:24px;
+  display:table;animation:fade-in .8s ease both
+}
+.hero-badge .dot{
+  display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--autism-green);
+  box-shadow:0 0 10px rgba(61,170,107,.9);animation:pulse-glow 2s ease-in-out infinite;
+  vertical-align:middle;margin-right:8px;
+}
+.hero-h1{
+  font-family:var(--font-heading);font-size:clamp(36px,4.5vw,68px);font-weight:700;
+  color:#fff;line-height:1.08;letter-spacing:-1.5px;margin-bottom:22px;
+  animation:slide-up .8s ease .2s both
+}
+.hero-h1 .rainbow{
+  background:var(--gradient-rainbow);background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:rainbow-shift 4s linear infinite
+}
+.hero-desc{
+  font-family:var(--font-body);font-size:17px;color:rgba(255,255,255,.65);
+  line-height:1.7;margin-bottom:36px;max-width:500px;
+  animation:slide-up .8s ease .35s both
+}
+.hero-apps{
+  display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;
+  animation:slide-up .8s ease .5s both
+}
+.btn-app{
+  display:inline-flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.10);border:1.5px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(8px);color:#fff;border-radius:var(--r-md);
+  padding:12px 22px;transition:all .3s;white-space:nowrap;
+}
+.btn-app:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6);transform:translateY(-2px)}
+.btn-app .app-sub{font-family:var(--font-body);font-size:10px;opacity:.7;display:block}
+.btn-app .app-name{font-family:var(--font-heading);font-size:14px;font-weight:700;display:block;margin-top:1px}
+.hero-link{
+  display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;
+  color:rgba(255,255,255,.5);transition:color .2s;
+  animation:slide-up .8s ease .65s both
+}
+.hero-link:hover{color:var(--autism-yellow)}
+
+/* Hero visual — game mockup */
+.hero-visual{
+  display:flex;justify-content:center;align-items:center;
+  animation:slide-up .8s ease .4s both
+}
+.hero-mockup{
+  background:linear-gradient(160deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,.03) 100%);
+  border:1.5px solid rgba(255,255,255,.12);
+  border-radius:32px;padding:32px;width:100%;max-width:420px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 40px 80px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.1);
+}
+.mockup-char{
+  width:100%;height:240px;object-fit:contain;
+  filter:drop-shadow(0 20px 40px rgba(0,0,0,.5));
+  animation:float 7s ease-in-out infinite;
+  display:block;margin:0 auto 20px;
+}
+.mockup-title{
+  font-family:var(--font-heading);font-size:18px;font-weight:700;color:#fff;
+  text-align:center;margin-bottom:4px;
+}
+.mockup-sub{
+  font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.45);
+  text-align:center;margin-bottom:20px;
+}
+.mockup-emotions{
+  display:flex;gap:10px;justify-content:center;margin-bottom:16px;
+}
+.mockup-emo{
+  width:56px;height:56px;border-radius:16px;
+  background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;font-size:24px;
+  transition:all .2s;cursor:default;
+}
+.mockup-emo.active{
+  background:var(--autism-blue);border-color:var(--autism-blue);
+  transform:scale(1.12);box-shadow:0 8px 24px rgba(0,153,204,.5);
+}
+.mockup-confirm{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r-md);padding:12px 16px;
+  display:flex;align-items:center;gap:10px;
+}
+.mockup-confirm iconify-icon{color:var(--autism-green);flex-shrink:0}
+.mockup-confirm span{font-family:var(--font-body);font-size:13px;font-weight:600;color:#fff}
+
+/* ════════════════════════════════════════
+   STATS RIBBON
+════════════════════════════════════════ */
+#stats{
+  background:var(--gradient-rainbow);background-size:200% auto;
+  animation:rainbow-shift 8s linear infinite;
+  padding:48px 28px;
+}
+.stats-inner{
+  max-width:960px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+}
+.stat-item{
+  text-align:center;padding:20px 16px;
+  border-right:1px solid rgba(255,255,255,.2);
+}
+.stat-item:last-child{border-right:none}
+.stat-num{
+  font-family:var(--font-heading);font-size:clamp(26px,3vw,42px);font-weight:700;
+  color:#fff;display:block;letter-spacing:-1px;
+  text-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+.stat-lbl{
+  font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.8);
+  text-transform:uppercase;letter-spacing:1px;margin-top:4px;display:block;
+}
+
+/* ════════════════════════════════════════
+   SEÇÃO BASE
+════════════════════════════════════════ */
+.section{padding:96px 28px}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:64px}
+.section-eyebrow{
+  display:inline-block;
+  font-family:var(--font-body);font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--autism-blue);
+  margin-bottom:12px;
+}
+.section-title{
+  font-family:var(--font-heading);font-size:clamp(28px,3.5vw,44px);font-weight:700;
+  color:var(--color-dark);letter-spacing:-.5px;margin-bottom:14px;
+}
+.section-desc{
+  font-family:var(--font-body);font-size:16px;color:var(--color-gray-500);
+  max-width:600px;margin:0 auto;line-height:1.7;
+}
+.ds-divider{height:1px;background:var(--color-gray-100);margin:56px 0}
+
+/* ════════════════════════════════════════
+   BOTÕES
+════════════════════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-heading);font-size:14px;font-weight:700;
+  padding:12px 26px;border-radius:var(--r-full);
+  transition:transform .25s cubic-bezier(.2,0,0,1),box-shadow .3s,filter .2s;
+  border:none;cursor:pointer;
+}
+.btn:hover{transform:translateY(-3px) scale(1.03)}
+.btn-blue  {background:var(--autism-blue);  color:#fff;box-shadow:0 4px 14px rgba(0,153,204,.4)}
+.btn-lilac {background:var(--autism-lilac); color:#fff;box-shadow:0 4px 14px rgba(139,92,246,.4)}
+.btn-yellow{background:var(--autism-yellow);color:var(--color-dark);box-shadow:0 4px 14px rgba(255,215,0,.4)}
+.btn-green {background:var(--autism-green); color:#fff;box-shadow:0 4px 14px rgba(61,170,107,.35)}
+.btn-red   {background:var(--autism-red);   color:#fff;box-shadow:0 4px 14px rgba(229,57,53,.35)}
+.btn:hover{filter:brightness(1.08)}
+.btn-outline{
+  background:transparent;border:2px solid currentColor;
+  padding:10px 24px;
+}
+.btn-outline.btn-blue-out{color:var(--autism-blue);border-color:var(--autism-blue)}
+.btn-outline.btn-blue-out:hover{background:var(--autism-blue);color:#fff}
+
+/* Botão rainbow */
+.btn-rainbow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-heading);font-size:14px;font-weight:700;
+  padding:13px 28px;border-radius:var(--r-full);border:none;color:#fff;
+  background:var(--gradient-rainbow);background-size:200% auto;
+  animation:rainbow-shift 3s linear infinite;
+  box-shadow:0 4px 20px rgba(0,153,204,.4);cursor:pointer;
+  transition:transform .25s,box-shadow .3s;
+}
+.btn-rainbow:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 10px 35px rgba(0,153,204,.6)}
+
+/* Badge */
+.badge{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:3px 11px;border-radius:var(--r-full);
+  font-family:var(--font-body);font-size:11px;font-weight:700
+}
+.badge-green {background:var(--autism-green-20);color:var(--autism-green)}
+.badge-yellow{background:var(--autism-yellow-20);color:#7a6400}
+.badge-lilac {background:var(--autism-lilac-10);color:var(--autism-lilac)}
+.badge-blue  {background:var(--autism-blue-10);color:var(--autism-blue)}
+
+/* ════════════════════════════════════════
+   CARD BASE
+════════════════════════════════════════ */
+.card{
+  background:#fff;border-radius:var(--r-xl);
+  box-shadow:var(--shadow-sm);border:2px solid transparent;
+  transition:transform .3s cubic-bezier(.2,0,0,1),box-shadow .3s,border-color .3s;
+}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.icon-box{
+  width:52px;height:52px;border-radius:var(--r-md);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+
+/* ════════════════════════════════════════
+   SECTION: PARA QUEM É
+════════════════════════════════════════ */
+#audiences{background:#fff}
+.audiences-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.audience-card{
+  padding:36px 30px 30px;display:flex;flex-direction:column;
+}
+.audience-card.c-orange:hover{border-color:#E53935;box-shadow:0 20px 50px rgba(229,57,53,.1)}
+.audience-card.c-blue:hover  {border-color:var(--autism-blue);box-shadow:0 20px 50px rgba(0,153,204,.1)}
+.audience-card.c-green:hover {border-color:var(--autism-green);box-shadow:0 20px 50px rgba(61,170,107,.1)}
+.audience-card .card-icon{margin-bottom:22px}
+.audience-card.c-orange .card-icon{background:rgba(229,57,53,.1);color:#E53935}
+.audience-card.c-blue   .card-icon{background:var(--autism-blue-10);color:var(--autism-blue)}
+.audience-card.c-green  .card-icon{background:var(--autism-green-10);color:var(--autism-green)}
+.aud-title{font-family:var(--font-heading);font-size:20px;font-weight:700;color:var(--color-dark);margin-bottom:12px}
+.aud-desc{font-family:var(--font-body);font-size:14px;color:var(--color-gray-500);line-height:1.7;flex:1;margin-bottom:24px}
+.btn-aud{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 20px;border-radius:var(--r-full);
+  font-family:var(--font-heading);font-size:14px;font-weight:700;color:#fff;
+  border:none;cursor:pointer;transition:all .25s;
+}
+.btn-aud:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.audience-card.c-orange .btn-aud{background:#E53935;box-shadow:0 4px 14px rgba(229,57,53,.35)}
+.audience-card.c-blue   .btn-aud{background:var(--autism-blue);box-shadow:0 4px 14px rgba(0,153,204,.35)}
+.audience-card.c-green  .btn-aud{background:var(--autism-green);box-shadow:0 4px 14px rgba(61,170,107,.3)}
+
+/* ════════════════════════════════════════
+   SECTION: COMO FUNCIONA (SKILLS)
+════════════════════════════════════════ */
+#skills{background:var(--gradient-section)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill-card{
+  background:#fff;border-radius:var(--r-xl);padding:28px 24px;
+  border:1px solid var(--color-gray-100);
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.skill-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--autism-blue)}
+.skill-title{font-family:var(--font-heading);font-size:16px;font-weight:700;color:var(--color-dark);margin:14px 0 8px}
+.skill-desc{font-family:var(--font-body);font-size:13px;color:var(--color-gray-500);line-height:1.65}
+
+/* ════════════════════════════════════════
+   SECTION: JOGOS
+════════════════════════════════════════ */
+#games{background:#fff}
+.games-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:40px}
+.game-card{
+  background:#fff;border-radius:var(--r-xl);overflow:hidden;
+  border:1px solid var(--color-gray-100);
+  transition:transform .3s,box-shadow .3s;
+  display:flex;flex-direction:column;
+}
+.game-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.game-thumb{
+  width:100%;height:160px;object-fit:cover;display:block;
+  background:linear-gradient(135deg,var(--autism-blue-10),var(--autism-lilac-10));
+}
+.game-thumb-placeholder{
+  width:100%;height:160px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:56px;
+}
+.game-body{padding:20px}
+.game-title{font-family:var(--font-heading);font-size:16px;font-weight:700;color:var(--color-dark);margin:10px 0 8px}
+.game-desc{font-family:var(--font-body);font-size:13px;color:var(--color-gray-500);line-height:1.6;margin-bottom:14px}
+.game-age{
+  font-family:var(--font-body);font-size:11px;font-weight:700;color:var(--autism-blue);
+  background:var(--autism-blue-10);padding:3px 10px;border-radius:var(--r-full);
+  display:inline-block;
+}
+.games-cta-wrap{text-align:center;margin-top:8px}
+
+/* ════════════════════════════════════════
+   SECTION: DIFERENCIAIS
+════════════════════════════════════════ */
+#differentials{background:var(--color-body)}
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.diff-item{
+  display:flex;gap:16px;padding:22px 20px;
+  border-radius:var(--r-lg);transition:background .25s;
+}
+.diff-item:hover{background:#fff;box-shadow:var(--shadow-sm)}
+.diff-icon{
+  width:46px;height:46px;min-width:46px;border-radius:var(--r-md);
+  background:var(--autism-blue-10);color:var(--autism-blue);
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.diff-title{font-family:var(--font-heading);font-size:15px;font-weight:700;color:var(--color-dark);margin-bottom:5px}
+.diff-desc{font-family:var(--font-body);font-size:13px;color:var(--color-gray-500);line-height:1.6}
+
+/* ════════════════════════════════════════
+   SECTION: EQUIPE
+════════════════════════════════════════ */
+#team{background:#fff}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.team-card{
+  background:#fff;border-radius:var(--r-xl);padding:28px 20px 24px;
+  text-align:center;border:1px solid var(--color-gray-100);
+  transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.team-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--autism-lilac)}
+.team-avatar{
+  width:88px;height:88px;border-radius:50%;margin:0 auto 16px;
+  overflow:hidden;object-fit:cover;object-position:top center;
+  border:3px solid var(--color-gray-100);
+  background:linear-gradient(135deg,var(--autism-lilac-10),var(--autism-blue-10));
+  display:flex;align-items:center;justify-content:center;font-size:36px;
+}
+.team-avatar img{width:100%;height:100%;object-fit:cover}
+.team-name{font-family:var(--font-heading);font-size:16px;font-weight:700;color:var(--color-dark);margin-bottom:5px}
+.team-role{font-family:var(--font-body);font-size:12px;color:var(--autism-lilac);font-weight:600}
+.team-cta-wrap{text-align:center;margin-top:36px}
+
+/* ════════════════════════════════════════
+   CTA FINAL
+════════════════════════════════════════ */
+#cta{
+  background:var(--gradient-hero);position:relative;overflow:hidden;
+  padding:100px 28px;text-align:center;
+}
+#cta .hero-grid{opacity:.5}
+#cta .hero-orb._1{opacity:.5}
+#cta .hero-orb._2{opacity:.5}
+.cta-inner{position:relative;z-index:2;max-width:700px;margin:0 auto}
+.cta-title{
+  font-family:var(--font-heading);font-size:clamp(28px,4vw,52px);font-weight:700;
+  color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:18px;
+}
+.cta-desc{
+  font-family:var(--font-body);font-size:17px;color:rgba(255,255,255,.7);
+  line-height:1.7;margin-bottom:40px;
+}
+.cta-apps{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-app-white{
+  display:inline-flex;align-items:center;gap:12px;
+  background:#fff;color:var(--color-dark);border-radius:var(--r-lg);
+  padding:14px 26px;font-family:var(--font-heading);font-weight:700;
+  box-shadow:0 8px 28px rgba(0,0,0,.25);transition:all .3s;
+}
+.btn-app-white:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.3)}
+.btn-app-white .app-sub{font-family:var(--font-body);font-size:10px;opacity:.6;display:block;font-weight:400}
+.btn-app-white .app-name{font-size:15px;display:block;margin-top:2px}
+
+/* Puzzle deco CTA */
+.cta-puzzle{
+  position:absolute;pointer-events:none;
+}
+.cta-puzzle._l{left:3%;top:15%;width:80px;opacity:.25;animation:float-slow 9s ease-in-out infinite;filter:drop-shadow(0 0 12px rgba(0,153,204,.5))}
+.cta-puzzle._r{right:4%;bottom:18%;width:90px;opacity:.2;animation:float-slow 11s ease-in-out infinite;animation-delay:3s;filter:drop-shadow(0 0 12px rgba(139,92,246,.5))}
+.cta-puzzle._t{right:12%;top:10%;width:60px;opacity:.15;animation:float-slow 13s ease-in-out infinite;animation-delay:5s}
+.cta-chars{
+  position:absolute;bottom:0;pointer-events:none;
+}
+.cta-chars._l{left:2%;height:260px;animation:float 8s ease-in-out infinite;filter:drop-shadow(0 20px 40px rgba(0,0,0,.4));opacity:.7}
+.cta-chars._r{right:2%;height:220px;animation:float-d 8s ease-in-out infinite;filter:drop-shadow(0 20px 40px rgba(0,0,0,.4));opacity:.6}
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+#footer{background:var(--color-darker);padding:72px 28px 32px;color:#fff}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;
+  padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.footer-logo img{height:36px;width:auto;filter:brightness(10);margin-bottom:18px;opacity:.9}
+.footer-tagline{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;margin-bottom:20px;max-width:260px}
+.footer-social{display:flex;gap:10px}
+.footer-social a{
+  width:36px;height:36px;border-radius:var(--r-sm);
+  background:rgba(255,255,255,.07);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,transform .2s;color:rgba(255,255,255,.6);
+}
+.footer-social a:hover{background:var(--autism-blue);color:#fff;transform:translateY(-2px)}
+.footer-col-title{
+  font-family:var(--font-body);font-size:10px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);
+  margin-bottom:20px;
+}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{
+  font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.5);
+  transition:color .2s;
+}
+.footer-links a:hover{color:#fff}
+.footer-contact-item{
+  display:flex;align-items:center;gap:10px;margin-bottom:10px;
+  font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.5);
+}
+.footer-contact-item:hover{color:rgba(255,255,255,.8)}
+.footer-contact-item iconify-icon{color:var(--autism-blue);flex-shrink:0}
+.footer-bottom{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;padding-top:28px;
+}
+.footer-copy{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.2)}
+.footer-legal{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-legal a{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.25);transition:color .2s}
+.footer-legal a:hover{color:rgba(255,255,255,.7)}
+.footer-lv{display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.2)}
+.footer-lv img{height:16px;width:auto;opacity:.4}
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:48px;padding-top:20px}
+  .hero-visual{display:none}
+  .audiences-grid,.games-grid{grid-template-columns:1fr 1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .diff-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .stat-item:nth-child(2n){border-right:none}
+  .stat-item:nth-child(1),.stat-item:nth-child(2){border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:24px;margin-bottom:8px}
+}
+@media(max-width:640px){
+  .hero-h1{font-size:32px}
+  .audiences-grid,.skills-grid,.games-grid,.diff-grid,.team-grid{grid-template-columns:1fr}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .header-nav{display:none}
+  .section{padding:64px 20px}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+/* Scroll indicator chevron */
+.hero-scroll{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:rgba(255,255,255,.3);font-family:var(--font-body);font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  animation:fade-in 1s ease 1.5s both;z-index:3;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     HEADER
+════════════════════════════════════════ -->
+<header id="site-header">
+  <div class="header-inner">
+    <a class="header-logo" href="#">
+      <img src="referencias/assets/logo-autigames-color-TM.svg" alt="Autigames"/>
+    </a>
+    <nav class="header-nav" aria-label="Navegação principal">
+      <a href="#audiences">Para Pais</a>
+      <a href="#audiences">Para Profissionais</a>
+      <a href="#audiences">Para Empresas</a>
+      <a href="#games">Jogos</a>
+      <a href="#team">Sobre</a>
+      <a href="#">Blog</a>
+    </nav>
+    <a class="header-cta" href="#cta">
+      <iconify-icon icon="solar:smartphone-bold" width="16"></iconify-icon>
+      Baixar App
+    </a>
+  </div>
+</header>
+
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-grid"></div>
+
+  <div class="hero-orb _1"></div>
+  <div class="hero-orb _2"></div>
+  <div class="hero-orb _3"></div>
+  <div class="hero-orb _4"></div>
+
+  <img class="hero-puzzle _a" src="referencias/assets/puzzle/puzzle-blue.png"   alt=""/>
+  <img class="hero-puzzle _b" src="referencias/assets/puzzle/puzzle-purple.png" alt=""/>
+  <img class="hero-puzzle _c" src="referencias/assets/puzzle/puzzle-green.png"  alt=""/>
+  <img class="hero-puzzle _d" src="referencias/assets/puzzle/puzzle-golden.png" alt=""/>
+
+  <div class="hero-inner">
+    <!-- Texto -->
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Plataforma terapêutica para crianças com TEA
+      </div>
+      <h1 class="hero-h1">
+        Jogos que não viciam.<br/>
+        <span class="rainbow">Jogos que ajudam.</span>
+      </h1>
+      <p class="hero-desc">
+        Uma plataforma brasileira de jogos digitais criada especialmente para estimular
+        habilidades sociais e emocionais em crianças com Transtorno do Espectro Autista.
+      </p>
+      <div class="hero-apps">
+        <a class="btn-app" href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
+          <iconify-icon icon="simple-icons:apple" width="24"></iconify-icon>
+          <div>
+            <span class="app-sub">Baixar no</span>
+            <span class="app-name">App Store</span>
+          </div>
+        </a>
+        <a class="btn-app" href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+          <iconify-icon icon="simple-icons:googleplay" width="22"></iconify-icon>
+          <div>
+            <span class="app-sub">Disponível no</span>
+            <span class="app-name">Google Play</span>
+          </div>
+        </a>
+      </div>
+      <a class="hero-link" href="#skills">
+        Conheça a plataforma
+        <iconify-icon icon="solar:arrow-right-bold" width="14"></iconify-icon>
+      </a>
+    </div>
+
+    <!-- Mockup visual -->
+    <div class="hero-visual">
+      <div class="hero-mockup">
+        <img class="mockup-char"
+             src="site/public/images/personagens/personagem-1.png"
+             alt="Personagem Autigames"
+             onerror="this.style='display:none'"/>
+        <div class="mockup-title">Mapa das Emoções</div>
+        <div class="mockup-sub">Jogando agora…</div>
+        <div class="mockup-emotions">
+          <div class="mockup-emo active">😊</div>
+          <div class="mockup-emo">😢</div>
+          <div class="mockup-emo">😡</div>
+          <div class="mockup-emo">😮</div>
+        </div>
+        <div class="mockup-confirm">
+          <iconify-icon icon="solar:check-circle-bold" width="20"></iconify-icon>
+          <span>Emoção identificada: Alegria!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <iconify-icon icon="solar:alt-arrow-down-bold" width="18"></iconify-icon>
+    Rolar
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     STATS RIBBON
+════════════════════════════════════════ -->
+<section id="stats" aria-label="Números da Autigames">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <span class="stat-num">+2.000</span>
+      <span class="stat-lbl">Downloads do app</span>
+    </div>
+    <div class="stat-item reveal delay-1">
+      <span class="stat-num">+80.000</span>
+      <span class="stat-lbl">Acessos nas redes</span>
+    </div>
+    <div class="stat-item reveal delay-2">
+      <span class="stat-num">+16 países</span>
+      <span class="stat-lbl">com usuários ativos</span>
+    </div>
+    <div class="stat-item reveal delay-3">
+      <span class="stat-num">Finalista</span>
+      <span class="stat-lbl">Prêmio Inovação POA 2025</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     PARA QUEM É
+════════════════════════════════════════ -->
+<section id="audiences" class="section" aria-labelledby="audiences-title">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <h2 id="audiences-title" class="section-title">
+        Feito para quem cuida, ensina<br/> e acredita em cada criança
+      </h2>
+      <p class="section-desc">
+        A Autigames atende três públicos com necessidades diferentes — escolha o seu caminho.
+      </p>
+    </div>
+
+    <div class="audiences-grid">
+      <!-- Pais -->
+      <div class="card audience-card c-orange reveal">
+        <div class="icon-box card-icon" style="width:52px;height:52px">
+          <iconify-icon icon="solar:heart-bold" width="26"></iconify-icon>
+        </div>
+        <h3 class="aud-title">Sou pai, mãe ou responsável</h3>
+        <p class="aud-desc">Acompanhe o desenvolvimento social e emocional do seu filho com jogos seguros, validados por especialistas e feitos para serem jogados em família.</p>
+        <a class="btn-aud" href="/para-pais">
+          Conhecer para famílias
+          <iconify-icon icon="solar:arrow-right-bold" width="16"></iconify-icon>
+        </a>
+      </div>
+
+      <!-- Profissionais -->
+      <div class="card audience-card c-blue reveal delay-1">
+        <div class="icon-box card-icon" style="width:52px;height:52px">
+          <iconify-icon icon="solar:stethoscope-bold" width="26"></iconify-icon>
+        </div>
+        <h3 class="aud-title">Sou terapeuta, clínica ou escola</h3>
+        <p class="aud-desc">Use a Autigames como ferramenta complementar ao tratamento ou à inclusão escolar, com indicadores e relatórios de evolução.</p>
+        <a class="btn-aud" href="/para-profissionais">
+          Soluções para profissionais
+          <iconify-icon icon="solar:arrow-right-bold" width="16"></iconify-icon>
+        </a>
+      </div>
+
+      <!-- Empresas -->
+      <div class="card audience-card c-green reveal delay-2">
+        <div class="icon-box card-icon" style="width:52px;height:52px">
+          <iconify-icon icon="solar:hand-shake-bold" width="26"></iconify-icon>
+        </div>
+        <h3 class="aud-title">Quero patrocinar e gerar impacto</h3>
+        <p class="aud-desc">Apoie famílias vulneráveis e fortaleça sua marca em ações ESG com rastreabilidade, alinhadas aos ODS da ONU.</p>
+        <a class="btn-aud" href="/para-empresas">
+          Oportunidades para empresas
+          <iconify-icon icon="solar:arrow-right-bold" width="16"></iconify-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     COMO FUNCIONA (SKILLS)
+════════════════════════════════════════ -->
+<section id="skills" class="section" aria-labelledby="skills-title">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Como funciona</span>
+      <h2 id="skills-title" class="section-title">
+        Como a Autigames ajuda no<br/> desenvolvimento da criança
+      </h2>
+      <p class="section-desc">
+        Gamificação terapêutica que desenvolve cinco competências centrais.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="icon-box" style="background:var(--autism-red-10);color:var(--autism-red)">
+          <iconify-icon icon="solar:heart-bold" width="24"></iconify-icon>
+        </div>
+        <h3 class="skill-title">Reconhecimento de emoções</h3>
+        <p class="skill-desc">Aprender a identificar o que sente e o que o outro sente.</p>
+      </div>
+      <div class="skill-card reveal delay-1">
+        <div class="icon-box" style="background:var(--autism-blue-10);color:var(--autism-blue)">
+          <iconify-icon icon="solar:eye-bold" width="24"></iconify-icon>
+        </div>
+        <h3 class="skill-title">Interpretação de sinais sociais</h3>
+        <p class="skill-desc">Entender expressões, tons de voz e intenções.</p>
+      </div>
+      <div class="skill-card reveal delay-2">
+        <div class="icon-box" style="background:var(--autism-green-10);color:var(--autism-green)">
+          <iconify-icon icon="solar:chat-round-bold" width="24"></iconify-icon>
+        </div>
+        <h3 class="skill-title">Reciprocidade social</h3>
+        <p class="skill-desc">Praticar trocas e diálogos em situações cotidianas.</p>
+      </div>
+      <div class="skill-card reveal delay-1">
+        <div class="icon-box" style="background:var(--autism-yellow-10);color:var(--autism-gold)">
+          <iconify-icon icon="solar:shuffle-bold" width="24"></iconify-icon>
+        </div>
+        <h3 class="skill-title">Flexibilidade cognitiva</h3>
+        <p class="skill-desc">Adaptar-se a mudanças e novos contextos com mais segurança.</p>
+      </div>
+      <div class="skill-card reveal delay-2">
+        <div class="icon-box" style="background:var(--autism-lilac-10);color:var(--autism-lilac)">
+          <iconify-icon icon="solar:lightbulb-bold" width="24"></iconify-icon>
+        </div>
+        <h3 class="skill-title">Empatia e Teoria da Mente</h3>
+        <p class="skill-desc">Compreender que outras pessoas pensam e sentem de forma diferente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     JOGOS
+════════════════════════════════════════ -->
+<section id="games" class="section" aria-labelledby="games-title" style="background:var(--color-body)">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Nossos jogos</span>
+      <h2 id="games-title" class="section-title">
+        Jogos terapêuticos lançados<br/> e em desenvolvimento
+      </h2>
+    </div>
+
+    <div class="games-grid">
+      <!-- Mapa das Emoções -->
+      <div class="game-card reveal">
+        <img class="game-thumb"
+             src="site/public/images/jogos/mapa-das-emocoes.png"
+             alt="Mapa das Emoções"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="game-thumb-placeholder" style="display:none;background:linear-gradient(135deg,var(--autism-blue-10),var(--autism-blue-20))">🗺️</div>
+        <div class="game-body">
+          <span class="badge badge-green">
+            <iconify-icon icon="solar:check-circle-bold" width="10"></iconify-icon>
+            Lançado
+          </span>
+          <h3 class="game-title">Mapa das Emoções</h3>
+          <p class="game-desc">Aprenda a identificar e nomear emoções em situações do cotidiano.</p>
+          <span class="game-age">4–8 anos</span>
+        </div>
+      </div>
+
+      <!-- Laboratório da Calma -->
+      <div class="game-card reveal delay-1">
+        <img class="game-thumb"
+             src="site/public/images/jogos/laboratorio-da-calma.png"
+             alt="Laboratório da Calma"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="game-thumb-placeholder" style="display:none;background:linear-gradient(135deg,var(--autism-green-10),var(--autism-green-20))">🧪</div>
+        <div class="game-body">
+          <span class="badge badge-green">
+            <iconify-icon icon="solar:check-circle-bold" width="10"></iconify-icon>
+            Lançado
+          </span>
+          <h3 class="game-title">Laboratório da Calma</h3>
+          <p class="game-desc">Técnicas de regulação emocional apresentadas de forma lúdica e interativa.</p>
+          <span class="game-age">5–10 anos</span>
+        </div>
+      </div>
+
+      <!-- Que Cara é Essa? -->
+      <div class="game-card reveal delay-2">
+        <img class="game-thumb"
+             src="site/public/images/jogos/que-cara-e-essa.png"
+             alt="Que Cara é Essa?"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="game-thumb-placeholder" style="display:none;background:linear-gradient(135deg,var(--autism-yellow-10),var(--autism-yellow-20))">😮</div>
+        <div class="game-body">
+          <span class="badge badge-yellow">
+            <iconify-icon icon="solar:hourglass-bold" width="10"></iconify-icon>
+            Em homologação
+          </span>
+          <h3 class="game-title">Que Cara é Essa?</h3>
+          <p class="game-desc">Treinamento de reconhecimento de expressões faciais com personagens expressivos.</p>
+          <span class="game-age">4–9 anos</span>
+        </div>
+      </div>
+
+      <!-- Pense Comigo -->
+      <div class="game-card reveal delay-3">
+        <img class="game-thumb"
+             src="site/public/images/jogos/pense-comigo.png"
+             alt="Pense Comigo"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="game-thumb-placeholder" style="display:none;background:linear-gradient(135deg,var(--autism-lilac-10),var(--autism-lilac-20))">🤔</div>
+        <div class="game-body">
+          <span class="badge badge-lilac">
+            <iconify-icon icon="solar:settings-bold" width="10"></iconify-icon>
+            Em desenvolvimento
+          </span>
+          <h3 class="game-title">Pense Comigo</h3>
+          <p class="game-desc">Situações sociais interativas para praticar reciprocidade e perspectiva do outro.</p>
+          <span class="game-age">6–12 anos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="games-cta-wrap reveal">
+      <a class="btn btn-outline btn-blue-out" href="/jogos">
+        Ver todos os jogos
+        <iconify-icon icon="solar:arrow-right-bold" width="16"></iconify-icon>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     DIFERENCIAIS
+════════════════════════════════════════ -->
+<section id="differentials" class="section" aria-labelledby="diff-title">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Por que confiar</span>
+      <h2 id="diff-title" class="section-title">Por que confiar na Autigames</h2>
+    </div>
+
+    <div class="diff-grid">
+      <div class="diff-item reveal">
+        <div class="diff-icon icon-box">
+          <iconify-icon icon="solar:test-tube-bold" width="24"></iconify-icon>
+        </div>
+        <div>
+          <h3 class="diff-title">Base em evidências</h3>
+          <p class="diff-desc">Desenvolvido a partir de literatura científica internacional.</p>
+        </div>
+      </div>
+      <div class="diff-item reveal delay-1">
+        <div class="diff-icon icon-box">
+          <iconify-icon icon="solar:heart-bold" width="24"></iconify-icon>
+        </div>
+        <div>
+          <h3 class="diff-title">Especialistas que cuidam</h3>
+          <p class="diff-desc">Equipe com experiência em crianças e suas famílias.</p>
+        </div>
+      </div>
+      <div class="diff-item reveal delay-2">
+        <div class="diff-icon icon-box" style="background:var(--autism-lilac-10);color:var(--autism-lilac)">
+          <iconify-icon icon="solar:brain-bold" width="24"></iconify-icon>
+        </div>
+        <div>
+          <h3 class="diff-title">Fundamento terapêutico</h3>
+          <p class="diff-desc">Alinhado às boas práticas da psicologia e psiquiatria infantil.</p>
+        </div>
+      </div>
+      <div class="diff-item reveal">
+        <div class="diff-icon icon-box" style="background:var(--autism-green-10);color:var(--autism-green)">
+          <iconify-icon icon="solar:chat-round-bold" width="24"></iconify-icon>
+        </div>
+        <div>
+          <h3 class="diff-title">Personagens com propósito</h3>
+          <p class="diff-desc">Diálogos elaborados por profissionais da saúde.</p>
+        </div>
+      </div>
+      <div class="diff-item reveal delay-1">
+        <div class="diff-icon icon-box" style="background:var(--autism-yellow-10);color:var(--autism-gold)">
+          <iconify-icon icon="solar:users-group-rounded-bold" width="24"></iconify-icon>
+        </div>
+        <div>
+          <h3 class="diff-title">Ritmo individualizado</h3>
+          <p class="diff-desc">Respeita a forma única de cada criança.</p>
+        </div>
+      </div>
+      <div class="diff-item reveal delay-2">
+        <div class="diff-icon icon-box" style="background:rgba(201,149,12,.1);color:var(--autism-gold)">
+          <iconify-icon icon="solar:cpu-bold" width="24"></iconify-icon>
+        </div>
+        <div>
+          <h3 class="diff-title">Tecnologia robusta</h3>
+          <p class="diff-desc">Braço tecnológico com mais de 300 produtos criados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     EQUIPE
+════════════════════════════════════════ -->
+<section id="team" class="section" aria-labelledby="team-title">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">A equipe</span>
+      <h2 id="team-title" class="section-title">Quem está por trás da Autigames</h2>
+      <p class="section-desc">Experiência, empatia e inovação a serviço da inclusão.</p>
+    </div>
+
+    <div class="team-grid">
+      <!-- Dr. Daniel -->
+      <div class="team-card reveal">
+        <div class="team-avatar">
+          <img src="referencias/assets/personagens/gabriel/Qwen_Edit_2509_00121_.png"
+               alt="Dr. Daniel T. Spritzer"
+               onerror="this.parentElement.innerHTML='👨‍⚕️'"/>
+        </div>
+        <h3 class="team-name">Dr. Daniel T. Spritzer</h3>
+        <span class="team-role">Médico Psiquiatra e Sócio</span>
+      </div>
+
+      <!-- Dra. Laura -->
+      <div class="team-card reveal delay-1">
+        <div class="team-avatar">
+          <img src="referencias/assets/personagens/ana/tranquilo.png"
+               alt="Dra. Laura M. Moreira"
+               onerror="this.parentElement.innerHTML='👩‍⚕️'"/>
+        </div>
+        <h3 class="team-name">Dra. Laura M. Moreira</h3>
+        <span class="team-role">Médica Psiquiatra e Sócia</span>
+      </div>
+
+      <!-- Dra. Mariana -->
+      <div class="team-card reveal delay-2">
+        <div class="team-avatar">
+          <img src="referencias/assets/personagens/sofia/14210-2950895083_Tranquilo.png"
+               alt="Dra. Mariana V. Teles"
+               onerror="this.parentElement.innerHTML='👩‍🔬'"/>
+        </div>
+        <h3 class="team-name">Dra. Mariana V. Teles</h3>
+        <span class="team-role">Biomédica e Sócia</span>
+      </div>
+
+      <!-- Dra. Paola -->
+      <div class="team-card reveal delay-3">
+        <div class="team-avatar">
+          <img src="referencias/assets/personagens/abigail/Tranquilo.png"
+               alt="Dra. Paola Rocco"
+               onerror="this.parentElement.innerHTML='👩‍💼'"/>
+        </div>
+        <h3 class="team-name">Dra. Paola Rocco</h3>
+        <span class="team-role">Psicóloga e Sócia</span>
+      </div>
+    </div>
+
+    <div class="team-cta-wrap reveal">
+      <a class="btn btn-outline btn-blue-out" href="/sobre">
+        Conheça a equipe
+        <iconify-icon icon="solar:arrow-right-bold" width="16"></iconify-icon>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     CTA FINAL
+════════════════════════════════════════ -->
+<section id="cta" aria-labelledby="cta-title">
+  <div class="hero-grid"></div>
+  <div class="hero-orb _1"></div>
+  <div class="hero-orb _2"></div>
+
+  <img class="cta-puzzle _l" src="referencias/assets/puzzle/puzzle-blue.png"   alt=""/>
+  <img class="cta-puzzle _r" src="referencias/assets/puzzle/puzzle-purple.png" alt=""/>
+  <img class="cta-puzzle _t" src="referencias/assets/puzzle/puzzle-golden.png" alt=""/>
+
+  <img class="cta-chars _l" src="referencias/assets/personagens/chico/feliz.png"   alt=""/>
+  <img class="cta-chars _r" src="referencias/assets/personagens/pedro/feliz_01.png" alt=""/>
+
+  <div class="cta-inner reveal">
+    <h2 id="cta-title" class="cta-title">Comece hoje.<br/>Sua criança merece.</h2>
+    <p class="cta-desc">
+      Baixe gratuitamente o aplicativo e descubra como pequenos momentos
+      de jogo podem transformar grandes habilidades.
+    </p>
+    <div class="cta-apps">
+      <a class="btn-app-white" href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
+        <iconify-icon icon="simple-icons:apple" width="26" style="color:var(--color-dark)"></iconify-icon>
+        <div>
+          <span class="app-sub">Disponível na</span>
+          <span class="app-name">App Store</span>
+        </div>
+      </a>
+      <a class="btn-app-white" href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+        <iconify-icon icon="simple-icons:googleplay" width="24" style="color:var(--autism-green)"></iconify-icon>
+        <div>
+          <span class="app-sub">Disponível no</span>
+          <span class="app-name">Google Play</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer id="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div>
+        <div class="footer-logo">
+          <img src="referencias/assets/logo-autigames-color-TM.svg" alt="Autigames"/>
+        </div>
+        <p class="footer-tagline">
+          Jogos digitais terapêuticos para crianças com TEA.
+          Base científica. Coração humano.
+        </p>
+        <div class="footer-social">
+          <a href="https://instagram.com/autigames" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Para você -->
+      <div>
+        <h3 class="footer-col-title">Para você</h3>
+        <ul class="footer-links">
+          <li><a href="/para-pais">Para Pais e Famílias</a></li>
+          <li><a href="/para-profissionais">Para Profissionais</a></li>
+          <li><a href="/para-empresas">Para Empresas</a></li>
+        </ul>
+      </div>
+
+      <!-- Autigames -->
+      <div>
+        <h3 class="footer-col-title">Autigames</h3>
+        <ul class="footer-links">
+          <li><a href="/sobre">Sobre nós</a></li>
+          <li><a href="/jogos">Nossos Jogos</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contato">Fale Conosco</a></li>
+        </ul>
+      </div>
+
+      <!-- Contato -->
+      <div>
+        <h3 class="footer-col-title">Contato</h3>
+        <a class="footer-contact-item" href="tel:+5551992600843">
+          <iconify-icon icon="solar:phone-bold" width="14"></iconify-icon>
+          (51) 99260-0843
+        </a>
+        <a class="footer-contact-item" href="mailto:contato@autigames.com.br">
+          <iconify-icon icon="solar:letter-bold" width="14"></iconify-icon>
+          contato@autigames.com.br
+        </a>
+        <a class="footer-contact-item" href="https://instagram.com/autigames" target="_blank" rel="noopener noreferrer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+          </svg>
+          @autigames
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Autigames. Todos os direitos reservados.</p>
+      <div class="footer-legal">
+        <a href="/politica-de-privacidade">Política de Privacidade</a>
+        <a href="/termos-de-uso">Termos de Uso</a>
+        <div class="footer-lv">
+          Tecnologia
+          <a href="https://longviewhealth.com.br" target="_blank" rel="noopener noreferrer">
+            <img src="site/public/images/logo-longview-negative.svg"
+                 alt="LongView Health"
+                 onerror="this.replaceWith(document.createTextNode('LongView'))"/>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+/* ── Scroll reveal ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── Header scroll shadow ── */
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+/* ── Hero: ciclo automático das emoções no mockup ── */
+const emorefs = document.querySelectorAll('.mockup-emo');
+const emoLabels = ['Alegria!', 'Tristeza', 'Raiva', 'Surpresa'];
+let emoIdx = 0;
+setInterval(() => {
+  emorefs.forEach(e => e.classList.remove('active'));
+  emoIdx = (emoIdx + 1) % emorefs.length;
+  emorefs[emoIdx].classList.add('active');
+  const confirm = document.querySelector('.mockup-confirm span');
+  if (confirm) confirm.textContent = `Emoção identificada: ${emoLabels[emoIdx]}!`;
+}, 2200);
+</script>
+
+</body>
+</html>

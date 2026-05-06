@@ -1,0 +1,138 @@
+[
+  {
+    "slug": "mapa-das-emocoes",
+    "name": "Mapa das Emoções",
+    "status": "launched",
+    "statusLabel": "Lançado",
+    "ageRange": "4–8 anos",
+    "shortDescription": "Aprenda a identificar e nomear emoções em situações do cotidiano.",
+    "description": "O Mapa das Emoções guia a criança por cenários do dia a dia onde ela precisa identificar como cada personagem está se sentindo. Por meio de expressões faciais, linguagem corporal e contexto, a criança desenvolve o vocabulário emocional e a capacidade de reconhecer emoções em si mesma e nos outros.",
+    "skills": [
+      "Reconhecimento de emoções",
+      "Vocabulário emocional",
+      "Empatia"
+    ],
+    "howItWorks": [
+      {
+        "step": 1,
+        "title": "Observe a cena",
+        "description": "A criança visualiza um cenário com personagens em situações cotidianas — escola, casa, parque."
+      },
+      {
+        "step": 2,
+        "title": "Identifique a emoção",
+        "description": "Usando pistas visuais e contextuais, a criança escolhe qual emoção o personagem está sentindo."
+      },
+      {
+        "step": 3,
+        "title": "Explore o porquê",
+        "description": "O jogo explica de forma simples por que aquela emoção faz sentido naquele contexto, reforçando o aprendizado."
+      }
+    ],
+    "image": "/images/jogos/mapa-das-emocoes.png",
+    "emoji": "🗺️",
+    "themeColor": "#E3F2FD"
+  },
+  {
+    "slug": "laboratorio-da-calma",
+    "name": "Laboratório da Calma",
+    "status": "launched",
+    "statusLabel": "Lançado",
+    "ageRange": "5–10 anos",
+    "shortDescription": "Técnicas de regulação emocional apresentadas de forma lúdica e interativa.",
+    "description": "O Laboratório da Calma apresenta técnicas de regulação emocional — respiração, atenção plena e estratégias de relaxamento — de forma gamificada. A criança aprende ferramentas concretas para lidar com situações de sobrecarga sensorial ou emocional.",
+    "skills": [
+      "Regulação emocional",
+      "Flexibilidade cognitiva",
+      "Autoconsciência"
+    ],
+    "howItWorks": [
+      {
+        "step": 1,
+        "title": "Identifique o nível de agitação",
+        "description": "A criança avalia como está se sentindo usando um termômetro de emoções interativo."
+      },
+      {
+        "step": 2,
+        "title": "Escolha uma estratégia",
+        "description": "O jogo apresenta técnicas como respiração profunda, movimento corporal ou atenção plena."
+      },
+      {
+        "step": 3,
+        "title": "Pratique e registre",
+        "description": "A criança pratica a técnica guiada e o jogo registra quais estratégias funcionam melhor para ela."
+      }
+    ],
+    "image": "/images/jogos/laboratorio-da-calma.png",
+    "emoji": "🧪",
+    "themeColor": "#E8F5E9"
+  },
+  {
+    "slug": "que-cara-e-essa",
+    "name": "Que Cara é Essa?",
+    "status": "homologation",
+    "statusLabel": "Em homologação",
+    "ageRange": "4–9 anos",
+    "shortDescription": "Treinamento de reconhecimento de expressões faciais com personagens expressivos.",
+    "description": "Que Cara é Essa? foca especificamente no reconhecimento de expressões faciais — um dos maiores desafios de crianças com TEA. Por meio de personagens 3D altamente expressivos, a criança aprende a associar micro-expressões a emoções específicas.",
+    "skills": [
+      "Reconhecimento de expressões faciais",
+      "Interpretação de sinais sociais",
+      "Teoria da Mente"
+    ],
+    "howItWorks": [
+      {
+        "step": 1,
+        "title": "Observe o rosto",
+        "description": "O personagem exibe uma expressão facial e a criança tem alguns segundos para observá-la com atenção."
+      },
+      {
+        "step": 2,
+        "title": "Associe a emoção",
+        "description": "A criança escolhe entre quatro opções qual emoção o personagem está expressando."
+      },
+      {
+        "step": 3,
+        "title": "Aprofunde o aprendizado",
+        "description": "O jogo destaca as partes do rosto que mais revelam aquela emoção — sobrancelhas, olhos, boca."
+      }
+    ],
+    "image": "/images/jogos/que-cara-e-essa.png",
+    "emoji": "😮",
+    "themeColor": "#FFF9C4"
+  },
+  {
+    "slug": "pense-comigo",
+    "name": "Pense Comigo",
+    "status": "development",
+    "statusLabel": "Em desenvolvimento",
+    "ageRange": "6–12 anos",
+    "shortDescription": "Situações sociais interativas para praticar reciprocidade e perspectiva do outro.",
+    "description": "Pense Comigo apresenta situações sociais complexas onde a criança precisa entender a perspectiva do outro personagem para tomar a melhor decisão. O jogo desenvolve diretamente a Teoria da Mente e a reciprocidade social.",
+    "skills": [
+      "Teoria da Mente",
+      "Reciprocidade social",
+      "Tomada de perspectiva"
+    ],
+    "howItWorks": [
+      {
+        "step": 1,
+        "title": "Entre na situação",
+        "description": "Uma situação social cotidiana é apresentada com dois personagens em interação."
+      },
+      {
+        "step": 2,
+        "title": "Pense pela perspectiva do outro",
+        "description": "A criança responde o que o outro personagem está pensando ou sentindo naquela situação."
+      },
+      {
+        "step": 3,
+        "title": "Tome a decisão certa",
+        "description": "Com base na perspectiva compreendida, a criança escolhe a resposta social mais adequada."
+      }
+    ],
+    "image": "/images/jogos/pense-comigo.png",
+    "emoji": "🤔",
+    "themeColor": "#F3E5F5"
+  }
+]

@@ -1,0 +1,673 @@
+{
+  "nav": {
+    "forParents": "For Parents",
+    "forProfessionals": "For Professionals",
+    "forCompanies": "For Companies",
+    "games": "Games",
+    "about": "About",
+    "blog": "Blog",
+    "downloadApp": "Download App",
+    "downloadAppFull": "Download App Free",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "lang": "Language"
+  },
+  "footer": {
+    "tagline": "Therapeutic digital games for children with ASD. Science-based. Human-hearted.",
+    "forYou": "For you",
+    "autigames": "Autigames",
+    "contact": "Contact",
+    "instagramAria": "Autigames on Instagram",
+    "linkedinAria": "Autigames on LinkedIn",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "tech": "Technology",
+    "links": {
+      "forParents": "For Parents & Families",
+      "forProfessionals": "For Professionals",
+      "forCompanies": "For Companies",
+      "about": "About us",
+      "games": "Our Games",
+      "blog": "Blog",
+      "contact": "Contact Us"
+    },
+    "legalLink": "Terms & Privacy",
+    "partnersLabel": "Supported by"
+  },
+  "common": {
+    "downloadOn": "Download on",
+    "availableOn": "Get it on",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "openWhatsApp": "Open WhatsApp",
+    "needHelp": "Need quick help?",
+    "needHelpText": "Our WhatsApp is the fastest way to reach us.",
+    "backToBlog": "Back to Blog",
+    "backToGames": "All games",
+    "readAlso": "Read also",
+    "seeGames": "Explore our therapeutic games",
+    "seeGamesDesc": "See the full Autigames game catalog.",
+    "comingSoon": "More articles coming soon.",
+    "readArticle": "Read article",
+    "readTime": "read",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "heroMockup": {
+    "gameName": "Emotion Map",
+    "playing": "Playing now…",
+    "emotion0": "Joy!",
+    "emotion1": "Sadness",
+    "emotion2": "Anger",
+    "emotion3": "Neutral",
+    "identified": "Emotion identified:",
+    "feelAria": "Feel"
+  },
+  "home": {
+    "meta": {
+      "title": "Autigames — Therapeutic Games for Children with ASD",
+      "description": "Brazilian platform of therapeutic digital games for children with Autism Spectrum Disorder. Developed with a scientific basis and validated by specialists."
+    },
+    "hero": {
+      "badge": "Therapeutic platform for children with ASD",
+      "title": "Games that don't addict.",
+      "titleHighlight": "Games that help.",
+      "description": "A Brazilian platform of digital games created especially to stimulate social and emotional skills in children with Autism Spectrum Disorder.",
+      "downloadCTA": "Download for free",
+      "gamesCTA": "Explore the games"
+    },
+    "stats": {
+      "s0label": "App downloads",
+      "s1label": "Social media reach",
+      "s2label": "active user countries",
+      "s3value": "Finalist",
+      "s3label": "Innovation Award POA 2025"
+    },
+    "audiences": {
+      "eyebrow": "Who it's for",
+      "title": "A solution for every family.",
+      "aud0title": "I'm a parent or guardian",
+      "aud0desc": "Track your child's social and emotional development with safe games, validated by specialists and designed to be played as a family.",
+      "aud0cta": "Family solutions",
+      "aud1title": "I'm a therapist, clinic or school",
+      "aud1desc": "Use Autigames as a complementary tool in treatment or school inclusion, with progress indicators and evolution reports.",
+      "aud1cta": "Professional solutions",
+      "aud2title": "I want to sponsor and create impact",
+      "aud2desc": "Support vulnerable families and strengthen your brand through ESG actions with traceability, aligned with the UN SDGs.",
+      "aud2cta": "Business opportunities"
+    },
+    "skills": {
+      "eyebrow": "Skills developed",
+      "title": "What children develop by playing",
+      "s0title": "Emotion recognition",
+      "s0desc": "Learning to identify what you feel and what others feel.",
+      "s1title": "Social signal interpretation",
+      "s1desc": "Understanding expressions, tones of voice, and intentions.",
+      "s2title": "Social reciprocity",
+      "s2desc": "Practicing exchanges and dialogues in everyday situations.",
+      "s3title": "Cognitive flexibility",
+      "s3desc": "Adapting to changes and new contexts more confidently.",
+      "s4title": "Empathy and Theory of Mind",
+      "s4desc": "Understanding that other people think and feel differently."
+    },
+    "differentials": {
+      "eyebrow": "Why Autigames",
+      "title": "What makes us different",
+      "d0title": "Evidence-based",
+      "d0desc": "Developed from international scientific literature.",
+      "d1title": "Caring specialists",
+      "d1desc": "Team experienced with children and their families.",
+      "d2title": "Therapeutic foundation",
+      "d2desc": "Aligned with best practices in child psychology and psychiatry.",
+      "d3title": "Characters with purpose",
+      "d3desc": "Dialogues crafted by healthcare professionals.",
+      "d4title": "Individualized pace",
+      "d4desc": "Respects each child's unique way of learning.",
+      "d5title": "Robust technology",
+      "d5desc": "Technology partner with over 300 products created."
+    },
+    "gamesSection": {
+      "eyebrow": "Catalog",
+      "title": "Our therapeutic games",
+      "viewAll": "View all games"
+    },
+    "teamSection": {
+      "eyebrow": "Who made it",
+      "title": "Scientific team",
+      "desc": "Healthcare professionals with direct experience working with children with ASD.",
+      "knowTeam": "Meet the full team"
+    },
+    "cta": {
+      "title": "We've already transformed over 2,000 lives.",
+      "subtitle": "Be part of this story."
+    }
+  },
+  "games": {
+    "meta": {
+      "title": "Our Therapeutic Games — Autigames",
+      "description": "Explore Autigames therapeutic games: Emotion Map, Calm Lab, What Face Is That? and Think With Me. Made for children with ASD."
+    },
+    "hero": {
+      "eyebrow": "Catalog",
+      "title": "Games that make",
+      "titleHighlight": "a difference.",
+      "description": "Each game is a doorway to a skill. Discover the launched titles and those on the way.",
+      "primaryLabel": "See launched games",
+      "secondaryLabel": "In development"
+    },
+    "launched": "Launched games",
+    "homologation": "In validation",
+    "development": "In development",
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "Download the app for free and explore the games with your child."
+    }
+  },
+  "game": {
+    "skillsEyebrow": "What it develops",
+    "skillsTitle": "Skills practiced",
+    "howItWorksEyebrow": "Mechanics",
+    "howItWorksTitle": "How it works",
+    "recommendedAge": "Recommended for:",
+    "ctaLaunched": "Download and play now",
+    "ctaComingSoon": "Coming soon",
+    "ctaComingSoonSubtitle": "This game is in development. Download the app to be notified when it launches.",
+    "statusLaunched": "Available",
+    "statusHomologation": "In validation",
+    "statusDevelopment": "In development"
+  },
+  "gamesContent": {
+    "mapa-das-emocoes": {
+      "name": "Emotion Map",
+      "statusLabel": "Launched",
+      "shortDescription": "Learn to identify and name emotions in everyday situations.",
+      "description": "The Emotion Map guides children through everyday scenarios where they need to identify how each character is feeling. Through facial expressions, body language, and context, children develop emotional vocabulary and the ability to recognize emotions in themselves and others.",
+      "skill0": "Emotion recognition",
+      "skill1": "Emotional vocabulary",
+      "skill2": "Empathy",
+      "step0title": "Observe the scene",
+      "step0desc": "The child views a scenario with characters in everyday situations — school, home, park.",
+      "step1title": "Identify the emotion",
+      "step1desc": "Using visual and contextual clues, the child chooses which emotion the character is feeling.",
+      "step2title": "Explore the why",
+      "step2desc": "The game explains simply why that emotion makes sense in that context, reinforcing the learning."
+    },
+    "laboratorio-da-calma": {
+      "name": "Calm Lab",
+      "statusLabel": "Launched",
+      "shortDescription": "Emotional regulation techniques presented in a playful and interactive way.",
+      "description": "Calm Lab presents emotional regulation techniques — breathing, mindfulness, and relaxation strategies — in a gamified way. Children learn concrete tools to cope with situations of sensory or emotional overload.",
+      "skill0": "Emotional regulation",
+      "skill1": "Cognitive flexibility",
+      "skill2": "Self-awareness",
+      "step0title": "Identify the arousal level",
+      "step0desc": "The child assesses how they are feeling using an interactive emotion thermometer.",
+      "step1title": "Choose a strategy",
+      "step1desc": "The game presents techniques such as deep breathing, body movement, or mindfulness.",
+      "step2title": "Practice and record",
+      "step2desc": "The child practices the guided technique and the game records which strategies work best for them."
+    },
+    "que-cara-e-essa": {
+      "name": "What Face Is That?",
+      "statusLabel": "In validation",
+      "shortDescription": "Facial expression recognition training with expressive characters.",
+      "description": "What Face Is That? focuses specifically on facial expression recognition — one of the greatest challenges for children with ASD. Through highly expressive 3D characters, children learn to associate micro-expressions with specific emotions.",
+      "skill0": "Facial expression recognition",
+      "skill1": "Social signal interpretation",
+      "skill2": "Theory of Mind",
+      "step0title": "Observe the face",
+      "step0desc": "The character displays a facial expression and the child has a few seconds to observe it carefully.",
+      "step1title": "Match the emotion",
+      "step1desc": "The child chooses from four options which emotion the character is expressing.",
+      "step2title": "Deepen the learning",
+      "step2desc": "The game highlights the parts of the face that reveal that emotion most — eyebrows, eyes, mouth."
+    },
+    "pense-comigo": {
+      "name": "Think With Me",
+      "statusLabel": "In development",
+      "shortDescription": "Interactive social situations to practice reciprocity and perspective-taking.",
+      "description": "Think With Me presents complex social situations where children need to understand another character's perspective to make the best decision. The game directly develops Theory of Mind and social reciprocity.",
+      "skill0": "Theory of Mind",
+      "skill1": "Social reciprocity",
+      "skill2": "Perspective-taking",
+      "step0title": "Enter the situation",
+      "step0desc": "An everyday social situation is presented with two characters interacting.",
+      "step1title": "Think from the other's perspective",
+      "step1desc": "The child answers what the other character is thinking or feeling in that situation.",
+      "step2title": "Make the right decision",
+      "step2desc": "Based on the understood perspective, the child chooses the most appropriate social response."
+    }
+  },
+  "sobre": {
+    "meta": {
+      "title": "About Autigames — Scientific Team and Our Mission",
+      "description": "Meet the Autigames scientific team: child psychiatrists, a biomedical scientist and a psychologist dedicated to the development of children with ASD through therapeutic games."
+    },
+    "hero": {
+      "eyebrow": "Our mission",
+      "title": "We believe inclusion starts with",
+      "titleHighlight": "small steps.",
+      "description": "Autigames was born from the union of families, healthcare professionals, and technology to build a real bridge for the development of millions of children.",
+      "primaryLabel": "Meet the team",
+      "secondaryLabel": "Our story"
+    },
+    "historia": {
+      "eyebrow": "Our story",
+      "title": "Where we come from and why we exist",
+      "p1": "Autism Spectrum Disorder affects 2.6% of Brazilian children aged 5 to 9. For these children and their families, one of the greatest challenges is not the diagnosis itself — it's day-to-day life. The difficulty of starting a conversation, reading emotions on another person's face, understanding why a situation is funny or sad for others.",
+      "p2": "Autigames arose from the conviction that well-used technology — with a scientific basis, a clinical perspective, and child-centered design — can be a powerful development tool. Not to replace therapists or the family, but to expand practice opportunities in a safe, predictable, and stimulating environment.",
+      "p3": "In less than a year since launch, we have already reached over 2,000 downloads, users in more than 16 countries, and recognition as finalists in the Porto Alegre Innovation Award 2025. But the number that matters most is yet to come: the number of children who will find in Autigames a new way to connect with the world."
+    },
+    "team": {
+      "eyebrow": "Scientific team",
+      "title": "The people behind Autigames",
+      "desc": "Healthcare professionals who know first-hand the reality of children with ASD and their families."
+    },
+    "council": {
+      "eyebrow": "Governance",
+      "title": "Strategic Council"
+    },
+    "tech": {
+      "eyebrow": "Technology",
+      "text": "For over 20 years, LongView has turned challenges into opportunities with digital solutions connecting business, design, and technology. LongView Health is the group's HealthTech unit — with over 300 products created and a solid infrastructure that supports the Autigames platform."
+    },
+    "manifesto": {
+      "quote": "\"Those who believe in inclusion believe in the future.\"",
+      "footer": "— Autigames Manifesto"
+    },
+    "partners": {
+      "eyebrow": "Institutional support",
+      "title": "Institutional Partners",
+      "ufrgsName": "Federal University of Rio Grande do Sul",
+      "ufrgsRole": "Institute of Informatics",
+      "hcpaName": "StartSe HCPA Pre-incubation",
+      "hcpaRole": "Hospital de Clínicas de Porto Alegre"
+    }
+  },
+  "contato": {
+    "meta": {
+      "title": "Contact Us — Autigames",
+      "description": "Get in touch with Autigames. We're here to help parents, therapists, schools, and companies."
+    },
+    "hero": {
+      "eyebrow": "Contact us",
+      "title": "How can we",
+      "titleHighlight": "help?",
+      "description": "Whether you're a parent, therapist, educator, or company — our team is ready to talk.",
+      "primaryLabel": "Send a message",
+      "secondaryLabel": "WhatsApp"
+    },
+    "channels": "Contact channels",
+    "phone": "Phone / WhatsApp",
+    "email": "E-mail",
+    "instagram": "Instagram",
+    "sendMessage": "Send us a message"
+  },
+  "paraPais": {
+    "meta": {
+      "title": "For Parents & Families — Autigames",
+      "description": "Track your child's social and emotional development with safe therapeutic games, validated by specialists and designed to be played as a family."
+    },
+    "hero": {
+      "badge": "For parents and guardians",
+      "title": "Small games.",
+      "titleHighlight": "Big transformations.",
+      "description": "Track your child's social and emotional development with therapeutic games validated by specialists, designed to be played as a family and never to addict."
+    },
+    "context": {
+      "eyebrow": "The context",
+      "title": "Millions of families worldwide face the same challenge",
+      "desc": "Autism Spectrum Disorder affects around 1 in 36 children. For most of them, socialization is the greatest daily challenge: difficulty starting conversations, understanding emotions, expressing what they feel. Autigames was made to help your family on this journey — with ease, safety, and science."
+    },
+    "steps": {
+      "eyebrow": "How it works",
+      "title": "Games designed to be played as a family",
+      "s0title": "You download, they play.",
+      "s0desc": "Quick and secure registration. The app is free to start.",
+      "s1title": "The child responds at their own pace.",
+      "s1desc": "Each game adapts to the child's style and age.",
+      "s2title": "You track the progress.",
+      "s2desc": "See the evolution in communication, empathy, and emotion recognition."
+    },
+    "credentials": {
+      "title": "Why parents trust Autigames",
+      "c0": "Validated by child psychiatrists and psychologists",
+      "c1": "No ads, no in-game purchases",
+      "c2": "Not addictive — short, purposeful sessions",
+      "c3": "Available on iOS and Android"
+    },
+    "privacy": {
+      "title": "You're in control. Always.",
+      "desc": "Your child's data is handled with the highest level of care. Nothing is shared with third parties and everything complies with data protection laws. As a parent or guardian, you have visibility into progress and full control of the experience.",
+      "link": "Read our Privacy Policy"
+    },
+    "faq": {
+      "eyebrow": "Questions",
+      "title": "Frequently asked questions",
+      "q0": "Will my child get addicted?",
+      "a0": "No. The games have short sessions with a clear beginning, middle, and end. There are no predatory retention mechanics, infinite rewards, or pressure to return.",
+      "q1": "From what age can my child use it?",
+      "a1": "The platform is designed for children aged 4 to 12, but it's best to assess individually with your therapist.",
+      "q2": "Does it replace therapy?",
+      "a2": "No. Autigames is a complementary tool and never replaces the follow-up of a healthcare professional.",
+      "q3": "Is it free?",
+      "a3": "The download is free. There is an optional premium plan to unlock all games and tracking features.",
+      "q4": "Does it work offline?",
+      "a4": "Most games work offline. Some progress features require a connection."
+    },
+    "cta": {
+      "title": "Start today, for free.",
+      "subtitle": "Download the app and take the first step in your child's development."
+    }
+  },
+  "paraProfissionais": {
+    "meta": {
+      "title": "For Professionals, Clinics and Schools — Autigames",
+      "description": "Use Autigames as a complementary therapeutic tool in your practice, clinic, or school. Progress indicators and clinically backed games."
+    },
+    "hero": {
+      "eyebrow": "For therapists, clinics and schools",
+      "title": "A therapeutic tool",
+      "titleHighlight": "validated by those who know.",
+      "description": "Use Autigames in your practice, clinic, or classroom as structured support for the development of social and emotional skills in children with ASD.",
+      "primaryLabel": "I want to use it with my patients",
+      "secondaryLabel": "Talk to the team"
+    },
+    "benefits": {
+      "eyebrow": "Why use it",
+      "title": "Why therapists and schools use Autigames",
+      "b0title": "Scientific grounding",
+      "b0desc": "Built from international literature and reviewed by specialists in child psychology and psychiatry.",
+      "b1title": "Real measurement",
+      "b1desc": "You track individual evolution indicators (emotion recognition, communication, empathy) for each child.",
+      "b2title": "Clinical adaptation",
+      "b2desc": "Short, directed games that respect individual pace and can be integrated into therapeutic plans."
+    },
+    "useCases": {
+      "eyebrow": "Use cases",
+      "title": "How to integrate it in your practice",
+      "u0emoji": "🏠",
+      "u0title": "In the office",
+      "u0desc": "Use Autigames as a directed exercise between sessions. Track the child's progress and use the indicators as a basis for conversations with the family.",
+      "u1emoji": "🏥",
+      "u1title": "In the clinic",
+      "u1desc": "Implement at scale, with multiple therapists using the same platform and consolidated reports.",
+      "u2emoji": "🏫",
+      "u2title": "In school",
+      "u2desc": "Apply in structured inclusion moments, offering children with ASD a playful tool for emotional regulation and socialization."
+    },
+    "metrics": {
+      "eyebrow": "Data that matters",
+      "title": "Indicators to support your decision-making",
+      "desc": "Each game generates individualized metrics that help you identify areas of evolution and stagnation, offering an additional qualified input for your clinical or pedagogical assessment.",
+      "panelTitle": "Evolution Panel — Example",
+      "m0": "Emotion Recognition",
+      "m1": "Communication",
+      "m2": "Empathy",
+      "m3": "Social Reciprocity"
+    },
+    "team": {
+      "eyebrow": "The scientific team",
+      "title": "Developed by those who understand clinical practice",
+      "desc": "Autigames' scientific team has direct experience working with children with ASD."
+    },
+    "form": {
+      "eyebrow": "Contact us",
+      "title": "Let's talk?",
+      "desc": "Tell us a bit about your context and our team will reach out within 2 business days."
+    }
+  },
+  "paraEmpresas": {
+    "meta": {
+      "title": "For Companies and Sponsors — Autigames",
+      "description": "Sponsor Autigames and bring your brand to a therapeutic environment that transforms families. Trackable ESG impact aligned with the UN SDGs."
+    },
+    "hero": {
+      "eyebrow": "For companies and sponsors",
+      "title": "Turn your social impact into something that",
+      "titleHighlight": "is seen and felt.",
+      "description": "Sponsor Autigames and bring your brand to a playful and therapeutic environment that changes the lives of families — with ESG traceability and alignment with the UN SDGs.",
+      "primaryLabel": "I want to be a partner",
+      "secondaryLabel": "Explore the models"
+    },
+    "gains": {
+      "eyebrow": "Return on investment",
+      "title": "What your company gains",
+      "g0title": "Branding in a playful and therapeutic environment",
+      "g0desc": "Your brand present where families experience real moments of transformation.",
+      "g1title": "Reputation improvement",
+      "g1desc": "Association with a scientifically validated social cause, creating positive perception internally and externally.",
+      "g2title": "Impact reports",
+      "g2desc": "Progress indicators and reach metrics for your ESG and communications teams.",
+      "g3title": "Support for vulnerable families",
+      "g3desc": "Enable children who cannot afford the platform to have access.",
+      "g4title": "Joint campaigns",
+      "g4desc": "Participation in social and educational campaigns with press coverage.",
+      "g5title": "SDG alignment",
+      "g5desc": "Project aligned with UN Goals 3, 4, 9, 10, and 17."
+    },
+    "models": {
+      "eyebrow": "Partnership models",
+      "title": "How we can work together",
+      "m0title": "Institutional sponsorship",
+      "m0desc": "Your brand supports Autigames' general operations and gains visibility across all channels.",
+      "m1title": "Game co-creation",
+      "m1desc": "Development of custom games with characters and mechanics aligned with your brand, integrated into the Autigames ecosystem.",
+      "m2title": "Corporate solutions",
+      "m2desc": "Access to Autigames as a benefit for employees who have children on the autism spectrum."
+    },
+    "cocriacao": {
+      "eyebrow": "Co-creation",
+      "title": "Create a game with your brand inside Autigames",
+      "desc": "We co-create therapeutic games that become part of the Autigames platform with your company's visual identity and theme. You benefit from our technological and scientific infrastructure, reducing development costs and accelerating time-to-market.",
+      "step0": "Alignment assessment with educational and therapeutic values",
+      "step1": "Requirements gathering and audience/theme definition",
+      "step2": "Product inception: mechanics, rules, and journey",
+      "step3": "Functional documentation and technical specifications",
+      "step4": "Prototyping and screen definition",
+      "step5": "Development within the Autigames infrastructure",
+      "step6": "Integration and publication on the platform",
+      "step7": "Integration in ecosystem with scientific and technological governance"
+    },
+    "partners": {
+      "label": "Companies building with us",
+      "cta": "Be the first to build with us."
+    },
+    "form": {
+      "eyebrow": "Partnership",
+      "title": "Let's build something big together?",
+      "desc": "Fill out the form and our team will get in touch to present the possibilities."
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog — Autigames",
+      "description": "Articles on autism, child development, therapeutic games, and inclusion. Content created by the Autigames scientific team."
+    },
+    "hero": {
+      "eyebrow": "Blog",
+      "title": "Knowledge that",
+      "titleHighlight": "transforms.",
+      "description": "Articles on autism, child development, therapeutic games, and inclusion — written by the Autigames scientific team.",
+      "primaryLabel": "Latest articles",
+      "secondaryLabel": "Chat on WhatsApp"
+    },
+    "categoriesTitle": "Categories",
+    "downloadCTA": "Download the app for free",
+    "downloadCTAText": "Start supporting your child's development today.",
+    "downloadCTABtn": "Download now",
+    "categories": {
+      "c0": "For parents",
+      "c1": "For professionals",
+      "c2": "Inclusion",
+      "c3": "Cases",
+      "c4": "The science behind games"
+    },
+    "scienceCategory": "The science behind games",
+    "posts": {
+      "por-que-jogos-terapeuticos-funcionam": {
+        "title": "Why therapeutic games work for children with ASD",
+        "excerpt": "Therapeutic gamification is not new — science explains why children with autism respond so well to the game format to develop social and emotional skills.",
+        "category": "The science behind games",
+        "date": "Jan 15, 2026",
+        "readTime": "6 min",
+        "author": "Autigames Scientific Team",
+        "content": "<h2>What science says about games and learning</h2><p>Children learn through play. This truth has been known for decades in developmental psychology — and is increasingly confirmed by neuroscience. For children with Autism Spectrum Disorder (ASD), however, traditional ways of teaching social skills often fail to reproduce the safe, predictable, judgment-free environment that learning requires.</p><p>This is where therapeutic games come in with full force.</p><h2>Predictability as an ally</h2><p>One of the greatest sources of anxiety for children with ASD is the unpredictability of social interactions. In a real conversation, stimuli are many, simultaneous, and hard to interpret. A digital game, on the other hand, offers:</p><ul><li><strong>Controlled environment</strong> — no unexpected surprises</li><li><strong>Time to process</strong> — no pressure to respond immediately</li><li><strong>Clear, direct feedback</strong> — no ambiguity about what was right or wrong</li><li><strong>Opportunity for repetition</strong> — the same situation can be presented as many times as needed</li></ul><p>This predictability is not a limitation of the format — it's exactly what makes games effective for this audience.</p><h2>Intrinsic motivation and engagement</h2><p>Neuroscience studies confirm that games activate the brain's reward system in a sustained way. Level progression, positive feedback, and the sense of competence create a flow state that favors learning. For children with ASD, who often show resistance to structured activities, the playful format lowers the entry barrier and increases engagement.</p><p>Autigames is designed to leverage exactly these mechanisms — without, however, creating dependency or using predatory retention mechanics. Sessions are short, with a clear beginning, middle, and end.</p><h2>Skill transfer</h2><p>The most common concern among parents and therapists is: does what the child learns in the game transfer to real life?</p><p>The evidence suggests yes — especially when the game is designed with ecological validity, meaning when the situations presented approach real contexts in the child's life. Autigames works with everyday scenarios (school, family, park) precisely to increase this transfer.</p><p>Moreover, when the game is used together with therapeutic follow-up — which we strongly recommend — the therapist can use the game's situations as a starting point for conversations with the child and their family.</p><h2>A tool, not a solution</h2><p>It's important to be clear: therapeutic games are complementary tools. They do not replace therapy, medical care, or family support. What they do — and do very well — is offer additional moments of safe practice, at the child's own pace, in the comfort of home.</p><p>When parents, therapists, and technology work together, the results are significantly better. It's this synergy that Autigames was created to catalyze.</p>"
+      }
+    },
+    "cta": {
+      "title": "Experience it in practice",
+      "subtitle": "Download the app for free and see for yourself how therapeutic games can help your child."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "meta": {
+        "title": "Privacy Policy — Autigames",
+        "description": "Privacy policy of the Autigames platform in compliance with data protection laws."
+      },
+      "eyebrow": "Legal",
+      "title": "Privacy Policy",
+      "lastUpdate": "Last updated: January 2026",
+      "todoText": "This page should be filled with the complete Privacy Policy text prepared by a legal professional specialized in data protection law.",
+      "s1title": "1. Who we are",
+      "s1text": "Autigames is a Brazilian platform of therapeutic digital games for children with Autism Spectrum Disorder (ASD), developed by LongView Health.",
+      "s2title": "2. What data we collect",
+      "s2text": "We collect only the data necessary for the platform to function and to fulfill the purposes described in this policy. Data includes registration information, app usage data, and children's progress information.",
+      "s3title": "3. How we use your data",
+      "s3text": "Data is used exclusively for: (a) providing platform services; (b) improving the user experience; (c) service-related communication; and (d) fulfilling legal obligations.",
+      "s4title": "4. Data sharing",
+      "s4text": "We do not share children's personal data with third parties for commercial purposes. Data may be shared with technical service providers who act under our instructions and in accordance with this policy.",
+      "s5title": "5. Data subject rights",
+      "s5text": "In accordance with data protection law, you have the right to access, correct, delete, or port your data. To exercise these rights, contact contato@autigames.com.br.",
+      "s6title": "6. Contact",
+      "s6text": "For questions about this policy or the processing of your data, contact: contato@autigames.com.br"
+    },
+    "terms": {
+      "meta": {
+        "title": "Terms of Use — Autigames",
+        "description": "Terms of use for the Autigames platform."
+      },
+      "eyebrow": "Legal",
+      "title": "Terms of Use",
+      "lastUpdate": "Last updated: January 2026",
+      "todoText": "This page should be filled with the complete Terms of Use prepared by a legal professional.",
+      "s1title": "1. Acceptance of terms",
+      "s1text": "By using the Autigames platform, you agree to these Terms of Use. If you do not agree with any provision, do not use the platform.",
+      "s2title": "2. Service description",
+      "s2text": "Autigames is a platform of therapeutic digital games aimed at children with Autism Spectrum Disorder (ASD). The games are developed with a scientific basis and are intended solely for complementary therapeutic and educational purposes.",
+      "s3title": "3. Limitations of liability",
+      "s3text": "Autigames is a complementary tool and does not replace professional medical, psychological, or therapeutic follow-up. We are not responsible for clinical decisions made based solely on the use of the platform.",
+      "s4title": "4. Intellectual property",
+      "s4text": "All platform content — games, characters, texts, images, and code — is the property of Autigames and is protected by law. Reproduction without prior written authorization is prohibited.",
+      "s5title": "5. Contact",
+      "s5text": "For questions about these terms: contato@autigames.com.br"
+    },
+    "combined": {
+      "meta": {
+        "title": "Terms of Use & Privacy — Autigames",
+        "description": "Terms of use and privacy policy for the Autigames platform, compliant with Brazilian data protection law (LGPD)."
+      },
+      "eyebrow": "Legal",
+      "title": "Terms of Use and Privacy Policy",
+      "lastUpdate": "Last updated: 01/29/2026",
+      "intro": "This document establishes the Terms of Use and Privacy Policy of the Autigames platform, available through a mobile app and/or web environment, owned by AUTIGAMES JOGOS DIGITAIS LTDA, registered under CNPJ nº 60.955.520/0001-80, headquartered at AV. CEL. Lucas de Oliveira 1107, Bairro Mon't Serrat, Porto Alegre – Rio Grande do Sul – CEP 90450-045 (Autigames, Platform or We).\n\nBy creating an account, accessing or using the Platform, the user declares that they have read, understood, and fully agree to the terms below.",
+      "s1title": "1. Definitions",
+      "s1text": "Family Account: account model intended for home use, under the responsibility of an adult.\nProfessional Account: intended for professionals, institutions, or service providers.\nPlayer Profile: behavioral and progress data without direct personal identification.\nGames: interactive experiences made available on the Platform.\nSubscription: recurring payment for access to content.\nUser: any person who uses the Platform.",
+      "s2title": "2. Platform Overview",
+      "s2text": "Autigames is a digital platform of interactive games with a socioemotional and educational focus.\n\nAutigames is not a medical, therapeutic, or diagnostic device, does not replace psychological, psychiatric, pedagogical, or clinical care, and does not provide reports or prescriptions.",
+      "s3title": "3. Account Models",
+      "s3text": "3.1 Family Account\nCreate a Player Profile with progress tracking\nAccess to the Emotion Map game\nAccess to additional games with an active subscription\nAccess to future updates\nThe guardian declares they are 18 years of age or older and assumes full responsibility for the use of the Platform.\n\n3.2 Professional Account\nPlans with up to 5, 10, or more than 10 profiles\nIndividual management of Player Profiles\nGame-specific, character, and stage configuration\nPrivate notes per profile and session\nNotes are for the professional's exclusive use and are not reviewed by Autigames.",
+      "s4title": "4. Player Profiles and Data Collected",
+      "s4text": "4.1 Data we do NOT collect\nLegal name\nCPF, ID, or official documents\nPhysical address\nBiometric or medical data\n\n4.2 Data we collect\nBehavioral data generated during use\nProgress, choices, and interactions\nTechnical data and error logs",
+      "s5title": "5. Data Use and Privacy",
+      "s5text": "Autigames operates in compliance with Brazilian Law nº 13.709/2018 (LGPD), using legal bases such as contract performance, legitimate interest, and consent.",
+      "s6title": "6. Subscriptions, Payments, and Cancellation",
+      "s6text": "Access to certain content requires an active subscription.\n\nCancellation can be made at any time, taking effect at the end of the current billing cycle, with no proportional refund unless required by law.",
+      "s7title": "7. Intellectual Property",
+      "s7text": "All Platform content is protected by copyright and belongs exclusively to Autigames or its licensors.",
+      "s8title": "8. Limitation of Liability",
+      "s8text": "Use of the Platform is at the user's own risk, subject to applicable legal limits.",
+      "s9title": "9. Information Security",
+      "s9text": "We adopt adequate technical and organizational measures to protect data.",
+      "s10title": "10. Changes to These Terms",
+      "s10text": "These Terms may be changed at any time. Continued use implies agreement with the updated version.",
+      "s11title": "11. Jurisdiction and Applicable Law",
+      "s11text": "Brazilian law applies, with the courts of Porto Alegre – RS designated as the competent jurisdiction.",
+      "s12title": "12. Contact",
+      "s12text": "Phone: +55 51 99260-0843\nEmail: contato@autigames.com.br\nWebsite: www.autigames.com.br"
+    }
+  },
+  "forms": {
+    "contact": {
+      "nameLabel": "Full name *",
+      "namePlaceholder": "Your name",
+      "emailLabel": "E-mail *",
+      "emailPlaceholder": "you@email.com",
+      "messageLabel": "Message *",
+      "messagePlaceholder": "How can we help?",
+      "lgpdText": "I agree with the",
+      "lgpdLink": "Privacy Policy",
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "error": "An error occurred. Please try again or contact us via WhatsApp.",
+      "successTitle": "Message sent!",
+      "successText": "We'll be in touch soon. Thank you!"
+    },
+    "professional": {
+      "nameLabel": "Full name *",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Professional e-mail *",
+      "phoneLabel": "Phone / WhatsApp",
+      "cityLabel": "City / State",
+      "cityPlaceholder": "Your city",
+      "roleLabel": "Practice type *",
+      "role0": "Independent professional",
+      "role1": "Clinic",
+      "role2": "School",
+      "role3": "Other",
+      "patientsLabel": "How many patients/students with ASD do you see?",
+      "patientsPlaceholder": "Select a range",
+      "patients0": "1 to 5",
+      "patients1": "6 to 20",
+      "patients2": "21 to 50",
+      "patients3": "More than 50",
+      "useLabel": "How do you plan to use Autigames?",
+      "usePlaceholder": "Tell us a bit about how Autigames could fit into your practice...",
+      "lgpdText": "I agree with the",
+      "lgpdLink": "Privacy Policy",
+      "lgpdSuffix": "and authorize Autigames to contact me.",
+      "submit": "Send and be contacted",
+      "submitting": "Sending...",
+      "error": "An error occurred. Please try again or contact us via WhatsApp.",
+      "successTitle": "Message sent!",
+      "successText": "Our team will contact you within 2 business days. Thank you for your interest!"
+    },
+    "company": {
+      "nameLabel": "Full name *",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Corporate e-mail *",
+      "emailPlaceholder": "you@company.com",
+      "companyLabel": "Company *",
+      "companyPlaceholder": "Company name",
+      "jobLabel": "Job title",
+      "jobPlaceholder": "Your job title",
+      "phoneLabel": "Phone",
+      "interestLabel": "Partnership model of interest *",
+      "interest0": "Institutional sponsorship",
+      "interest1": "Game co-creation",
+      "interest2": "Corporate solution",
+      "interest3": "I want to learn more",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us a bit about your social impact project...",
+      "lgpdText": "I agree with the",
+      "lgpdLink": "Privacy Policy",
+      "lgpdSuffix": "and authorize Autigames to contact me.",
+      "submit": "I want to talk to Autigames",
+      "submitting": "Sending...",
+      "error": "An error occurred. Please try again or contact us via WhatsApp.",
+      "successTitle": "Message sent!",
+      "successText": "Our team will be in touch soon to build something great together."
+    }
+  }
+}

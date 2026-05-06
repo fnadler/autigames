@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html class="w-mod-js w-mod-ix wf-plusjakartasans-n5-active wf-plusjakartasans-n4-active wf-lato-n4-active wf-lato-n7-active wf-active" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Babuu — Design System</title>
+  <link href="assets/babuu-128_f530329428b8.css" rel="stylesheet" type="text/css"/>
+  <link href="assets/css_fa7a6b491ef4.css" media="all" rel="stylesheet"/>
+  <script src="assets/webfont_3a3adf980c7d.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({google:{families:["Lato:300,400,700,900","Plus Jakarta Sans:regular,500"]}});</script>
+  <style>
+    /* ─── Design System Shell ─── */
+    :root {
+      --ds-nav-h: 52px;
+    }
+
+    /* Sticky design-system nav */
+    #ds-nav {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background-color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      height: var(--ds-nav-h);
+      padding: 0 24px;
+    }
+    #ds-nav::-webkit-scrollbar { display: none; }
+    #ds-nav a {
+      color: #fff;
+      font-family: Plus Jakarta Sans, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: -.3px;
+      white-space: nowrap;
+      padding: 0 16px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      border-right: 1px solid #ffffff18;
+      transition: background-color .2s, color .2s;
+    }
+    #ds-nav a:first-child { border-left: 1px solid #ffffff18; }
+    #ds-nav a:hover { background-color: var(--primary); }
+    #ds-nav .ds-wordmark {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      color: var(--brand-2);
+      padding-right: 20px;
+      border-right: 1px solid #ffffff30;
+      margin-right: 4px;
+      border-left: none;
+    }
+    #ds-nav .ds-wordmark:hover { background: none; color: var(--brand-2); }
+
+    /* Section wrapper for design system */
+    .ds-section {
+      padding: 80px 0;
+      position: relative;
+    }
+    .ds-section + .ds-section {
+      border-top: 1px solid #13024015;
+    }
+    .ds-section-header {
+      margin-bottom: 56px;
+    }
+    .ds-section-number {
+      font-family: Plus Jakarta Sans, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .ds-section-title {
+      font-family: Plus Jakarta Sans, sans-serif;
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: -1px;
+      color: var(--primary-dark);
+      margin: 0 0 8px;
+    }
+    .ds-section-desc {
+      font-family: Plus Jakarta Sans, sans-serif;
+      font-size: 15px;
+      color: var(--paragraph-gray);
+      margin: 0;
+    }
+
+    /* Typography spec table */
+    .ds-typo-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .ds-typo-table tr {
+      border-bottom: 1px solid #13024015;
+    }
+    .ds-typo-table tr:last-child { border-bottom: none; }
+    .ds-typo-table td {
+      padding: 24px 0;
+      vertical-align: middle;
+    }
+    .ds-typo-label {
+      font-family: Plus Jakarta Sans, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--paragraph-gray);
+      width: 140px;
+      padding-right: 24px;
+    }
+    .ds-typo-preview { width: auto; }
+    .ds-typo-spec {
+      font-family: monospace;
+      font-size: 12px;
+      color: var(--paragraph-gray);
+      text-align: right;
+      white-space: nowrap;
+      padding-left: 24px;
+      width: 160px;
+    }
+
+    /* Color swatches */
+    .ds-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .ds-swatch {
+      flex: 0 0 auto;
+      width: 140px;
+    }
+    .ds-swatch-color {
+      border-radius: 12px;
+      height: 80px;
+      margin-bottom: 10px;
+      border: 1px solid #13024015;
+    }
+    .ds-swatch-name {
+      font-family: Plus Jakarta Sans, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 2px;
+    }
+    .ds-swatch-hex {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--paragraph-gray);
+    }
+    .ds-swatch-var {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--primary);
+    }
+
+    /* Surface showcase */
+    .ds-surface-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .ds-surface-item {
+      flex: 1 1 200px;
+    }
+    .ds-surface-box {
+      border-radius: 16px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+    .ds-surface-label {
+      font-family: Plus Jakarta Sans, sans-serif;
+      font-size: 12px;
+      color: var(--paragraph-gray);
+    }
+
+    /* Component rows */
+    .ds-component-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .ds-component-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .ds-state-label {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--paragraph-gray);
+      letter-spacing: .3px;
+    }
+    .ds-component-label {
+      font-family: Plus Jakarta Sans, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .ds-divider {
+      height: 1px;
+      background-color: #13024015;
+      margin: 48px 0;
+    }
+
+    /* Motion gallery */
+    .ds-motion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    .ds-motion-item {
+      border-radius: 16px;
+      background-color: var(--primary-light);
+      padding: 24px;
+      text-align: center;
+    }
+    .ds-motion-label {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--paragraph-gray);
+      margin-top: 12px;
+    }
+
+    /* Icon grid */
+    .ds-icon-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .ds-icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: var(--primary-light);
+      min-width: 100px;
+    }
+    .ds-icon-label {
+      font-family: monospace;
+      font-size: 11px;
+      color: var(--paragraph-gray);
+      text-align: center;
+    }
+
+    /* Layout demo boxes */
+    .ds-layout-demo {
+      margin-bottom: 40px;
+    }
+    .ds-layout-label {
+      font-family: Plus Jakarta Sans, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .ds-grid-cell {
+      background-color: var(--primary-20);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      font-family: Plus Jakarta Sans, sans-serif;
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* Dark background for components shown on dark */
+    .ds-dark-bg {
+      background-color: var(--primary-dark);
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    /* Gradient banner background for surfaces */
+    .ds-gradient-swatch {
+      border-radius: 12px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    /* Hero scroll indicator — keep original display */
+    .home-3-banner { scroll-margin-top: var(--ds-nav-h); }
+    section[id], div[id] { scroll-margin-top: calc(var(--ds-nav-h) + 20px); }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     DESIGN SYSTEM NAV
+════════════════════════════════════════════════════════ -->
+<nav id="ds-nav">
+  <a class="ds-wordmark" href="#ds-hero">Babuu DS</a>
+  <a href="#ds-hero">Hero</a>
+  <a href="#ds-typography">Typography</a>
+  <a href="#ds-colors">Colors</a>
+  <a href="#ds-components">Components</a>
+  <a href="#ds-layout">Layout</a>
+  <a href="#ds-motion">Motion</a>
+  <a href="#ds-icons">Icons</a>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     0 — HERO  (Exact clone · text adapted)
+════════════════════════════════════════════════════════ -->
+<div id="ds-hero">
+<section class="home-3-banner">
+  <img alt="children playing glass" class="hero-image" loading="lazy"
+    sizes="100vw"
+    src="assets/674ed01956346650aa115858_504_2_1effa171dd86.webp"
+    srcset="assets/674ed01956346650aa115858_504_2_08f305bad949.webp 500w,
+            assets/674ed01956346650aa115858_504_2_d13e2a57aef9.webp 800w,
+            assets/674ed01956346650aa115858_504_2_924f48b0e0f5.webp 1080w,
+            assets/674ed01956346650aa115858_504_2_00a800549760.webp 1600w,
+            assets/674ed01956346650aa115858_504_2_1effa171dd86.webp 2000w"/>
+  <div class="banner-image-overlay"></div>
+  <div class="w-layout-vflex banner-3-content-wrapp">
+    <div class="w-layout-vflex banner-3-top">
+      <img alt="logo yellow" class="bottom-space-20" loading="lazy"
+        src="assets/6748804d39f43caaac05985b_Union_5c9a7938990b.svg"/>
+      <div class="w-layout-vflex flex-center-24">
+        <div class="home-3-title">
+          <h1 class="h1-home-2 white-text">Design System &amp; Pattern Library</h1>
+        </div>
+        <div class="banner-desription-home-2">
+          <p class="paragraph-large text-white">A complete reference of every token, component, layout pattern, and motion behavior used in this design.</p>
+        </div>
+      </div>
+      <div class="center-button-wrapper">
+        <a class="primary-button-yellow w-button" href="#ds-typography">Explore the system</a>
+      </div>
+    </div>
+    <div class="w-layout-vflex flex-block">
+      <div class="w-layout-hflex banner-members">
+        <div class="banner-member border-1">
+          <img alt="girl" class="cover-image" loading="lazy"
+            src="assets/67477afb63883cb91ad4e835_4229__959dc8d03e28.webp"/>
+        </div>
+        <div class="banner-member border-1">
+          <img alt="boy" class="cover-image" loading="lazy"
+            src="assets/67477b05587ab6975ed900d1_21489_141758bbf93b.webp"/>
+        </div>
+        <div class="banner-member border-1">
+          <img alt="girl" class="cover-image" loading="lazy"
+            src="assets/67477af7acac57de40a15344_23658_722560141820.webp"/>
+        </div>
+        <div class="banner-member border-1">
+          <img alt="girl" class="cover-image" loading="lazy"
+            src="assets/67477b0536fef5a1966b61f8_21488_c884f2732ad4.webp"/>
+        </div>
+      </div>
+    </div>
+    <img alt="svg image" class="banner-3-image-ab _01" loading="lazy"
+      src="assets/674ed7f3657fa4968113a6ae_Layer_1e98c12e71d7.svg"/>
+    <img alt="bag"        class="banner-3-image-ab _03" loading="lazy"
+      src="assets/674ed7f3b259108aa901f0fb_Frame_70549eeb71eb.svg"/>
+    <img alt="image svg"  class="banner-3-image-ab _02" loading="lazy"
+      src="assets/674ed7f380b693672fbf0e8a_Frame_92d98c194bd6.svg"/>
+    <img alt="image"      class="banner-3-image-ab _04" loading="lazy"
+      src="assets/674ed7f3b707dabbc37458a5_Frame_b6b1e1f541cd.svg"/>
+  </div>
+</section>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     1 — TYPOGRAPHY
+════════════════════════════════════════════════════════ -->
+<div id="ds-typography">
+<div class="ds-section">
+  <div class="w-layout-blockcontainer base-container w-container">
+    <div class="ds-section-header">
+      <div class="ds-section-number">01</div>
+      <h2 class="ds-section-title">Typography</h2>
+      <p class="ds-section-desc">Plus Jakarta Sans for headings (weight 500) · Lato for body copy · All sizes and spacing from original CSS</p>
+    </div>
+
+    <table class="ds-typo-table">
+      <tbody>
+
+        <!-- H1 -->
+        <tr>
+          <td class="ds-typo-label">Heading 1</td>
+          <td class="ds-typo-preview"><h1 style="margin:0">Design starts here</h1></td>
+          <td class="ds-typo-spec">62px / 1.1em<br>−2.4px</td>
+        </tr>
+
+        <!-- H1 Home-2 variant -->
+        <tr>
+          <td class="ds-typo-label">H1 Hero variant<br><code style="font-size:10px">.h1-home-2</code></td>
+          <td class="ds-typo-preview"><h1 class="h1-home-2" style="margin:0">Hero headline</h1></td>
+          <td class="ds-typo-spec">54px / 1.1em<br>−2.4px</td>
+        </tr>
+
+        <!-- H2 -->
+        <tr>
+          <td class="ds-typo-label">Heading 2</td>
+          <td class="ds-typo-preview"><h2 style="margin:0">Section title</h2></td>
+          <td class="ds-typo-spec">44px / 1.1em<br>−1.76px</td>
+        </tr>
+
+        <!-- H3 -->
+        <tr>
+          <td class="ds-typo-label">Heading 3</td>
+          <td class="ds-typo-preview"><h3 style="margin:0">Sub-section heading</h3></td>
+          <td class="ds-typo-spec">34px / 1.1em<br>−1px</td>
+        </tr>
+
+        <!-- H4 -->
+        <tr>
+          <td class="ds-typo-label">Heading 4</td>
+          <td class="ds-typo-preview"><h4 style="margin:0">Card title or quote</h4></td>
+          <td class="ds-typo-spec">24px / 1.1em<br>−0.96px</td>
+        </tr>
+
+        <!-- H5 -->
+        <tr>
+          <td class="ds-typo-label">Heading 5</td>
+          <td class="ds-typo-preview"><h5 style="margin:0">Label or caption title</h5></td>
+          <td class="ds-typo-spec">20px / 1.3em<br>−0.8px</td>
+        </tr>
+
+        <!-- H6 -->
+        <tr>
+          <td class="ds-typo-label">Heading 6</td>
+          <td class="ds-typo-preview"><h6 style="margin:0">Small heading / name</h6></td>
+          <td class="ds-typo-spec">18px / 1.1em<br>−0.72px</td>
+        </tr>
+
+        <!-- Paragraph Large -->
+        <tr>
+          <td class="ds-typo-label">Paragraph Large<br><code style="font-size:10px">.paragraph-large</code></td>
+          <td class="ds-typo-preview"><p class="paragraph-large" style="margin:0">From adorable clothing and accessories to safe and fun toys, our curated collection ensures quality.</p></td>
+          <td class="ds-typo-spec">18px / 1.5em<br>−0.5px</td>
+        </tr>
+
+        <!-- Body / p -->
+        <tr>
+          <td class="ds-typo-label">Body Regular<br><code style="font-size:10px">p</code></td>
+          <td class="ds-typo-preview"><p style="margin:0">Our products are handpicked for their quality, safety, and style, ensuring only the best for your little one.</p></td>
+          <td class="ds-typo-spec">16px / 1.5em<br>−0.64px</td>
+        </tr>
+
+        <!-- Subtitle pill -->
+        <tr>
+          <td class="ds-typo-label">Subtitle pill<br><code style="font-size:10px">.subtitle</code></td>
+          <td class="ds-typo-preview"><div class="subtitle" style="display:inline-block">About us</div></td>
+          <td class="ds-typo-spec">pill · 50px r<br>wt 500</td>
+        </tr>
+
+        <!-- Subtitle white variant -->
+        <tr>
+          <td class="ds-typo-label">Subtitle White<br><code style="font-size:10px">.subtitle.white</code></td>
+          <td class="ds-typo-preview">
+            <div style="background:var(--primary-dark);padding:12px;border-radius:8px;display:inline-block">
+              <div class="subtitle white" style="display:inline-block">Our Values</div>
+            </div>
+          </td>
+          <td class="ds-typo-spec">same · white bg<br>w/ opacity</td>
+        </tr>
+
+        <!-- Collection link -->
+        <tr>
+          <td class="ds-typo-label">Product link<br><code style="font-size:10px">.collection-link</code></td>
+          <td class="ds-typo-preview"><a class="collection-link" href="#" style="text-decoration:none">Top 5 Must-Have Baby Essentials</a></td>
+          <td class="ds-typo-spec">20px / 1.5em<br>−0.8px</td>
+        </tr>
+
+        <!-- Collection link small -->
+        <tr>
+          <td class="ds-typo-label">Product link SM<br><code style="font-size:10px">.collection-link-small</code></td>
+          <td class="ds-typo-preview"><a class="collection-link-small" href="#" style="text-decoration:none">Baby's Piano Toy</a></td>
+          <td class="ds-typo-spec">18px / 1.5em<br>−0.72px</td>
+        </tr>
+
+        <!-- Price text -->
+        <tr>
+          <td class="ds-typo-label">Price<br><code style="font-size:10px">.price-text</code></td>
+          <td class="ds-typo-preview"><div class="price-text">$ 49.00 USD</div></td>
+          <td class="ds-typo-spec">var(--primary)<br>wt 500</td>
+        </tr>
+
+        <!-- Price sale -->
+        <tr>
+          <td class="ds-typo-label">Sale Price<br><code style="font-size:10px">.price-sale</code></td>
+          <td class="ds-typo-preview"><div class="price-sale">$ 69.00 USD</div></td>
+          <td class="ds-typo-spec">14px · strikethrough<br>gray</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     2 — COLORS & SURFACES
+════════════════════════════════════════════════════════ -->
+<div id="ds-colors">
+<div class="ds-section" style="background-color:var(--primary-light)">
+  <div class="w-layout-blockcontainer base-container w-container">
+    <div class="ds-section-header">
+      <div class="ds-section-number">02</div>
+      <h2 class="ds-section-title">Colors &amp; Surfaces</h2>
+      <p class="ds-section-desc">CSS custom properties defined in <code>:root</code> — never use raw hex values in components</p>
+    </div>
+
+    <!-- Brand palette -->
+    <div class="ds-component-label">Brand Palette</div>
+    <div class="ds-swatches">
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background-color:#130240"></div>
+        <div class="ds-swatch-name">Primary Dark</div>
+        <div class="ds-swatch-hex">#130240</div>
+        <div class="ds-swatch-var">--primary-dark</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background-color:#6a43d7"></div>
+        <div class="ds-swatch-name">Primary</div>
+        <div class="ds-swatch-hex">#6a43d7</div>
+        <div class="ds-swatch-var">--primary</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background-color:#f6f3fd"></div>
+        <div class="ds-swatch-name">Primary Light</div>
+        <div class="ds-swatch-hex">#f6f3fd</div>
+        <div class="ds-swatch-var">--primary-light</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background-color:#6a43d733"></div>
+        <div class="ds-swatch-name">Primary 20%</div>
+        <div class="ds-swatch-hex">#6a43d7 33%</div>
+        <div class="ds-swatch-var">--primary-20</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background-color:#fbce3e"></div>
+        <div class="ds-swatch-name">Brand Yellow</div>
+        <div class="ds-swatch-hex">#fbce3e</div>
+        <div class="ds-swatch-var">--brand-2</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background-color:#3efbe4"></div>
+        <div class="ds-swatch-name">Light Green</div>
+        <div class="ds-swatch-hex">#3efbe4</div>
+        <div class="ds-swatch-var">--light-green</div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Neutral palette -->
+    <div class="ds-component-label">Neutrals</div>
+    <div class="ds-swatches">
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background-color:#fdfdff"></div>
+        <div class="ds-swatch-name">Body</div>
+        <div class="ds-swatch-hex">#fdfdff</div>
+        <div class="ds-swatch-var">--body</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background-color:white;border:1px solid #eee"></div>
+        <div class="ds-swatch-name">White</div>
+        <div class="ds-swatch-hex">#ffffff</div>
+        <div class="ds-swatch-var">--white</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background-color:#635d71"></div>
+        <div class="ds-swatch-name">Paragraph Gray</div>
+        <div class="ds-swatch-hex">#635d71</div>
+        <div class="ds-swatch-var">--paragraph-gray</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background-color:#afafaf"></div>
+        <div class="ds-swatch-name">Dark Gray</div>
+        <div class="ds-swatch-hex">#afafaf</div>
+        <div class="ds-swatch-var">--dark-gray</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background-color:#afafaf80"></div>
+        <div class="ds-swatch-name">Dark Gray 50%</div>
+        <div class="ds-swatch-hex">#afafaf 50%</div>
+        <div class="ds-swatch-var">--dark-gray-50</div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-swatch-color" style="background-color:black"></div>
+        <div class="ds-swatch-name">Black</div>
+        <div class="ds-swatch-hex">#000000</div>
+        <div class="ds-swatch-var">--black</div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Surfaces -->
+    <div class="ds-component-label">Surfaces &amp; Backgrounds</div>
+    <div class="ds-surface-row">
+      <div class="ds-surface-item">
+        <div class="ds-surface-box" style="background-color:var(--body);border:1px solid #eee"></div>
+        <div class="ds-surface-label">Page body — <code>var(--body)</code></div>
+      </div>
+      <div class="ds-surface-item">
+        <div class="ds-surface-box" style="background-color:var(--primary-light)"></div>
+        <div class="ds-surface-label">Section light — <code>var(--primary-light)</code></div>
+      </div>
+      <div class="ds-surface-item">
+        <div class="ds-surface-box" style="background-color:var(--primary-dark)"></div>
+        <div class="ds-surface-label">Dark bg — <code>var(--primary-dark)</code></div>
+      </div>
+      <div class="ds-surface-item">
+        <div class="ds-surface-box" style="background-image:linear-gradient(#6a43d74d,#fff)"></div>
+        <div class="ds-surface-label">Values gradient — <code>linear-gradient(#6a43d74d, #fff)</code></div>
+      </div>
+      <div class="ds-surface-item">
+        <div class="ds-surface-box" style="background-image:linear-gradient(0deg, #6a43d74d, #fff)"></div>
+        <div class="ds-surface-label">About gradient — <code>linear-gradient(0deg, #6a43d74d, #fff)</code></div>
+      </div>
+      <div class="ds-surface-item">
+        <div class="ds-surface-box" style="background-color:#0009"></div>
+        <div class="ds-surface-label">Hero overlay — <code>#0009</code></div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Border radius tokens -->
+    <div class="ds-component-label">Border Radius Tokens</div>
+    <div class="ds-swatches" style="align-items:flex-end">
+      <div class="ds-swatch">
+        <div style="background:var(--primary-20);border-radius:var(--small);height:60px;margin-bottom:10px"></div>
+        <div class="ds-swatch-name">Small</div>
+        <div class="ds-swatch-hex">12px</div>
+        <div class="ds-swatch-var">--small</div>
+      </div>
+      <div class="ds-swatch">
+        <div style="background:var(--primary-20);border-radius:var(--image);height:60px;margin-bottom:10px"></div>
+        <div class="ds-swatch-name">Image / Card</div>
+        <div class="ds-swatch-hex">20px</div>
+        <div class="ds-swatch-var">--image</div>
+      </div>
+      <div class="ds-swatch">
+        <div style="background:var(--primary-20);border-radius:var(--large);height:60px;margin-bottom:10px"></div>
+        <div class="ds-swatch-name">Large / Pill</div>
+        <div class="ds-swatch-hex">50px</div>
+        <div class="ds-swatch-var">--large</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     3 — UI COMPONENTS
+════════════════════════════════════════════════════════ -->
+<div id="ds-components">
+<div class="ds-section">
+  <div class="w-layout-blockcontainer base-container w-container">
+    <div class="ds-section-header">
+      <div class="ds-section-number">03</div>
+      <h2 class="ds-section-title">UI Components</h2>
+      <p class="ds-section-desc">Exact class names, states, and markup from the reference — hover each button to see transitions</p>
+    </div>
+
+    <!-- ── Buttons ── -->
+    <div class="ds-component-label">Buttons</div>
+
+    <div class="ds-component-row">
+      <div class="ds-component-item">
+        <div class="ds-state-label">default / :hover</div>
+        <a class="primary-button w-button" href="#">Primary Button</a>
+      </div>
+      <div class="ds-component-item">
+        <div class="ds-state-label">default / :hover</div>
+        <a class="primary-button-yellow w-button" href="#">Yellow Button</a>
+      </div>
+      <div class="ds-component-item">
+        <div class="ds-state-label">default / :hover</div>
+        <a class="primary-button-small w-button" href="#">Primary Small</a>
+      </div>
+      <div class="ds-component-item">
+        <div class="ds-state-label">default / :hover</div>
+        <div class="ds-dark-bg" style="padding:20px">
+          <a class="primary-button-white w-button" href="#">White Button</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secondary button with hover-elipse animation -->
+    <div class="ds-component-row">
+      <div class="ds-component-item">
+        <div class="ds-state-label">secondary — hover for arrow animation</div>
+        <a class="secondary-button w-inline-block" href="#">
+          <div class="btn-text">Contact us</div>
+          <div class="btn-elipse">
+            <div class="hover-elipse"></div>
+            <div class="clip">
+              <div class="button-arrow-wrapp">
+                <img alt="icon" class="btn-arrow" loading="lazy"
+                  src="assets/67462d899cb0796bcc7009df_chevr_a8c9e7f44ca3.svg"/>
+              </div>
+              <div class="button-arrow-wrapp bottom">
+                <img alt="icon" class="btn-arrow" loading="lazy"
+                  src="assets/67462d899cb0796bcc7009df_chevr_a8c9e7f44ca3.svg"/>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Add-to-cart button -->
+    <div class="ds-component-row">
+      <div class="ds-component-item">
+        <div class="ds-state-label">.add-to-cart-button-home-3 — default / :hover (green)</div>
+        <input class="w-commerce-commerceaddtocartbutton add-to-cart-button-home-3"
+          type="submit" value="Add to Cart" style="cursor:pointer"/>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Product Cards ── -->
+    <div class="ds-component-label">Product Card</div>
+
+    <div style="max-width:280px">
+      <div class="w-layout-vflex shop-collection-item">
+        <div class="w-layout-vflex shop-image-wrapper">
+          <a class="home-shop-mage-link large w-inline-block" href="#">
+            <img alt="product" class="collection-image" loading="lazy"
+              src="assets/67473cc629421b69017c4428_Carto_1aec7a594d0f.jpeg"/>
+          </a>
+          <div class="home-add-to-cart" style="opacity:1;">
+            <input class="w-commerce-commerceaddtocartbutton add-to-cart-button-home-3"
+              type="submit" value="Add to Cart" style="cursor:pointer"/>
+          </div>
+        </div>
+        <div class="w-layout-vflex bottom-product">
+          <a class="collection-link-small" href="#">Baby's Piano Toy</a>
+          <div class="w-layout-hflex slider-price-wrapper">
+            <div class="price-text">$ 49.00 USD</div>
+            <div class="price-sale">$ 69.00 USD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Testimonial Cards ── -->
+    <div class="ds-component-label">Testimonial Card</div>
+
+    <div style="max-width:420px">
+      <div class="w-layout-vflex testimonial-card">
+        <div class="w-layout-vflex row-16">
+          <h4>"A Wonderful Shopping Experience!"</h4>
+          <p class="paragraph-large">"Babuu made shopping for my newborn so easy and stress-free! The clothes are soft, adorable, and high-quality."</p>
+        </div>
+        <div class="w-layout-hflex testimomials-member">
+          <img alt="Photo" class="customer-image" loading="lazy"
+            src="assets/67459313e5dac95d7e0b9f77_Membe_f8f26082b544.jpg"/>
+          <div class="w-layout-vflex row-6">
+            <h6>Adam Miller</h6>
+            <div class="w-layout-hflex stars-wrapper">
+              <img alt="star" loading="lazy" src="assets/6752e73d8a111d3a297b1c5a_Star__d3f1ab07f50f.svg"/>
+              <img alt="star" loading="lazy" src="assets/6752e73d8a111d3a297b1c5a_Star__d3f1ab07f50f.svg"/>
+              <img alt="star" loading="lazy" src="assets/6752e73d8a111d3a297b1c5a_Star__d3f1ab07f50f.svg"/>
+              <img alt="star" loading="lazy" src="assets/6752e73d8a111d3a297b1c5a_Star__d3f1ab07f50f.svg"/>
+              <img alt="star" loading="lazy" src="assets/6752e73d8a111d3a297b1c5a_Star__d3f1ab07f50f.svg"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Blog Cards ── -->
+    <div class="ds-component-label">Blog Card</div>
+
+    <div style="max-width:340px">
+      <div class="w-layout-vflex blog-item">
+        <a class="blog-item-image w-inline-block" href="#">
+          <img alt="blog image" class="collection-image" loading="lazy"
+            src="assets/674716b7f04b7f88e21e1e8d_austi_f6c562ac2d66.jpg"/>
+        </a>
+        <div class="w-layout-vflex bottom-blog-content home-2">
+          <div>
+            <a class="collection-link" href="#">Top 5 Must-Have Baby Essentials for New Parents</a>
+            <p class="blog-description">These 5 essentials are the foundation for a happy, comfortable, and safe environment.</p>
+          </div>
+          <a class="primary-button-small w-button" href="#">Read more</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Values Cards ── -->
+    <div class="ds-component-label">Values Cards</div>
+
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+
+      <!-- First variant (purple) -->
+      <div class="w-layout-vflex values-item first" style="max-width:220px">
+        <div class="w-layout-vflex values-top">
+          <div class="w-layout-hflex values-icon">
+            <img alt="icon" loading="lazy" src="assets/67476deef50e8a815b3ff677_Shiel_58a75ef5045f.svg"/>
+          </div>
+          <h4 class="text-white">Quality &amp; Safety</h4>
+        </div>
+        <p class="text-white">We are committed to offering only the best products for your family.</p>
+        <img alt="bg" class="values-bg-image" loading="lazy" src="assets/67476edfb2a701331bd11623_Frame_807f17522780.svg"/>
+      </div>
+
+      <!-- Second variant (default) -->
+      <div class="w-layout-vflex values-item second" style="max-width:220px;background:var(--primary-light)">
+        <div class="w-layout-vflex values-top">
+          <div class="w-layout-hflex values-icon">
+            <img alt="icon" loading="lazy" src="assets/67476df1f2474b6b1ae66c18_Heart_62dc72cbe5b4.svg"/>
+          </div>
+          <h4>Care &amp; Compassion</h4>
+        </div>
+        <div class="position-relative">
+          <p class="text-dark">We believe in nurturing and supporting families.</p>
+        </div>
+        <img alt="bg" class="values-bg-image" loading="lazy" src="assets/67476edfb2a701331bd11623_Frame_807f17522780.svg"/>
+      </div>
+
+      <!-- Third variant -->
+      <div class="w-layout-vflex values-item third" style="max-width:220px;background:var(--primary-light)">
+        <div class="w-layout-vflex values-top">
+          <div class="w-layout-hflex values-icon">
+            <img alt="icon" loading="lazy" src="assets/67476dd3de66e68b96a07885_Hand__45ea5df46e80.svg"/>
+          </div>
+          <h4>Sustainability</h4>
+        </div>
+        <div class="position-relative">
+          <p class="text-dark">Eco-friendly choices that protect the future.</p>
+        </div>
+        <img alt="bg" class="values-bg-image" loading="lazy" src="assets/67476ede3cfc4c9faffe686f_Frame_2daca8a14a22.svg"/>
+      </div>
+
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Features Items ── -->
+    <div class="ds-component-label">Features Item</div>
+
+    <div class="w-layout-grid features-wrapper" style="max-width:700px">
+      <div class="w-layout-vflex features-item">
+        <img alt="icon" class="feature-icon" loading="lazy"
+          src="assets/674ed805570666fb5476c5c9_Magic_e7cc483b46d2.svg"/>
+        <h4 class="feature-title">Curated Quality</h4>
+        <p>We carefully select every product to ensure it meets the highest standards.</p>
+      </div>
+      <div class="w-layout-vflex features-item">
+        <img alt="icon" class="feature-icon" loading="lazy"
+          src="assets/674ed805570666fb5476c5c9_Magic_e7cc483b46d2.svg"/>
+        <h4 class="feature-title">Fast Delivery</h4>
+        <p>Quick and reliable shipping so you get what you need when you need it.</p>
+      </div>
+      <div class="w-layout-vflex features-item">
+        <img alt="icon" class="feature-icon" loading="lazy"
+          src="assets/674ed805570666fb5476c5c9_Magic_e7cc483b46d2.svg"/>
+        <h4 class="feature-title">Safe &amp; Tested</h4>
+        <p>Every product is vetted for safety to give parents peace of mind.</p>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Benefits Items ── -->
+    <div class="ds-component-label">Benefits Item</div>
+
+    <div class="w-layout-vflex benefits-items-wrapper" style="max-width:480px">
+      <div class="w-layout-hflex benefits-item">
+        <div class="benefits-item-icon">
+          <img alt="icon" loading="lazy"
+            src="assets/674766760fec185fe0b277c4_check_b74b8e3eea6c.svg" width="24"/>
+        </div>
+        <div class="w-layout-vflex vertical-row-10">
+          <h6>Curated Selection</h6>
+          <p class="benefits-description">Our products are handpicked for their quality, safety, and style.</p>
+        </div>
+      </div>
+      <div class="w-layout-hflex benefits-item">
+        <div class="benefits-item-icon">
+          <img alt="icon" loading="lazy"
+            src="assets/674766760fec185fe0b277c4_check_b74b8e3eea6c.svg" width="24"/>
+        </div>
+        <div class="w-layout-vflex vertical-row-10">
+          <h6>Fast &amp; Reliable Shipping</h6>
+          <p class="benefits-description">Quick delivery to get your baby essentials to you when you need them.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- ── Product Option Tag ── -->
+    <div class="ds-component-label">Product Option Tag</div>
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <div class="product-card-option">Pink</div>
+      <div class="product-card-option" style="background:transparent;color:var(--primary)">Blue</div>
+      <div class="product-card-option" style="background:transparent;color:var(--primary)">Yellow</div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     4 — LAYOUT & SPACING
+════════════════════════════════════════════════════════ -->
+<div id="ds-layout">
+<div class="ds-section" style="background-color:var(--primary-light)">
+  <div class="w-layout-blockcontainer base-container w-container">
+    <div class="ds-section-header">
+      <div class="ds-section-number">04</div>
+      <h2 class="ds-section-title">Layout &amp; Spacing</h2>
+      <p class="ds-section-desc">Containers, grids, and real layout patterns extracted from the reference</p>
+    </div>
+
+    <!-- Container -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-label">Base Container — max-width 1090px · padding 15px</div>
+      <div style="border:2px dashed var(--primary);border-radius:12px;padding:20px">
+        <div class="ds-grid-cell">.base-container · max-width: 1090px · margin: 0 auto · padding: 0 15px</div>
+      </div>
+    </div>
+
+    <!-- Section spacing -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-label">Section Spacing Variants</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1 1 200px">
+          <div class="ds-grid-cell" style="height:80px;display:flex;align-items:center;justify-content:center">
+            .section<br><small>80px top + bottom</small>
+          </div>
+        </div>
+        <div style="flex:1 1 200px">
+          <div class="ds-grid-cell" style="height:80px;display:flex;align-items:center;justify-content:center">
+            .without-bottom-spacing<br><small>80px top · 0 bottom</small>
+          </div>
+        </div>
+        <div style="flex:1 1 200px">
+          <div class="ds-grid-cell" style="height:80px;display:flex;align-items:center;justify-content:center">
+            .without-space<br><small>0 top · 0 bottom</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shop grid -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-label">4-Column Shop Grid — .home-shop-grid</div>
+      <div class="w-layout-grid home-shop-grid">
+        <div class="ds-grid-cell">Col 1</div>
+        <div class="ds-grid-cell">Col 2</div>
+        <div class="ds-grid-cell">Col 3</div>
+        <div class="ds-grid-cell">Col 4</div>
+      </div>
+    </div>
+
+    <!-- 2-column values grid -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-label">2-Column Grid — .values-grid-3</div>
+      <div class="w-layout-grid values-grid-3">
+        <div class="ds-grid-cell">Column A</div>
+        <div class="ds-grid-cell">Column B</div>
+      </div>
+    </div>
+
+    <!-- Features grid -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-label">3-Column Auto Grid — .features-wrapper</div>
+      <div class="w-layout-grid features-wrapper">
+        <div class="ds-grid-cell">Feature A</div>
+        <div class="ds-grid-cell">Feature B</div>
+        <div class="ds-grid-cell">Feature C</div>
+      </div>
+    </div>
+
+    <!-- Benefits grid (2-col) -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-label">2-Column Benefits Grid — .benefits-items-grid · 50px gap</div>
+      <div class="w-layout-grid benefits-items-grid">
+        <div class="ds-grid-cell">Benefit A</div>
+        <div class="ds-grid-cell">Benefit B</div>
+      </div>
+    </div>
+
+    <!-- Blog grid -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-label">Blog Grid — .blog-content · 2 cols · 40px gap</div>
+      <div class="w-layout-grid blog-content" style="grid-template-columns:1fr 1fr">
+        <div class="ds-grid-cell">Blog post A</div>
+        <div class="ds-grid-cell">Blog post B</div>
+      </div>
+    </div>
+
+    <!-- Spacing stack -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-label">Vertical Spacing Utilities</div>
+      <div style="display:flex;gap:32px;align-items:flex-end;flex-wrap:wrap">
+        <div>
+          <div style="background:var(--primary-20);border-radius:8px;height:10px;width:80px;margin-bottom:6px"></div>
+          <div class="ds-swatch-name">row-6</div>
+          <div class="ds-swatch-hex">gap: 6px</div>
+        </div>
+        <div>
+          <div style="background:var(--primary-20);border-radius:8px;height:16px;width:80px;margin-bottom:6px"></div>
+          <div class="ds-swatch-name">row-16</div>
+          <div class="ds-swatch-hex">gap: 16px</div>
+        </div>
+        <div>
+          <div style="background:var(--primary-20);border-radius:8px;height:24px;width:80px;margin-bottom:6px"></div>
+          <div class="ds-swatch-name">vertical-24</div>
+          <div class="ds-swatch-hex">gap: 24px</div>
+        </div>
+        <div>
+          <div style="background:var(--primary-20);border-radius:8px;height:40px;width:80px;margin-bottom:6px"></div>
+          <div class="ds-swatch-name">vertical-40</div>
+          <div class="ds-swatch-hex">gap: 40px</div>
+        </div>
+        <div>
+          <div style="background:var(--primary-20);border-radius:8px;height:50px;width:80px;margin-bottom:6px"></div>
+          <div class="ds-swatch-name">bottom-40</div>
+          <div class="ds-swatch-hex">margin-bottom: 40px</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero layout pattern -->
+    <div class="ds-layout-demo">
+      <div class="ds-layout-label">Hero Layout Pattern — .home-3-banner (full-bleed, positioned children)</div>
+      <div style="border-radius:16px;overflow:hidden;position:relative;min-height:200px;background:var(--primary-dark)">
+        <div style="background:var(--primary-20);position:absolute;inset:0;border-radius:0"></div>
+        <div style="position:relative;padding:32px;color:white;display:flex;flex-direction:column;gap:16px">
+          <div class="ds-grid-cell" style="background:#ffffff20;color:white">hero-image (absolute, cover)</div>
+          <div class="ds-grid-cell" style="background:#ffffff20;color:white">banner-image-overlay (absolute, #0009)</div>
+          <div class="ds-grid-cell" style="background:#ffffff20;color:white">banner-3-content-wrapp (relative, vflex)</div>
+          <div class="ds-grid-cell" style="background:#ffffff20;color:white">banner-3-image-ab ×4 (absolute floating SVGs)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     5 — MOTION & INTERACTION
+════════════════════════════════════════════════════════ -->
+<div id="ds-motion">
+<div class="ds-section">
+  <div class="w-layout-blockcontainer base-container w-container">
+    <div class="ds-section-header">
+      <div class="ds-section-number">05</div>
+      <h2 class="ds-section-title">Motion &amp; Interaction</h2>
+      <p class="ds-section-desc">Hover each element to see its CSS transition · Scroll animations use Webflow IX2 (data-w-id)</p>
+    </div>
+
+    <!-- Button hover transitions -->
+    <div class="ds-component-label">Button Hover Transitions</div>
+    <div class="ds-motion-grid">
+
+      <div class="ds-motion-item">
+        <a class="primary-button w-button" href="#">Primary</a>
+        <div class="ds-motion-label">bg → transparent<br>color → purple<br>transition: all .3s</div>
+      </div>
+
+      <div class="ds-motion-item">
+        <a class="primary-button-yellow w-button" href="#">Yellow</a>
+        <div class="ds-motion-label">bg #fbce3e → white<br>transition: all .3s</div>
+      </div>
+
+      <div class="ds-motion-item" style="background:var(--primary-dark)">
+        <a class="primary-button-white w-button" href="#">White</a>
+        <div class="ds-motion-label" style="color:#fff8">bg white → transparent<br>color → white<br>transition: all .2s</div>
+      </div>
+
+      <div class="ds-motion-item">
+        <a class="secondary-button w-inline-block" href="#">
+          <div class="btn-text">Secondary</div>
+          <div class="btn-elipse">
+            <div class="hover-elipse"></div>
+            <div class="clip">
+              <div class="button-arrow-wrapp">
+                <img alt="icon" class="btn-arrow" src="assets/67462d899cb0796bcc7009df_chevr_a8c9e7f44ca3.svg"/>
+              </div>
+              <div class="button-arrow-wrapp bottom">
+                <img alt="icon" class="btn-arrow" src="assets/67462d899cb0796bcc7009df_chevr_a8c9e7f44ca3.svg"/>
+              </div>
+            </div>
+          </div>
+        </a>
+        <div class="ds-motion-label">hover-elipse expands<br>arrow slides out/in<br>clip overflow hidden</div>
+      </div>
+
+      <div class="ds-motion-item">
+        <input class="w-commerce-commerceaddtocartbutton add-to-cart-button-home-3"
+          type="submit" value="Add to Cart" style="cursor:pointer"/>
+        <div class="ds-motion-label">bg #fbce3e → #3efbe4<br>transition: all .3s</div>
+      </div>
+
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Image hover -->
+    <div class="ds-component-label">Image Hover — .collection-image</div>
+    <div class="ds-component-row">
+      <div class="ds-component-item">
+        <div class="ds-state-label">hover for skew + scale effect</div>
+        <a class="home-shop-mage-link w-inline-block" href="#" style="width:220px">
+          <img alt="product" class="collection-image" loading="lazy"
+            src="assets/67473cc629421b69017c4428_Carto_1aec7a594d0f.jpeg"/>
+        </a>
+        <div class="ds-motion-label">transform: skew(3deg, -3deg) scale(1.2)<br>transition: transform 1s</div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Link hover -->
+    <div class="ds-component-label">Link Hover Transitions</div>
+    <div class="ds-component-row" style="gap:40px">
+      <div class="ds-component-item">
+        <div class="ds-state-label">.collection-link — color .3s</div>
+        <a class="collection-link" href="#" style="text-decoration:none">Product Title Link</a>
+        <div class="ds-motion-label">→ var(--primary)</div>
+      </div>
+      <div class="ds-component-item">
+        <div class="ds-state-label">.footer-link — color .35s</div>
+        <a class="footer-link" href="#" style="text-decoration:none">Footer Link</a>
+        <div class="ds-motion-label">→ var(--primary)</div>
+      </div>
+      <div class="ds-component-item">
+        <div class="ds-state-label">.nav-dropdown-link — margin .3s</div>
+        <a class="nav-dropdown-link w-dropdown-link" href="#" style="text-decoration:none;display:block">
+          <span class="nav-dropdown-link-line"> </span>Menu Item
+        </a>
+        <div class="ds-motion-label">color → primary · margin-left slide</div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Scroll reveal pattern -->
+    <div class="ds-component-label">Scroll Reveal Pattern (Webflow IX2)</div>
+    <div style="background:var(--primary-light);border-radius:16px;padding:32px">
+      <p style="margin:0 0 16px">Elements use <code>data-w-id</code> + inline <code>style="opacity:1;transform:translate3d(0,0,0)…"</code> set by Webflow IX2 on scroll entry. The initial state (before animation fires) is:</p>
+      <div style="background:white;border-radius:12px;padding:20px;font-family:monospace;font-size:13px;color:var(--primary-dark)">
+        opacity: 0;<br>
+        transform: translate3d(0px, 30px, 0px) scale3d(1,1,1) rotateX(0) rotateY(0) rotateZ(0);
+      </div>
+      <p style="margin:16px 0 0">On scroll into view → <code>opacity: 1; transform: translate3d(0,0,0)</code> with a staggered delay per element.</p>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Floating decoratives -->
+    <div class="ds-component-label">Floating Decorative SVGs (.banner-3-image-ab)</div>
+    <div style="background:var(--primary-dark);border-radius:16px;padding:40px;position:relative;min-height:200px;overflow:hidden">
+      <img alt="svg image" class="banner-3-image-ab _01" loading="lazy"
+        src="assets/674ed7f3657fa4968113a6ae_Layer_1e98c12e71d7.svg"
+        style="position:relative;opacity:0.8;transform:rotateZ(29.666deg)"/>
+      <div style="color:#fff;font-family:Plus Jakarta Sans,sans-serif;font-size:14px;margin-top:16px">
+        Positioned absolutely with <code>rotateZ(29.666deg)</code> and <code>will-change: transform</code> — animated via Webflow IX2 parallax.
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     6 — ICONS
+════════════════════════════════════════════════════════ -->
+<div id="ds-icons">
+<div class="ds-section" style="background-color:var(--primary-light)">
+  <div class="w-layout-blockcontainer base-container w-container">
+    <div class="ds-section-header">
+      <div class="ds-section-number">06</div>
+      <h2 class="ds-section-title">Icons</h2>
+      <p class="ds-section-desc">SVG icons used in the reference — inline via &lt;img&gt; tags, color inherited from surrounding context</p>
+    </div>
+
+    <!-- UI Icons -->
+    <div class="ds-component-label">UI / Navigation Icons</div>
+    <div class="ds-icon-grid">
+      <div class="ds-icon-item">
+        <img alt="arrow" loading="lazy"
+          src="assets/67462d899cb0796bcc7009df_chevr_a8c9e7f44ca3.svg" width="24"/>
+        <div class="ds-icon-label">chevron / arrow<br>btn-arrow</div>
+      </div>
+      <div class="ds-icon-item">
+        <img alt="logo" loading="lazy"
+          src="assets/6745ecac4338c9f41369ae64_Union_172af5af803b.svg" height="20"/>
+        <div class="ds-icon-label">Logo dark<br>nav / footer</div>
+      </div>
+      <div class="ds-icon-item" style="background:var(--primary-dark)">
+        <img alt="logo yellow" loading="lazy"
+          src="assets/6748804d39f43caaac05985b_Union_5c9a7938990b.svg" height="20"/>
+        <div class="ds-icon-label" style="color:#fff8">Logo yellow<br>on dark bg</div>
+      </div>
+      <div class="ds-icon-item">
+        <img alt="check" loading="lazy"
+          src="assets/674766760fec185fe0b277c4_check_b74b8e3eea6c.svg" width="24"/>
+        <div class="ds-icon-label">check<br>benefits-item-icon</div>
+      </div>
+      <div class="ds-icon-item">
+        <img alt="star" loading="lazy"
+          src="assets/6752e73d8a111d3a297b1c5a_Star__d3f1ab07f50f.svg" width="20"/>
+        <div class="ds-icon-label">star<br>stars-wrapper</div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Values Icons (56×56, white bg, small border-radius) -->
+    <div class="ds-component-label">Values Icons — 56×56 · .values-icon · border-radius var(--small)</div>
+    <div class="ds-icon-grid">
+      <div class="ds-icon-item" style="background:var(--primary)">
+        <div class="w-layout-hflex values-icon">
+          <img alt="shield" loading="lazy"
+            src="assets/67476deef50e8a815b3ff677_Shiel_58a75ef5045f.svg"/>
+        </div>
+        <div class="ds-icon-label" style="color:#fff8">Shield / Safety<br>on purple bg</div>
+      </div>
+      <div class="ds-icon-item" style="background:var(--primary-light)">
+        <div class="w-layout-hflex values-icon">
+          <img alt="heart" loading="lazy"
+            src="assets/67476df1f2474b6b1ae66c18_Heart_62dc72cbe5b4.svg"/>
+        </div>
+        <div class="ds-icon-label">Heart / Care</div>
+      </div>
+      <div class="ds-icon-item" style="background:var(--primary-light)">
+        <div class="w-layout-hflex values-icon">
+          <img alt="hand" loading="lazy"
+            src="assets/67476dd3de66e68b96a07885_Hand__45ea5df46e80.svg"/>
+        </div>
+        <div class="ds-icon-label">Hand / Sustain</div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Feature Icons (34×34) -->
+    <div class="ds-component-label">Feature Icons — 34×34 · .feature-icon</div>
+    <div class="ds-icon-grid">
+      <div class="ds-icon-item">
+        <img alt="icon" class="feature-icon" loading="lazy"
+          src="assets/674ed805570666fb5476c5c9_Magic_e7cc483b46d2.svg"/>
+        <div class="ds-icon-label">Magic / Curated</div>
+      </div>
+    </div>
+
+    <div class="ds-divider"></div>
+
+    <!-- Decorative floating SVGs (banner-3-image-ab) -->
+    <div class="ds-component-label">Decorative SVGs — .banner-3-image-ab · rotated + parallax animated</div>
+    <div class="ds-icon-grid">
+      <div class="ds-icon-item">
+        <img alt="layer" loading="lazy"
+          src="assets/674ed7f3657fa4968113a6ae_Layer_1e98c12e71d7.svg" width="60"/>
+        <div class="ds-icon-label">_01 · Layer</div>
+      </div>
+      <div class="ds-icon-item">
+        <img alt="frame" loading="lazy"
+          src="assets/674ed7f380b693672fbf0e8a_Frame_92d98c194bd6.svg" width="60"/>
+        <div class="ds-icon-label">_02 · Frame</div>
+      </div>
+      <div class="ds-icon-item">
+        <img alt="bag" loading="lazy"
+          src="assets/674ed7f3b259108aa901f0fb_Frame_70549eeb71eb.svg" width="60"/>
+        <div class="ds-icon-label">_03 · Bag</div>
+      </div>
+      <div class="ds-icon-item">
+        <img alt="frame" loading="lazy"
+          src="assets/674ed7f3b707dabbc37458a5_Frame_b6b1e1f541cd.svg" width="60"/>
+        <div class="ds-icon-label">_04 · Frame</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER (exact clone)
+════════════════════════════════════════════════════════ -->
+<div class="footer">
+  <div class="base-container w-container">
+    <div class="footer-wrapper">
+      <div class="footer-brand-wrapper">
+        <div class="footer-logo-wrapper">
+          <a class="footer-brand w-nav-brand" href="#">
+            <img alt="logo" class="footer-logo" height="26" loading="lazy"
+              src="assets/6745ecac4338c9f41369ae64_Union_172af5af803b.svg"/>
+          </a>
+          <p class="footer-brand-description">From adorable clothing and accessories to safe and fun toys, our curated collection ensures your baby's first years are filled with comfort, joy, and style.</p>
+        </div>
+      </div>
+      <div class="footer-social-icons-wrapper">
+        <a class="footer-social-icon" href="https://www.facebook.com/" target="_blank"></a>
+        <a class="footer-social-icon" href="https://www.instagram.com/" target="_blank"></a>
+        <a class="footer-social-icon" href="https://twitter.com/" target="_blank"></a>
+      </div>
+    </div>
+    <div class="w-layout-hflex medium-footer-wrapper">
+      <div class="footer-title"><h2>Discover the best for your baby's first years</h2></div>
+      <a class="primary-button w-button" href="#">Let's get started</a>
+      <div class="top-line"><div class="fill-line"></div></div>
+    </div>
+    <div class="w-layout-hflex bottom-links-wrapper">
+      <div class="footer-links-wrapper">
+        <a class="footer-link" href="#">Home</a>
+        <a class="footer-link" href="#">Returns &amp; Exchanges</a>
+        <a class="footer-link" href="#">Shipping Information</a>
+        <a class="footer-link" href="#">Terms of Service</a>
+      </div>
+      <div class="footer-bottom-wrapper">
+        <div class="footer-copyright">© Babuu Design System.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/jquery-3_313fdec0e117.js" type="text/javascript"></script>
+<script src="assets/webflow_08bb98872f07.js" type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html data-redirect-timezone="1" lang="en" style="scroll-behavior: auto;">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width" name="viewport"/>
+    <title>Design System - Kiddie Project</title>
+    
+    <!-- Link to the same assets as index.html -->
+    <link href="assets/h8GgZ4khMf7LPmkGTDxAR27xsdY_806c00b933bf.svg" rel="icon"/>
+    
+    <!-- Standard Framer Fonts (Copied from index.html) -->
+    <style data-framer-font-css="">
+        @font-face { font-family: 'Fredoka'; font-style: normal; font-weight: 500; font-stretch: 100%; font-display: swap; src: url("assets/X7nP4b87HvSqjb_WIi2yDCRwoQ_k73_d2b0b6f5202b.woff2") format('woff2'); }
+        @font-face { font-family: "Fredoka"; src: url("assets/X7nP4b87HvSqjb_WIi2yDCRwoQ_k73_21ab45e8567c.woff2"); font-display: swap; font-style: normal; font-weight: 600 }
+        @font-face { font-family: "Fredoka"; src: url("assets/X7nP4b87HvSqjb_WIi2yDCRwoQ_k73_6ffba1b53255.woff2"); font-display: swap; font-style: normal; font-weight: 700 }
+        @font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 500; font-display: swap; src: url("assets/LDIbaomQNQcsA88c7O9yZ4KMCoOg4I_23a2a6ba24cc.woff2") format('woff2'); }
+        @font-face { font-family: "Inter"; src: url("assets/JeYwfuaPfZHQhEG8U5gtPDZ7WQ_a428543ca5a6.woff2"); font-display: swap; font-style: normal; font-weight: 400; }
+    </style>
+
+    <!-- Essential Design System CSS (Extracted from index.html) -->
+    <style>
+        :root {
+            /* Color Tokens */
+            --token-cc397648-d039-4460-843d-ecd191772112: rgb(255, 255, 255); /* White */
+            --token-7178ecd0-88fd-491e-96e8-258cbab1f666: rgb(0, 43, 81);    /* Navy Dark */
+            --token-99beebb3-b730-4143-9e7a-7784f3033ae6: rgb(254, 117, 59);  /* Primary Orange */
+            --token-3d9dd7c9-1bd1-4272-b5ad-547ec6586e5b: rgb(237, 225, 243); /* Light Purple */
+            --token-b0bb4f46-cbd6-4444-a0da-4acf88a3972e: rgb(250, 241, 209); /* Light Yellow */
+            --token-be977bac-9a0a-4fcb-9f99-90a2d5cf808e: rgb(206, 231, 253); /* Light Blue */
+            --token-52d47d7c-0837-4945-ae0a-03dbe8e75f16: rgb(255, 253, 249); /* Off White */
+            --token-9043aa60-2b4a-429a-aff4-225a51e2b313: rgb(0, 58, 104);   /* Navy Accent */
+        }
+
+        /* Documentation UI Styles */
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            background: #fdfdfd;
+            color: var(--token-7178ecd0-88fd-491e-96e8-258cbab1f666);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .ds-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        header.ds-header {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 80px;
+            padding-bottom: 40px;
+        }
+
+        header.ds-header h1 {
+            font-family: "Fredoka", sans-serif;
+            font-size: 48px;
+            margin: 0;
+            color: var(--token-99beebb3-b730-4143-9e7a-7784f3033ae6);
+        }
+
+        .ds-section {
+            margin-bottom: 100px;
+        }
+
+        .ds-section-title {
+            font-family: "Fredoka", sans-serif;
+            font-size: 32px;
+            border-left: 6px solid var(--token-99beebb3-b730-4143-9e7a-7784f3033ae6);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Color Grid */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .color-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .color-swatch {
+            height: 120px;
+            width: 100%;
+        }
+
+        .color-info {
+            padding: 16px;
+        }
+
+        .color-name {
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .color-value {
+            font-family: monospace;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Typography Showcase */
+        .typo-sample {
+            margin-bottom: 40px;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #eee;
+        }
+
+        .typo-label {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 12px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Component Frames */
+        .component-frame {
+            padding: 40px;
+            background: #fff;
+            border-radius: 24px;
+            border: 1px dashed #ccc;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Copying exact classes from index.html for demonstration */
+        .framer-text {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .framer-styles-preset-7o14z2 { font-family: "Fredoka", sans-serif; font-weight: 600; font-size: 56px; line-height: 1.2; letter-spacing: -0.02em; }
+        .framer-styles-preset-1r2j3ds { font-family: "Fredoka", sans-serif; font-weight: 600; font-size: 42px; line-height: 1.3; }
+        .framer-styles-preset-h3sog9 { font-family: "Fredoka", sans-serif; font-weight: 600; font-size: 24px; }
+        .framer-styles-preset-1c3bczi { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 500; font-size: 18px; line-height: 1.6; }
+        .framer-styles-preset-1spo63q { font-family: "Fredoka", sans-serif; font-weight: 600; font-size: 16px; color: var(--token-99beebb3-b730-4143-9e7a-7784f3033ae6); text-transform: uppercase; }
+
+        /* Button styles recreation */
+        .framer-button-primary {
+            background-color: var(--token-99beebb3-b730-4143-9e7a-7784f3033ae6);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 500px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), background-color 0.2s ease;
+            font-family: "Fredoka", sans-serif;
+            border: none;
+            cursor: pointer;
+        }
+
+        .framer-button-primary:hover {
+            transform: scale(1.05);
+            background-color: var(--token-7178ecd0-88fd-491e-96e8-258cbab1f666);
+        }
+
+        .framer-button-secondary {
+            background-color: transparent;
+            color: var(--token-7178ecd0-88fd-491e-96e8-258cbab1f666);
+            padding: 12px 24px;
+            border-radius: 500px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--token-7178ecd0-88fd-491e-96e8-258cbab1f666);
+            transition: all 0.2s ease;
+            font-family: "Fredoka", sans-serif;
+        }
+
+        .framer-button-secondary:hover {
+            background-color: var(--token-7178ecd0-88fd-491e-96e8-258cbab1f666);
+            color: white;
+        }
+
+        /* Card styles recreation */
+        .framer-card-service {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .framer-icon-wrap {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="ds-container">
+        <header class="ds-header">
+            <div style="margin-bottom: 20px;">
+                <img src="assets/DFABuSnlyAhKhseYjj2LjyM3Xk_d5f8e6e72257.svg" height="40" alt="Kiddie Logo">
+            </div>
+            <h1>Pattern Library</h1>
+            <p>Design System assets and documentation for the Kiddie Child Care template.</p>
+        </header>
+
+        <!-- Section: Colors -->
+        <section class="ds-section">
+            <h2 class="ds-section-title">Color Palette</h2>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--token-99beebb3-b730-4143-9e7a-7784f3033ae6);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Primary Orange</div>
+                        <div class="color-value">#FE753B</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--token-7178ecd0-88fd-491e-96e8-258cbab1f666);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Navy Dark</div>
+                        <div class="color-value">#002B51</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--token-3d9dd7c9-1bd1-4272-b5ad-547ec6586e5b);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Light Purple</div>
+                        <div class="color-value">#EDE1F3</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--token-b0bb4f46-cbd6-4444-a0da-4acf88a3972e);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Light Yellow</div>
+                        <div class="color-value">#FAF1D1</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--token-be977bac-9a0a-4fcb-9f99-90a2d5cf808e);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Light Blue</div>
+                        <div class="color-value">#CEE7FD</div>
+                    </div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--token-52d47d7c-0837-4945-ae0a-03dbe8e75f16);"></div>
+                    <div class="color-info">
+                        <div class="color-name">Off White</div>
+                        <div class="color-value">#FFFDF9</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Typography -->
+        <section class="ds-section">
+            <h2 class="ds-section-title">Typography</h2>
+            
+            <div class="typo-sample">
+                <span class="typo-label">H1 Header - Fredoka SemiBold 56px</span>
+                <h1 class="framer-styles-preset-7o14z2">Safe, Loving Care for Your Little Ones</h1>
+            </div>
+
+            <div class="typo-sample">
+                <span class="typo-label">H2 Header - Fredoka SemiBold 42px</span>
+                <h2 class="framer-styles-preset-1r2j3ds">Committed to Your Child's Growth and Happiness</h2>
+            </div>
+
+            <div class="typo-sample">
+                <span class="typo-label">H3 Header - Fredoka SemiBold 24px</span>
+                <h3 class="framer-styles-preset-h3sog9">Infant Care Services</h3>
+            </div>
+
+            <div class="typo-sample">
+                <span class="typo-label">Body Large - Plus Jakarta Sans 18px</span>
+                <p class="framer-styles-preset-1c3bczi">At kiddie, we believe every child deserves a safe, nurturing, and loving environment where they can learn, grow, and thrive. Our approach is centered around play-based learning.</p>
+            </div>
+
+            <div class="typo-sample">
+                <span class="typo-label">Subtitle Badge - Fredoka Bold 16px</span>
+                <p class="framer-styles-preset-1spo63q">About Us</p>
+            </div>
+        </section>
+
+        <!-- Section: Buttons -->
+        <section class="ds-section">
+            <h2 class="ds-section-title">Buttons & Interactions</h2>
+            <div class="component-frame">
+                <a href="#" class="framer-button-primary">Enquire Now</a>
+                <a href="#" class="framer-button-secondary">Know More
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section: Components -->
+        <section class="ds-section">
+            <h2 class="ds-section-title">UI Components</h2>
+            
+            <div class="component-frame" style="background: #f9f9f9;">
+                <!-- Service Card Sample -->
+                <div class="framer-card-service">
+                    <div class="framer-icon-wrap" style="background-color: var(--token-3e0ea18d-3982-411f-b97f-306f862c5dff, #FFE3D4);">
+                        <img src="assets/HeX44KA5SBpbJgI4y7YeEf1Edk_3934de931fa7.svg" width="40" alt="Icon">
+                    </div>
+                    <h3 class="framer-styles-preset-h3sog9">Infant Care</h3>
+                    <p class="framer-styles-preset-1c3bczi" style="font-size: 15px; color: #555;">Specialized care for infants in a safe environment with age-appropriate toys.</p>
+                    <a href="#" class="framer-button-secondary" style="font-size: 14px; padding: 8px 20px;">Know More</a>
+                </div>
+
+                <!-- Feature Widget Sample -->
+                <div style="background: white; padding: 24px; border-radius: 20px; display: flex; gap: 16px; align-items: center; max-width: 400px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+                    <div class="framer-icon-wrap" style="background-color: var(--token-3d9dd7c9-1bd1-4272-b5ad-547ec6586e5b); width: 60px; height: 60px;">
+                        <img src="assets/t4TyWQDIg92K38MbsYTUbYLIxE_371db1c3c772.svg" width="30" alt="Icon">
+                    </div>
+                    <div>
+                        <h3 class="framer-styles-preset-h3sog9" style="font-size: 18px; margin: 0;">Personalized Care</h3>
+                        <p style="margin: 4px 0 0; font-size: 14px; color: #666;">Tailored attention to every child.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Layout Patterns -->
+        <section class="ds-section">
+            <h2 class="ds-section-title">Layout Patterns</h2>
+            <div class="typo-sample">
+                <span class="typo-label">Container Width</span>
+                <p>Maximum width: <strong>1200px</strong> (Desktop). Responsive margins: 20px - 40px.</p>
+            </div>
+            <div class="typo-sample">
+                <span class="typo-label">Grid Spacing</span>
+                <p>Standard Gap: <strong>24px</strong>. Section Vertical Padding: <strong>100px</strong>.</p>
+            </div>
+        </section>
+
+        <!-- Section: Motion -->
+        <section class="ds-section">
+            <h2 class="ds-section-title">Motion & Transitions</h2>
+            <div class="component-frame">
+                <div style="padding: 20px; background: var(--token-99beebb3-b730-4143-9e7a-7784f3033ae6); color: white; border-radius: 12px; cursor: pointer; transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    Hover Scale (Cubic Bezier)
+                </div>
+                <div style="padding: 20px; background: var(--token-7178ecd0-88fd-491e-96e8-258cbab1f666); color: white; border-radius: 12px; cursor: pointer; transition: background-color 0.4s ease;" onmouseover="this.style.backgroundColor='#FE753B'" onmouseout="this.style.backgroundColor='rgb(0, 43, 81)'">
+                    Color Transition (Ease)
+                </div>
+            </div>
+            <div class="typo-sample" style="margin-top: 20px;">
+                <span class="typo-label">Easing Curve</span>
+                <code>cubic-bezier(0.2, 0, 0, 1)</code> - Used for primary interactions.
+            </div>
+        </section>
+
+        <!-- Section: Brand Assets -->
+        <section class="ds-section">
+            <h2 class="ds-section-title">Brand Assets (SVG Shapes)</h2>
+            <div class="component-frame">
+                <div style="width: 100px; height: 100px; color: #FAD039;">
+                    <svg viewBox="0 0 73 69" width="100%" height="100%"><path d="M31.0747 60.2435C31.0625 59.0053 31.4678 57.7963 32.1262 56.8526C32.3731 56.4997 32.5023 56.0623 32.7492 55.7084C32.9961 55.3546 33.243 55.0007 33.5721 54.5288C34.2482 53.6854 34.9242 52.8419 35.6179 52.0987C35.9648 51.727 36.4116 51.3377 36.8408 50.8481C37.2876 50.4588 37.7345 50.0694 38.1813 49.6801L38.9104 49.1373" fill="currentColor"></path></svg>
+                    <p style="font-size: 10px; text-align: center;">Hero Sparkle</p>
+                </div>
+                <div style="width: 120px; height: 60px; color: #FE753B;">
+                    <img src="assets/u8MyVRLaTyVuQDzj9mRb5I1WYo_7f08b1d3e114.svg" width="100%">
+                    <p style="font-size: 10px; text-align: center;">Section Wave</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.framer-card-service').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+                card.style.transition = 'transform 0.3s cubic-bezier(0.2, 0, 0, 1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
